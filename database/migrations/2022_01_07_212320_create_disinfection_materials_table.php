@@ -16,7 +16,7 @@ class CreateDisinfectionMaterialsTable extends Migration
         Schema::create('disinfection_materials', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->foreignId('product_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('Quantity');
             $table->string('codeProduct'); // سيتم الاضافه الي اضافه الصنف
             $table->string('batchNumber');

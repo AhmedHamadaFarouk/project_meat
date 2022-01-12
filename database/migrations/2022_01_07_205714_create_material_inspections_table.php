@@ -16,7 +16,7 @@ class CreateMaterialInspectionsTable extends Migration
         Schema::create('material_inspections', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Quantity');
             $table->string('codeProduct'); // سيتم الاضافه الي اضافه الصنف
             $table->string('batchNumber');
