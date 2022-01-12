@@ -93,4 +93,4 @@ Route::middleware(['auth:admin'])->group(function () {
 
 
 
-Route::get('/{page}', [AdminController::class,'index']);
+Route::get('/{page}', [AdminController::class, 'index']);
