@@ -20,7 +20,7 @@
             <div>
                 <x-label for="email" :value="__('phone')" />
 
-                <x-input id="phone" class="block mt-1 w-full" type="number" name="phone" :value="old('phone')" required autofocus />
+                <x-input id="phone" class="block mt-1 w-full" maxlength="12" minlength="12" type="number" name="phone" :value="old('phone')" required autofocus />
             </div>
 
             <!-- Password -->

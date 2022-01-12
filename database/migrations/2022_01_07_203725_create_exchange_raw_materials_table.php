@@ -23,7 +23,7 @@ class CreateExchangeRawMaterialsTable extends Migration
             $table->string('batchNumber');
             $table->date('dataProduction');
             $table->date('dataFinished');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

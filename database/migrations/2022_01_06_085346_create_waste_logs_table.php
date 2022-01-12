@@ -18,7 +18,7 @@ class CreateWasteLogsTable extends Migration
             $table->date('date');
             $table->string('Quantity');
             $table->string('name_company');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('type',array('organic','non_organic'));
             $table->softDeletes();

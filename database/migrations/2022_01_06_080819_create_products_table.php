@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->enum('type',array('identical','Not_matching'))->comment('مطايق');
             $table->string('code');
             $table->string('number_product');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->date('date');
             $table->softDeletes();
             $table->timestamps();

@@ -21,7 +21,7 @@ class CreateExaminationReceiptsTable extends Migration
             $table->string('Virtual_scan')->comment('الفحص الظاهري');
             $table->enum('type',array('acceptable','Unacceptable'));
             $table->string('number_ear');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->string('quantity')->comment('الكمية المستلمه من اذن الذبح');
             $table->string('slaughterhouse')->comment('سم المجزر');
             $table->foreignId('product_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();

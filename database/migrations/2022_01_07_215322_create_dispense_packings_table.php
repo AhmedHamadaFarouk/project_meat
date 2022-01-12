@@ -23,7 +23,7 @@ class CreateDispensePackingsTable extends Migration
             $table->string('Quantity');
             $table->string('codeProduct'); // سيتم الاضافه الي اضافه الصنف
             $table->string('batchNumber');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

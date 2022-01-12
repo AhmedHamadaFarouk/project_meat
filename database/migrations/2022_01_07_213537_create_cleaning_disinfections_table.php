@@ -23,7 +23,7 @@ class CreateCleaningDisinfectionsTable extends Migration
             $table->date('dataProduction');
             $table->date('dataFinished');
             $table->string('PH');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
