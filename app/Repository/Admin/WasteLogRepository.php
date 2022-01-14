@@ -8,12 +8,12 @@ use App\Models\Product;
 class WasteLogRepository implements WasteLogRepositoryInterface
 {
 
-//    protected $test = [
-//        'modelName' => '\App\Models\Branch',
-//        'folderImageName' => 'Branch',
-//        'routes' => 'Branch',
-//        'FolderBlade' => 'Branch',
-//    ];
+    //    protected $test = [
+    //        'modelName' => '\App\Models\Branch',
+    //        'folderImageName' => 'Branch',
+    //        'routes' => 'Branch',
+    //        'FolderBlade' => 'Branch',
+    //    ];
 
     protected $modelName = '\App\Models\WasteLog';
     protected $folderImageName = 'wasteLog';
@@ -23,26 +23,25 @@ class WasteLogRepository implements WasteLogRepositoryInterface
 
     public function index()
     {
-        $data= $this->modelName::all();
+        $data = $this->modelName::all();
         $product = Product::all();
 
-        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data','product'));
+        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'product'));
     }
 
     public function create()
     {
         try {
             return view('Admin/' . $this->FolderBlade . '/' . 'create');
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
     }
 
     public function store($request,  $fileName = null)
     {
         try {
-            $data =new $this->modelName;
+            $data = new $this->modelName;
             $data->date = $request->date;
             $data->Quantity = $request->Quantity;
             $data->name_company = $request->name_company;
@@ -52,7 +51,7 @@ class WasteLogRepository implements WasteLogRepositoryInterface
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
-                $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
+                    $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs('public/' . $this->folderImageName, $fileName);;
             }
             $data->save();
@@ -69,10 +68,9 @@ class WasteLogRepository implements WasteLogRepositoryInterface
         try {
             $date = $this->modelName::findorfail($id);
             return view('Admin/' . $this->FolderBlade . '/' . 'show', compact('date'));
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
     }
 
     public function edit($id)
@@ -80,10 +78,9 @@ class WasteLogRepository implements WasteLogRepositoryInterface
         try {
             $data = $this->modelName::findorfail($id);
             return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('data'));
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
     }
 
     public function update($request, $fileName = null)
@@ -101,13 +98,11 @@ class WasteLogRepository implements WasteLogRepositoryInterface
             if ($photo) {
                 unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
                 $data['photo'] =
-                $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
+                    $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs('public/' .  $this->folderImageName, $fileName);
             }
             $data->save();
             session()->flash('Edit', 'تم التعديل بنجاح');
-
-
             return redirect($this->routes);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -124,6 +119,5 @@ class WasteLogRepository implements WasteLogRepositoryInterface
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
     }
 }

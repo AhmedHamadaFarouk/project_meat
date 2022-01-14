@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    الحلال توب فود - محضر فحص واستلام لحوم
+    الحلال توب فود - اذن صرف الخامات
 @endsection
 @section('css')
 @endsection
@@ -10,7 +10,8 @@
         <div class="my-auto">
             <div class="d-flex">
                 <h4 class="content-title mb-0 my-auto">الاذونات والمحاضر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    محضر فحص واستلام لحوم</span>
+                    اذن صرف الخامات
+                </span>
             </div>
         </div>
     </div>
@@ -19,6 +20,9 @@
 @endsection
 
 @section('content')
+
+    @include('admin.exchangeRawMaterials.notify')
+
     <!-- row -->
     <div class="row">
         <div class="col">
@@ -26,10 +30,11 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#create">محضر فحص واستلام لحوم
+                            <button class="btn btn-success" data-toggle="modal" data-target="#create">اذن صرف الخامات
+
                             </button>
                         </div>
-                        @include('admin.ExaminationReceipt.create')
+                        @include('admin.exchangeRawMaterials.create')
                     </div>
                 </div>
                 <div class="card-body">
@@ -39,13 +44,13 @@
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
                                     <th class="wd-25p border-bottom-0">التاريخ</th>
-                                    <th class="wd-25p border-bottom-0">تاريخ الذبح</th>
-                                    <th class="wd-15p border-bottom-0">الفحص الظاهرى </th>
-                                    <th class="wd-25p border-bottom-0">مطابق</th>
-                                    <th class="wd-15p border-bottom-0"> رقم اذن الذبح</th>
-                                    <th class="wd-20p border-bottom-0">الكميه</th>
-                                    <th class="wd-10p border-bottom-0">اسم المجزر </th>
-                                    {{-- <th class="wd-10p border-bottom-0">اسم المنتج </th> --}}
+                                    <th class="wd-25p border-bottom-0">رقم امر الشغل </th>
+                                    <th class="wd-15p border-bottom-0"> اسم المنتج</th>
+                                    <th class="wd-25p border-bottom-0">الكميه</th>
+                                    <th class="wd-15p border-bottom-0">كود المنتج</th>
+                                    <th class="wd-20p border-bottom-0">رقم الباتش</th>
+                                    <th class="wd-10p border-bottom-0">تاريخ الانتاج  </th>
+                                    <th class="wd-10p border-bottom-0">تاريخ الانتهاء  </th>
                                     <th class="wd-25p border-bottom-0">ملاحظات</th>
                                     <th class="wd-25p border-bottom-0">العمليات</th>
                                 </tr>
@@ -55,23 +60,13 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->date }}</td>
-                                        <td>{{ $row->slaughter_date }}</td>
-                                        <td>{{ $row->Virtual_scan }}</td>
-                                        <td>
-                                            @if ($row->type == 'identical')
-                                                <h5 class="text-success d-flex">
-                                                    مطابق</h5>
-                                            @else
-                                                <h5 class="text-danger d-flex">غير مطابق
-                                                </h5>
-                                            @endif
-                                        </td>
-                                        <td>{{ $row->number_ear }}</td>
-                                        <td>{{ $row->quantity }}</td>
-                                        <td>{{ $row->slaughterhouse }}</td>
-                                        {{-- <td>{{ $row->product->name }}</td> --}}
-
-
+                                        <td>{{ $row->codeJop }}</td>
+                                        <td>{{ $row->product->name }}</td>
+                                        <td>{{ $row->Quantity }}</td>
+                                        <td>{{ $row->codeProduct }}</td>
+                                        <td>{{ $row->batchNumber }}</td>
+                                        <td>{{ $row->dataProduction }}</td>
+                                        <td>{{ $row->dataFinished }}</td>
                                         <td>{{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }}</td>
                                         <td>
                                             <button class="btn btn-info btn-sm" data-toggle="modal"
@@ -81,8 +76,8 @@
                                                 data-target="#deleted{{ $row->id }}"><i
                                                     class="fas fa-trash"></i></button>
                                         </td>
-                                        @include('admin.ExaminationReceipt.edit')
-                                        @include('admin.ExaminationReceipt.deleted')
+                                        @include('admin.exchangeRawMaterials.edit')
+                                        @include('admin.exchangeRawMaterials.deleted')
                                     </tr>
                                 @endforeach
 

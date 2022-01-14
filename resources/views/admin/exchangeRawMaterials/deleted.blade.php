@@ -4,13 +4,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">حذف محضر فحص واستلام لحوم</h5>
+                <h5 class="modal-title" id="exampleModalLabel">حذف اذن صرف الخامات</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('examination_receipt.destroy', 'test') }}" method="POST" autocomplete="off">
+                <form action="{{ route('exchangeRawMaterials.destroy', 'test') }}" method="POST" autocomplete="off">
                     @method('DELETE')
                     @csrf
 
@@ -20,10 +20,10 @@
 
                     <div class="row">
                         <div class="col">
-                            <label> رقم اذن الذبح</label>
-                            <input type="text" name="number_ear"
-                                class="form-control @error('number_ear') is-invliad @enderror"
-                                value="{{ $row->number_ear }}" readonly>
+                            <label> رقم امر الشغل الذبح</label>
+                            <input type="text" name="codeJop"
+                                class="form-control @error('codeJop') is-invliad @enderror"
+                                value="{{ $row->codeJop }}" readonly>
                         </div>
                     </div>
                     <div class="modal-footer">

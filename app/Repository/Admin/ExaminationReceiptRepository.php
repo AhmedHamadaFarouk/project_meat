@@ -109,8 +109,6 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
             }
             $data->save();
             session()->flash('Edit', 'تم التعديل بنجاح');
-
-
             return redirect($this->routes);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

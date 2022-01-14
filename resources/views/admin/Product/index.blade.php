@@ -20,6 +20,9 @@
 @endsection
 
 @section('content')
+
+@include('admin.Product.notify')
+
     <!-- row -->
     <div class="row">
         <div class="col">

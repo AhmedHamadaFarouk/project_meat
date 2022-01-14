@@ -3,7 +3,6 @@
     الحلال توب فود - محضر فحص واستلام لحوم
 @endsection
 @section('css')
-<link href="{{ URL::asset('assets/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
 
 @endsection
 @section('page-header')
@@ -24,65 +23,7 @@
 
 @section('content')
 
-
-    {{-- error --}}
-    @if ($errors->any())
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: `
-      <p>
-          @foreach ($errors->all() as $error)
-              <span>{{ $error }}</span>
-          @endforeach
-      </p>
-  `,
-                    type: "error"
-                })
-            }
-        </script>
-    @endif
-
-    {{-- Add --}}
-    @if (session()->has('Add'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم اضافه القسم بنجاح",
-                    type: "success"
-                })
-            }
-        </script>
-    @endif
-
-
-
-    {{-- Edit --}}
-
-    @if (session()->has('Edit'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم تعديل القسم بنجاح",
-                    type: "success"
-                })
-            }
-        </script>
-    @endif
-
-
-    {{-- delete --}}
-
-    @if (session()->has('danger'))
-        <script>
-            window.onload = function() {
-                notif({
-                    msg: "تم حذف القسم بنجاح",
-                    type: "success"
-                })
-            }
-        </script>
-    @endif
+@include('admin.ExaminationReceipt.notify')
 
     <!-- row -->
     <div class="row">
@@ -95,9 +36,8 @@
                             </button>
 
                             <button class="btn btn-success" data-toggle="modal" data-target="#create"><i class="text-light fas fa-print"></i>&nbsp;&nbsp;طباعة
-                                الفاتورة
-                            </button>
-                                {{-- Print_invoice/{{ $invoice->id }} --}}
+المحضر                            </button>
+                                {{-- Print_ExaminationReceipt/{{ $invoice->id }} --}}
                             {{-- <a class="dropdown-item"
                             href="#">
                             <i class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
@@ -121,7 +61,7 @@
                                     <th class="wd-15p border-bottom-0"> رقم اذن الذبح</th>
                                     <th class="wd-20p border-bottom-0">الكميه</th>
                                     <th class="wd-10p border-bottom-0">اسم المجزر </th>
-                                    {{-- <th class="wd-10p border-bottom-0">اسم المنتج </th> --}}
+                                    <th class="wd-10p border-bottom-0">اسم المنتج </th>
                                     <th class="wd-25p border-bottom-0">ملاحظات</th>
                                     <th class="wd-25p border-bottom-0">العمليات</th>
                                 </tr>
@@ -135,22 +75,16 @@
                                         <td>{{ $row->Virtual_scan }}</td>
                                         <td>
                                             {!! ($row->type == 'identical') == true
-    ? '<h5 class="text-success d-flex">
-                                                مطابق</h5>'
-    : '<h5 class="text-danger d-flex">غير مطابق
-                                            </h5>' !!}
-                                            {{-- @if ($row->type == 'identical')
-                                                <h5 class="text-success d-flex">
-                                                    مطابق</h5>
-                                            @else
-                                                <h5 class="text-danger d-flex">غير مطابق
-                                                </h5>
-                                            @endif --}}
+    ? '<span> class="text-success d-flex">
+                                                مطابق</span>'
+    : '<span> class="text-danger d-flex">غير مطابق
+                                            </span>' !!}
+
                                         </td>
                                         <td>{{ $row->number_ear }}</td>
                                         <td>{{ $row->quantity }}</td>
                                         <td>{{ $row->slaughterhouse }}</td>
-                                        {{-- <td>{{ $row->product->name }}</td> --}}
+                                        <td>{{ $row->products->name }}</td>
 
 
                                         <td>{{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }}</td>
@@ -181,9 +115,7 @@
 @endsection
 @section('js')
 
-<!--Internal  Notify js -->
-<script src="{{ URL::asset('assets/plugins/notify/js/notifIt.js') }}"></script>
-<script src="{{ URL::asset('assets/plugins/notify/js/notifit-custom.js') }}"></script>
+
     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.editorConfig = function(config) {

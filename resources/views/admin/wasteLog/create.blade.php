@@ -17,7 +17,8 @@
                     <div class="row">
                         <div class="col">
                             <label>التاريخ</label>
-                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror" required>
+                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
+                                required>
                         </div>
                     </div>
 
@@ -44,11 +45,9 @@
 
                     <div class="col-md">
                         <div class="form-group mb-2">
-                            <label class="my-1 mr-2"
-                                for="inlineFormCustomSelectPref">اسم المنتج
-                                </label>
-                            <select name="product_id" id="product_id"
-                                class="form-control" required>
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم المنتج
+                            </label>
+                            <select name="product_id" id="product_id" class="form-control" required>
                                 <option value="" selected disabled>
                                     اسم المنتج </option>
                                 @foreach ($product as $data)
@@ -64,7 +63,6 @@
                             <label for="inputName" class="control-label"> مطابق</label>
 
                             <select name="type" class="form-control">
-                                <option readonly>اختار</option>
                                 <option value="organic">عضوى</option>
                                 <option value="non_organic">غير عضوى</option>
                             </select>

@@ -19,6 +19,8 @@
 @endsection
 
 @section('content')
+@include('admin.wasteLog.notify')
+
     <!-- row -->
     <div class="row">
         <div class="col">

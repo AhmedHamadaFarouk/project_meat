@@ -70,7 +70,6 @@
                             <label for="inputName" class="control-label"> مطابق</label>
 
                             <select name="type" class="form-control">
-                                <option readonly>اختار</option>
                                 <option value="organic">عضوى</option>
                                 <option value="non_organic">غير عضوى</option>
                             </select>

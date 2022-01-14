@@ -15,59 +15,56 @@
                     {{-- page 419 --}}
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
+                            <label> التاريخ</label>
+                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
+                                required>
+                        </div>
+
+                        <div class="col-6">
                             <label>اسم المنتج</label>
                             <input type="text" name="name" class="form-control @error('name') is-invliad @enderror"
                                 required>
                         </div>
+
                     </div>
 
                     <br>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label>الكميه</label>
                             <input type="number" name="quantity"
                                 class="form-control @error('quantity') is-invliad @enderror" required>
                         </div>
-                    </div>
 
-
-                    <br>
-
-                    <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label>رقم امر التشغيل</label>
                             <input type="text" name="order_number"
                                 class="form-control @error('order_number') is-invliad @enderror" required>
                         </div>
+
+
                     </div>
 
                     <br>
-
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label>تاريخ التوريد</label>
                             <input type="date" name="date_supply"
                                 class="form-control @error('date_supply') is-invliad @enderror" required>
                         </div>
-                    </div>
 
-
-                    <br>
-
-                    <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label for="inputName" class="control-label"> مطابق</label>
 
-                                <select name="type" class="form-control">
-                                    <option readonly>اختار</option>
-                                    <option value="identical">مطابق</option>
-                                    <option value="Not_matching">غير مطابق</option>
-                                </select>
+                            <select name="type" class="form-control">
+                                <option value="identical">مطابق</option>
+                                <option value="Not_matching">غير مطابق</option>
+                            </select>
                         </div>
-                    </div>
 
+                    </div>
                     <br>
 
                     <div class="row">
@@ -76,11 +73,7 @@
                             <input type="text" name="code" class="form-control @error('code') is-invliad @enderror"
                                 required>
                         </div>
-                    </div>
 
-                    <br>
-
-                    <div class="row">
                         <div class="col">
                             <label>رقم المنتج</label>
                             <input type="text" name="number_product"
@@ -99,13 +92,6 @@
 
                     <br>
 
-                    <div class="row">
-                        <div class="col">
-                            <label> التاريخ</label>
-                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
-                                required>
-                        </div>
-                    </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>

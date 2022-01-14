@@ -83,7 +83,10 @@ class ProductRepository implements \App\Interfaces\Admin\ProductRepositoryInterf
 
     public function update($request, $fileName = null)
     {
-        $data = $this->modelName::findorfail($request->id);
+
+
+        try {
+            $data = $this->modelName::findorfail($request->id);
             $data->name = $request->name;
             $data->quantity = $request->quantity;
             $data->order_number = $request->order_number;
@@ -102,14 +105,12 @@ class ProductRepository implements \App\Interfaces\Admin\ProductRepositoryInterf
             }
             $data->save();
             session()->flash('Edit', 'تم التعديل بنجاح');
+            return redirect($this->routes);
 
-        // try {
-
-
-        //     return redirect($this->routes);
-        // } catch (\Exception $e) {
-        //     return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        // }
+            return redirect($this->routes);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     public function destroy($request)
