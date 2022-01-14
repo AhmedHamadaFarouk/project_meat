@@ -3,19 +3,20 @@
 namespace App\Repository\Admin;
 
 use App\Interfaces\Admin\DisinfectionMaterialsRepositoryInterface;
+use App\Models\Product;
 
 class DisinfectionMaterialsRepository implements DisinfectionMaterialsRepositoryInterface
 {
 
 //    protected $test = [
-//        'modelName' => '\App\Models\Branch',
+//        'modelName' => '\App\Models\DisinfectionMaterials',
 //        'folderImageName' => 'Branch',
 //        'routes' => 'Branch',
 //        'FolderBlade' => 'Branch',
 //    ];
 
-    protected $modelName = '\App\Models\Branch';
-    protected $folderImageName = 'Branch';
+    protected $modelName = '\App\Models\DisinfectionMaterials';
+    protected $folderImageName = 'DisinfectionMaterials';
     protected $routes = 'disinfectionMaterials';
     protected $FolderBlade = 'disinfectionMaterials';
 
@@ -23,10 +24,9 @@ class DisinfectionMaterialsRepository implements DisinfectionMaterialsRepository
     public function index()
     {
         $data= $this->modelName::all();
-        dd($data);
-        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
+        $product = Product::all();
+        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'product'));
     }
-
     public function create()
     {
         try {
@@ -39,8 +39,16 @@ class DisinfectionMaterialsRepository implements DisinfectionMaterialsRepository
 
     public function store($request,  $fileName = null)
     {
-        try {
-            $data = $this->modelName::create([$request->all()]);
+      //  try {
+            $data = new $this->modelName;
+            $data->date = $request->date;
+            $data->product_id = $request->product_id;
+            $data->Quantity = $request->Quantity;
+            $data->codeProduct = $request->codeProduct;
+            $data->batchNumber = $request->batchNumber;
+            $data->dataProduction = $request->dataProduction;
+            $data->dataFinished = $request->dataFinished;
+            $data->type = $request->type;
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
@@ -50,9 +58,9 @@ class DisinfectionMaterialsRepository implements DisinfectionMaterialsRepository
             $data->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
             return redirect($this->routes);
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+       // } catch (\Exception $e) {
+         //   return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+      //  }
     }
 
     public function show($id)
@@ -81,10 +89,16 @@ class DisinfectionMaterialsRepository implements DisinfectionMaterialsRepository
     public function update($request, $fileName = null)
     {
 
-        try {
+       // try {
             $data = $this->modelName::findorfail($request->id);
-            $data->title = $request->title;
-            $data->notes = $request->notes;
+            $data->date = $request->date;
+            $data->product_id = $request->product_id;
+            $data->Quantity = $request->Quantity;
+            $data->codeProduct = $request->codeProduct;
+            $data->batchNumber = $request->batchNumber;
+            $data->dataProduction = $request->dataProduction;
+            $data->dataFinished = $request->dataFinished;
+            $data->type = $request->type;
             $photo = request()->file('photo');
             if ($photo) {
                 unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
@@ -97,9 +111,9 @@ class DisinfectionMaterialsRepository implements DisinfectionMaterialsRepository
 
 
             return redirect($this->routes);
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        //} catch (\Exception $e) {
+           // return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+      //  }
     }
 
     public function destroy($request)

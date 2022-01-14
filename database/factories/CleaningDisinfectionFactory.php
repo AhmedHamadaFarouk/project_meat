@@ -22,7 +22,7 @@ class CleaningDisinfectionFactory extends Factory
             "batchNumber"=> $this->faker->randomElement([600,200,300,800,600,600,700]),
             "dataProduction" => $this->faker->date('Y-m-d'),
             "dataFinished" => $this->faker->date('Y-m-d'),
-            "PH" => $this->faker->name,
+            "PH" => $this->faker->randomElement([600,200,300,800,600,600,700]),
             "notes" => $this->faker->name,
         ];
     }
