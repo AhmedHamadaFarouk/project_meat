@@ -3,6 +3,7 @@
 namespace App\Repository\Admin;
 
 use App\Interfaces\Admin\DispensePackingMaterialsvRepositoryInterface;
+use App\Models\Product;
 
 class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRepositoryInterface
 {
@@ -23,8 +24,8 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
     public function index()
     {
         $data= $this->modelName::all();
-        dd($data);
-        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
+        $product = Product::all();
+        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'product'));
     }
 
     public function create()
@@ -39,8 +40,17 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
 
     public function store($request,  $fileName = null)
     {
-        try {
-            $data = $this->modelName::create([$request->all()]);
+      //  try {
+            $data = new $this->modelName;
+            $data->date = $request->date;
+            $data->supplydate = $request->supplydate;
+            $data->workordernumber = $request->workordernumber;
+            $data->type = $request->type;
+            $data->product_id = $request->product_id;
+            $data->Quantity = $request->Quantity;
+            $data->codeProduct = $request->codeProduct;
+            $data->batchNumber = $request->batchNumber;
+            $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
@@ -50,9 +60,9 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
             $data->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
             return redirect($this->routes);
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        //} catch (\Exception $e) {
+           // return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        //}
     }
 
     public function show($id)
@@ -81,9 +91,16 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
     public function update($request, $fileName = null)
     {
 
-        try {
+     //try {
             $data = $this->modelName::findorfail($request->id);
-            $data->title = $request->title;
+            $data->date = $request->date;
+            $data->supplydate = $request->supplydate;
+            $data->workordernumber = $request->workordernumber;
+            $data->type = $request->type;
+            $data->product_id = $request->product_id;
+            $data->Quantity = $request->Quantity;
+            $data->codeProduct = $request->codeProduct;
+            $data->batchNumber = $request->batchNumber;
             $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {
@@ -97,9 +114,9 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
 
 
             return redirect($this->routes);
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        //} catch (\Exception $e) {
+         //  return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+       // }
     }
 
     public function destroy($request)
