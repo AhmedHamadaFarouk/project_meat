@@ -63,7 +63,8 @@
                                     {{$row->product_id}}
                                 </select>
                             </div>
-                        </div>
+                        </div>    
+                        
                     </div>
 
                     <br>
