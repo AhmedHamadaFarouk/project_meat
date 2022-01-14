@@ -17,21 +17,18 @@
                     <div class="row">
                         <div class="col-6">
                             <label>التاريخ </label>
-                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror" required>
+                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
+                                   required>
                         </div>
 
-                         <div class="col-md">
+                        <div class="col-md">
                             <div class="form-group mb-2">
-                                <label class="my-1 mr-2"
-                                    for="inlineFormCustomSelectPref">اسم الصنف
-                                    </label>
-                                <select name="product_id" id="product_id"
-                                    class="form-control" required>
-                                    <option value="" selected disabled>
-                                        اسم الصنف </option>
+                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم الصنف
+                                </label>
+                                <select name="product_id" id="product_id" class="form-control" required>
+                                    <option value="" selected disabled>اسم الصنف</option>
                                     @foreach ($product as $data)
-                                        <option value="{{ $data->id }}">
-                                            {{ $data->name }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -44,17 +41,20 @@
                     <div class="row">
                         <div class="col-4">
                             <label>الكمية</label>
-                             <input type="number" name="Quantity" class="form-control @error('Quantity') is-invliad @enderror" required>
+                            <input type="number" name="Quantity"
+                                   class="form-control @error('Quantity') is-invliad @enderror" required>
                         </div>
 
                         <div class="col-4">
                             <label>كود الصنف</label>
-                             <input type="text" name="codeProduct" class="form-control @error('codeProduct') is-invliad @enderror" required>
+                            <input type="text" name="codeProduct"
+                                   class="form-control @error('codeProduct') is-invliad @enderror" required>
                         </div>
 
                         <div class="col-4">
                             <label>رقم التشغيلة</label>
-                             <input type="text" name="batchNumber" class="form-control @error('batchNumber') is-invliad @enderror" required>
+                            <input type="text" name="batchNumber"
+                                   class="form-control @error('batchNumber') is-invliad @enderror" required>
                         </div>
                     </div>
 
@@ -63,16 +63,18 @@
                     <div class="row">
                         <div class="col">
                             <label>تاريخ الانتاج </label>
-                             <input type="date" name="dataProduction" class="form-control @error('dataProduction') is-invliad @enderror" required>
+                            <input type="date" name="dataProduction"
+                                   class="form-control @error('dataProduction') is-invliad @enderror" required>
                         </div>
                         <div class="col">
                             <label> تاريخ الانتهاء</label>
-                             <input type="date" name="dataFinished" class="form-control @error('dataFinished') is-invliad @enderror" required>
+                            <input type="date" name="dataFinished"
+                                   class="form-control @error('dataFinished') is-invliad @enderror" required>
                         </div>
                         <div class="col">
                             <label for="inputName" class="control-label">المطابقه </label>
                             <select name="type" class="form-control">
-                                <option readonly>اختار</option>
+                                <option disabled selected>اختار</option>
                                 <option value="acceptable">مطابق</option>
                                 <option value="unacceptable">غير مطابق</option>
                             </select>

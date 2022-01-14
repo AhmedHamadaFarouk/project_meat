@@ -48,7 +48,7 @@ class CleaningDisinfectionRepository implements  CleaningDisinfectionRepositoryI
             $data->codeProduct = $request->codeProduct;
             $data->batchNumber = $request->batchNumber;
             $data->dataProduction = $request->dataProduction;
-            $data->dataFinished = $request->dataFinished;
+//            $data->dataFinished = $request->dataFinished;
             $data->dataFinished = $request->dataFinished;
             $data->PH = $request->PH;
             $data->notes = $request->notes;
@@ -100,7 +100,7 @@ class CleaningDisinfectionRepository implements  CleaningDisinfectionRepositoryI
             $data->codeProduct = $request->codeProduct;
             $data->batchNumber = $request->batchNumber;
             $data->dataProduction = $request->dataProduction;
-            $data->dataFinished = $request->dataFinished;
+//            $data->dataFinished = $request->dataFinished;
             $data->dataFinished = $request->dataFinished;
             $data->PH = $request->PH;
             $data->notes = $request->notes;

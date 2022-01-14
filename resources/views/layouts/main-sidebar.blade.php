@@ -43,21 +43,18 @@
 							<li><a class="slide-item" href="{{ route('products.index') }}">اذن إضافة / صرف منتج تام للمخزن</a></li>
 							<li><a class="slide-item" href="{{ route('examination_receipt.index') }}">محضر فحص و استلام  لحوم</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">امر شغل</a></li>
-<<<<<<< HEAD
 							<li><a class="slide-item" href="{{ url('/' . $page='calendar') }}">سجل رفع المخلفات</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='contacts') }}">اذن صرف الخامات</a></li>
 							<li><a class="slide-item" href="{{ route('materialInspection.index')}}">محضر فحص الخامات</a></li>
 							<li><a class="slide-item" href="{{  route('disinfectionMaterials.index')}}">امحضر فحص مواد التنظيف و التطهير</a></li>
 							<li><a class="slide-item" href="{{ route('cleaningDisinfection.index') }}">اذن صرف مواد التنظيف و التطهير</a></li>
 							<li><a class="slide-item" href="{{  route('dispensePacking.index') }}">اذن صرف مواد تعبئة و تغليف</a></li>
-=======
 							<li><a class="slide-item" href="{{  route('wasteLog.index')}}">سجل رفع المخلفات</a></li>
 							<li><a class="slide-item" href="{{ route('exchangeRawMaterials.index') }}">اذن صرف الخامات</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='image-compare') }}">محضر فحص الخامات</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='notification') }}">امحضر فحص مواد التنظيف و التطهير</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='widget-notification') }}">اذن صرف مواد التنظيف و التطهير</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='treeview') }}">اذن صرف مواد تعبئة و تغليف</a></li>
->>>>>>> 6572c6ef330c1e274324e3bdb86a72ca736f13f8
 						</ul>
 					</li>
 

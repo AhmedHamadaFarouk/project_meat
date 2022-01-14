@@ -55,7 +55,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->date}}</td>
-                                <td>{{$row->product_id}}</td>
+                                <td>{{$row->product->name}}</td>
                                 <td>{{$row->Quantity}}</td>
                                 <td>{{$row->codeProduct}}</td>
                                 <td>{{$row->batchNumber}}</td>
@@ -63,11 +63,9 @@
                                 <td>{{$row->dataFinished}}</td>
                                 <td>
                                     @if ($row->type == 'acceptable')
-                                        <h5 class="text-success d-flex">
-                                            مطابق</h5>
+                                        <span class="text-success d-flex">مطابق</span>
                                     @else
-                                        <h5 class="text-danger d-flex">غير مطابق
-                                        </h5>
+                                        <span class="text-danger d-flex">غير مطابق</span>
                                     @endif
                                 </td>
 

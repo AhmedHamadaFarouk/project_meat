@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-4">
                             <label>رقم امر الشغل</label>
-                             <input type="text" name="codeProduct" class="form-control @error('codeProduct') is-invliad @enderror" value="{{$row->codeProduct}}">
+                             <input type="text" name="workordernumber" class="form-control @error('workordernumber') is-invliad @enderror" value="{{$row->workordernumber}}">
                         </div>
                         <div class="col-4">
                             <label for="inputName" class="control-label">المطابقه </label>
@@ -63,8 +63,8 @@
                                     {{$row->product_id}}
                                 </select>
                             </div>
-                        </div>    
-                        
+                        </div>
+
                     </div>
 
                     <br>
