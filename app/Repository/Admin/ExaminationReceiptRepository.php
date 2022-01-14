@@ -118,6 +118,7 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     public function destroy($request)
     {
         try {
+
             $this->modelName::destroy($request->id);
             unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
             session()->flash('danger', 'تم الحذف بنجاح');

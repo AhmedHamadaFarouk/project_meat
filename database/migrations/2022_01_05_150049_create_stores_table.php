@@ -19,7 +19,7 @@ class CreateStoresTable extends Migration
             $table->string('address');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('branch_id')->constrained('branches')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }

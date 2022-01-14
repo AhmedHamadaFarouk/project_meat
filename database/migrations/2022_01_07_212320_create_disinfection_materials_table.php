@@ -25,7 +25,7 @@ class CreateDisinfectionMaterialsTable extends Migration
             $table->date('dataFinished');
             $table->enum('type',array('acceptable','unacceptable'));
             $table->text('photo')->nullable();
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }

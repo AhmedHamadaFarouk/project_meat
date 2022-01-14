@@ -20,7 +20,7 @@ class CreateClientsTable extends Migration
             $table->string('address');
             $table->decimal('max_price',8,2);
             $table->text('notes')->nullable();
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }

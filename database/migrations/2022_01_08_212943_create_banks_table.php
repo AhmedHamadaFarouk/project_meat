@@ -19,7 +19,7 @@ class CreateBanksTable extends Migration
             $table->decimal('price');
             $table->string('number_bank');
             $table->text('notes')->nullable();
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }

@@ -25,7 +25,7 @@ class CreateExchangeRawMaterialsTable extends Migration
             $table->date('dataProduction');
             $table->date('dataFinished');
             $table->text('notes')->nullable();
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }

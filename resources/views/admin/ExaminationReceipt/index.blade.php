@@ -78,13 +78,13 @@
     ? '<span> class="text-success d-flex">
                                                 مطابق</span>'
     : '<span> class="text-danger d-flex">غير مطابق
-                                            </span>' !!}
+                                           </span>' !!}
 
                                         </td>
                                         <td>{{ $row->number_ear }}</td>
                                         <td>{{ $row->quantity }}</td>
                                         <td>{{ $row->slaughterhouse }}</td>
-                                        <td>{{ $row->products->name }}</td>
+                                        <td>{{ $row->product->name }}</td>
 
 
                                         <td>{{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }}</td>

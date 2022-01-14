@@ -26,7 +26,7 @@ class CreateExaminationReceiptsTable extends Migration
             $table->string('slaughterhouse')->comment('سم المجزر');
             // $table->foreignId('product_id')->constrained('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }

@@ -117,7 +117,7 @@ class ProductRepository implements \App\Interfaces\Admin\ProductRepositoryInterf
     {
         try {
             $this->modelName::destroy($request->id);
-            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
+//            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
             session()->flash('danger', 'تم الحذف بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {

@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('number_product');
             $table->text('notes')->nullable();
             $table->date('date');
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }
