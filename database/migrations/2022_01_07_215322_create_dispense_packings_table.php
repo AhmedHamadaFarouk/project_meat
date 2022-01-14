@@ -19,11 +19,12 @@ class CreateDispensePackingsTable extends Migration
             $table->date('supplydate');
             $table->string('workordernumber');
             $table->enum('type',array('acceptable','unacceptable'));
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->foreignId('product_id')->constrained('products')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Quantity');
             $table->string('codeProduct'); // سيتم الاضافه الي اضافه الصنف
             $table->string('batchNumber');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

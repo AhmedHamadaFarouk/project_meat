@@ -3,6 +3,7 @@
 namespace App\Repository\Admin;
 
 use App\Interfaces\Admin\WasteLogRepositoryInterface;
+use App\Models\Product;
 
 class WasteLogRepository implements WasteLogRepositoryInterface
 {
@@ -23,8 +24,9 @@ class WasteLogRepository implements WasteLogRepositoryInterface
     public function index()
     {
         $data= $this->modelName::all();
-        dd($data);
-        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
+        $product = Product::all();
+
+        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data','product'));
     }
 
     public function create()
@@ -40,7 +42,13 @@ class WasteLogRepository implements WasteLogRepositoryInterface
     public function store($request,  $fileName = null)
     {
         try {
-            $data = $this->modelName::create([$request->all()]);
+            $data =new $this->modelName;
+            $data->date = $request->date;
+            $data->Quantity = $request->Quantity;
+            $data->name_company = $request->name_company;
+            $data->product_id = $request->product_id;
+            $data->type = $request->type;
+            $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
@@ -83,7 +91,11 @@ class WasteLogRepository implements WasteLogRepositoryInterface
 
         try {
             $data = $this->modelName::findorfail($request->id);
-            $data->title = $request->title;
+            $data->date = $request->date;
+            $data->Quantity = $request->Quantity;
+            $data->name_company = $request->name_company;
+            $data->product_id = $request->product_id;
+            $data->type = $request->type;
             $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {

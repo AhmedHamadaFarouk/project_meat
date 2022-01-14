@@ -17,13 +17,14 @@ class CreateExchangeRawMaterialsTable extends Migration
             $table->id();
             $table->date('date');
             $table->string('codeJop')->comment('رقم امر الشغل');
-            $table->foreignId('product_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            // $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Quantity');
             $table->string('codeProduct'); // سيتم الاضافه الي اضافه الصنف
             $table->string('batchNumber');
             $table->date('dataProduction');
             $table->date('dataFinished');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
