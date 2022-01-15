@@ -38,11 +38,11 @@ class BranchRepository implements BranchRepositoryInterface
 
     public function store($request,  $fileName = null)
     {
-        try {
+        // try {
         $data = new $this->modelName;
         $data->name = $request->name;
         $data->address = $request->address;
-        $data->user_id = Auth::user()->id; //auth()->id ;  Auth::user()->id
+
         $photo = request()->file('photo');
         if ($photo) {
             $data['photo'] =
@@ -52,9 +52,9 @@ class BranchRepository implements BranchRepositoryInterface
         $data->save();
         session()->flash('Add', 'تم الاضافه بنجاح');
         return redirect($this->routes);
-        } catch (\Exception $e) {
-        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-          }
+        // } catch (\Exception $e) {
+        // return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        //   }
     }
 
     public function show($id)
@@ -83,7 +83,6 @@ class BranchRepository implements BranchRepositoryInterface
         $data = $this->modelName::findorfail($request->id);
         $data->name = $request->name;
         $data->address = $request->address;
-        $data->user_id = Auth::user()->id;
         $photo = request()->file('photo');
         if ($photo) {
             unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));

@@ -1,4 +1,3 @@
-
 <!-- Create Bank -->
 <div class="modal fade" id="create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -10,31 +9,25 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <form action="{{route('supplier.store')}}" method="POST" autocomplete="off">
-                    @csrf
-                    {{-- page 419 --}}
-
+                <form action="{{route('supplier.store')}}" method="POST" autocomplete="off"> @csrf {{-- page 419 --}}
                     <div class="row">
                         <div class="col">
                             <label>اسم المورد</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invliad @enderror" required>
+                            <input type="text" name="name" class="form-control @error('name') is-invliad @enderror"
+                                required>
                         </div>
                         <br>
-
                         <div class="col">
                             <label>رقم الهاتف</label>
-                              <input type="number" name="phone" class="form-control @error('phone') is-invliad @enderror" required>
+                            <input type="number" name="phone" class="form-control @error('phone') is-invliad @enderror"
+                                required>
                         </div>
-
                     </div>
                     <br>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                         <button class="btn btn-primary">حفظ</button>
                     </div>
-
-
                 </form>
             </div>
         </div>

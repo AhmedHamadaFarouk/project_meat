@@ -32,7 +32,7 @@ class supplierRequest extends FormRequest
             case 'POST': {
                     return [
                         'name' => 'required|min:2|max:255|string',
-                        'phone' => 'required|min:11|max:11|numeric',
+                        'phone' => 'required|min:2|numeric',
 
 
                     ];
@@ -41,7 +41,7 @@ class supplierRequest extends FormRequest
             case 'PUT': {
                     return [
                         'name' => 'nullable|min:2|max:255|string',
-                        'phone' => 'nullable|min:11|max:11|numeric',
+                        'phone' => 'nullable|min:11|numeric',
 
 
                     ];

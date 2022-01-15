@@ -9,7 +9,10 @@
         </div>
     </div>
 </div>
-<!-- breadcrumb --> @endsection @section('content') @include('admin.Branch.notify')
+<!-- breadcrumb -->
+ @endsection
+  @section('content')
+   @include('admin.Branch.notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -29,7 +32,7 @@
                                 <th class="wd-15p border-bottom-0">#</th>
                                 <th class="wd-15p border-bottom-0">اسم الفرع</th>
                                 <th class="wd-20p border-bottom-0">العنوان</th>
-                                <th class="wd-20p border-bottom-0">المستخدم</th>
+
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
@@ -37,7 +40,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->address}}</td>
-                                <td>{{$row->user->name}}</td>
+
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
