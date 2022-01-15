@@ -45,7 +45,7 @@ class StoreRepository implements StoreRepositoryInterface
             $data = new $this->modelName;
             $data->name = $request->name;
             $data->address = $request->address;
-            $data->user_id = Auth::user()->id;
+
             $data->branch_id = $request->branch_id;
             $photo = request()->file('photo');
             if ($photo) {
@@ -89,7 +89,7 @@ class StoreRepository implements StoreRepositoryInterface
             $data = $this->modelName::findorfail($request->id);
             $data->name = $request->name;
             $data->address = $request->address;
-            $data->user_id = Auth::user()->id;
+          
             $data->branch_id = $request->branch_id;
             $photo = request()->file('photo');
             if ($photo) {

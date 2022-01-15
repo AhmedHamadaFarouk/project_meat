@@ -39,7 +39,7 @@
                                 <th class="wd-15p border-bottom-0">#</th>
                                 <th class="wd-15p border-bottom-0">اسم المخزن</th>
                                 <th class="wd-20p border-bottom-0">العنوان</th>
-                                <th class="wd-15p border-bottom-0">المستخدم</th>
+                              
                                 <th class="wd-10p border-bottom-0">الفرع</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>
@@ -50,7 +50,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->address}}</td>
-                                <td>{{$row->user->name}}</td>
+
                                 <td>{{$row->branch->name}}</td>
 
                                 <td>
