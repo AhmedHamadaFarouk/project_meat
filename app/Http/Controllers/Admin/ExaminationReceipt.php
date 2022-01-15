@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ExaminationRequest;
+use App\Models\ExaminationReceipt as ModelsExaminationReceipt;
 use App\Repository\Admin\ExaminationReceiptRepository;
 use Illuminate\Http\Request;
 
@@ -93,13 +94,10 @@ class ExaminationReceipt extends Controller
     {
        return $this->data->destroy($request);
     }
-    
+
     public function print_examination($id)
     {
-        // return $this->data->print_examination($id);
-        $print = ExaminationReceipt::findorfail($id);
-        dd($print);
-        return view('admin.ExaminationReceipt.Print_ExaminationReceipt', compact('print'));
+         return $this->data->print($id);
 
     }
 }

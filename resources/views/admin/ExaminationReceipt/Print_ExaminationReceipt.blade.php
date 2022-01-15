@@ -71,7 +71,7 @@
                                         </td>
                                         <td class="tx-right">{{ $row->product->name }}
                                         </td>
-                                        <td class="tx-right">{{ $row->notes }}
+                                        <td class="tx-right">{!!$row->notes !!}
                                             {{-- {{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }} --}}
                                         </td>
 

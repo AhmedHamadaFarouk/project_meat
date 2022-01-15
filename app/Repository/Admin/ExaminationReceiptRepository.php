@@ -130,5 +130,13 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     }
 
 
-   
+    public function print($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_ExaminationReceipt', compact('row'));
+
+    }
+
+
+
 }

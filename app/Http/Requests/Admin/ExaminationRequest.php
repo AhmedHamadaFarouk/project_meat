@@ -44,14 +44,14 @@ class ExaminationRequest extends FormRequest
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'slaughter_date' => 'required|date',
-                        'Virtual_scan' => 'required|string|min:2|max:255',
-                        'type' => 'required|in:acceptable,Unacceptable',
-                        'number_ear' => 'required|string|min:2|max:255',
+                        'slaughter_date' => 'nullable|date',
+                        'Virtual_scan' => 'nullable|string|min:2|max:255',
+                        'type' => 'nullable|in:acceptable,Unacceptable',
+                        'number_ear' => 'nullable|string|min:2|max:255',
                         'notes' => 'nullable|string|min:2',
-                        'quantity' => 'required|numeric|min:2',
-                        'slaughterhouse' => 'required|string|min:2',
-                        'product_id' => 'required|exists:products,id',
+                        'quantity' => 'nullable|numeric|min:2',
+                        'slaughterhouse' => 'nullable|string|min:2',
+                        'product_id' => 'nullable|exists:products,id',
                     ];
                 }
             default:

@@ -78,7 +78,7 @@
                                         <td>{{ $row->quantity }}</td>
                                         <td>{{ $row->slaughterhouse }}</td>
                                         <td>{{ $row->product->name }}</td>
-                                        <td>{{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }}</td>
+                                        <td>{!! $row->notes == true ? $row->notes : 'لا توجد ملاحظات' !!}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <button aria-expanded="false" aria-haspopup="true"
