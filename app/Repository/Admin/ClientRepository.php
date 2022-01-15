@@ -23,7 +23,7 @@ class ClientRepository implements ClientRepositoryInterface
     public function index()
     {
         $data= $this->modelName::all();
-        dd($data);
+        
         return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
     }
 

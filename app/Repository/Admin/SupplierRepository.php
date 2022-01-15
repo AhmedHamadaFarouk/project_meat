@@ -23,7 +23,7 @@ class SupplierRepository implements \App\Interfaces\Admin\SupplierRepositoryInte
     public function index()
     {
         $data= $this->modelName::all();
-        dd($data);
+        
         return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
     }
 
