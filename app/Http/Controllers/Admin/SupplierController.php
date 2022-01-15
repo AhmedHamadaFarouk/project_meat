@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\supplierRequest;
 use App\Models\Supplier;
 use App\Repository\Admin\SupplierRepository;
 use Illuminate\Http\Request;
@@ -44,7 +45,7 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(supplierRequest $request)
     {
          return $this->data->store($request);
     }
@@ -78,7 +79,7 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(supplierRequest $request, $id)
     {
         return $this->data->update($request);
     }
