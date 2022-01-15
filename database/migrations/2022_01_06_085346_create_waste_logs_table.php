@@ -22,7 +22,6 @@ class CreateWasteLogsTable extends Migration
             // $table->foreignId('product_id')->constrained('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('type',array('organic','non_organic'));
-
             $table->timestamps();
         });
     }

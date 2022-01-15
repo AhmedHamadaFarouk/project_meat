@@ -35,39 +35,9 @@
                     <div class="card-body">
                         <div class="invoice-header">
                             <h1 class="invoice-title"> محضر فحص واستلام لحوم</h1>
-                            <div class="billed-from">
-                                <h6>BootstrapDash, Inc.</h6>
-                                <p>201 Something St., Something Town, YT 242, Country 6546<br>
-                                    Tel No: 324 445-4544<br>
-                                    Email: youremail@companyname.com</p>
-                            </div><!-- billed-from -->
+
                         </div><!-- invoice-header -->
-                        <div class="row mg-t-20">
-                            <div class="col-md">
-                                <label class="tx-gray-600">Billed To</label>
-                                <div class="billed-to">
-                                    <h6>Juan Dela Cruz</h6>
-                                    <p>4033 Patterson Road, Staten Island, NY 10301<br>
-                                        Tel No: 324 445-4544<br>
-                                        Email: youremail@companyname.com</p>
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <label class="tx-gray-600">محضر فحص واستلام لحوم</label>
-                                <p class="invoice-info-row"><span> التاريخ</span>
-                                    <span>{{ $invoices->invoice_number }}</span>
-                                </p>
-                                <p class="invoice-info-row"><span>تاريخ الاصدار</span>
-                                    <span>{{ $invoices->invoice_Date }}</span>
-                                </p>
-                                <p class="invoice-info-row"><span>تاريخ الاستحقاق</span>
-                                    <span>{{ $invoices->Due_date }}</span>
-                                </p>
-                                <p class="invoice-info-row"><span>القسم</span>
-                                    <span>{{ $invoices->section->section_name }}</span>
-                                </p>
-                            </div>
-                        </div>
+
                         <div class="table-responsive mg-t-40">
                             <table class="table table-invoice border text-md-nowrap mb-0">
                                 <thead>
@@ -79,7 +49,6 @@
                                         <th class="tx-right">المطابقه</th>
                                         <th class="wd-40p">رقم اذن الذبح</th>
                                         <th class="tx-center">الكميه </th>
-                                        <th class="tx-right">الفحص الظاهرى </th>
                                         <th class="tx-right">اسم المجزر</th>
                                         <th class="tx-right">اسم المنتج </th>
                                         <th class="tx-right"> ملاحظات</th>
@@ -93,41 +62,24 @@
                                         </td>
                                         <td class="tx-right">{{ $row->Virtual_scan }}
                                         </td>
-                                       
-                                    </tr>
-
-                                    <tr>
-                                        <td class="valign-middle" colspan="2" rowspan="4">
-                                            <div class="invoice-notes">
-                                                <label class="main-content-label tx-13">#</label>
-
-                                            </div><!-- invoice-notes -->
+                                        <td class="tx-center">{{ $row->type }}
                                         </td>
-                                        <td class="tx-right">الاجمالي</td>
-                                        <td class="tx-right" colspan="2"> {{ number_format($total, 2) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tx-right">نسبة الضريبة ({{ $invoices->Rate_VAT }})</td>
-                                        <td class="tx-right" colspan="2">287.50</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tx-right">قيمة الخصم</td>
-                                        <td class="tx-right" colspan="2">
-                                            {{ number_format($invoices->Discount, 2) }}</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td class="tx-right tx-uppercase tx-bold tx-inverse">الاجمالي شامل الضريبة</td>
-                                        <td class="tx-right" colspan="2">
-                                            <h4 class="tx-primary tx-bold">{{ number_format($invoices->Total, 2) }}</h4>
+                                        <td class="tx-12">{{ $row->number_ear }}</td>
+                                        <td class="tx-center">{{ $row->quantity }}
                                         </td>
+                                        <td class="tx-right">{{ $row->slaughterhouse }}
+                                        </td>
+                                        <td class="tx-right">{{ $row->product->name }}
+                                        </td>
+                                        <td class="tx-right">{{ $row->notes }}
+                                            {{-- {{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }} --}}
+                                        </td>
+
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <hr class="mg-b-40">
-
-
 
                         <button class="btn btn-danger  float-left mt-3 mr-2" id="print_Button" onclick="printDiv()"> <i
                                 class="mdi mdi-printer ml-1"></i>طباعة</button>

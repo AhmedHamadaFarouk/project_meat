@@ -70,7 +70,8 @@
                     </li>
                     <li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">امر شغل</a></li>
                     <li><a class="slide-item" href="{{  route('wasteLog.index')}}">سجل رفع المخلفات</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . $page='contacts') }}">اذن صرف الخامات</a></li>
+                    <li><a class="slide-item" href="{{ route('exchangeRawMaterials.index')}}">اذن صرف الخامات</a></li>
+
                     <li><a class="slide-item" href="{{ route('materialInspection.index')}}">محضر فحص الخامات</a></li>
                     <li><a class="slide-item" href="{{  route('disinfectionMaterials.index')}}">امحضر فحص مواد التنظيف و
                             التطهير</a></li>

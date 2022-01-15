@@ -42,7 +42,7 @@ class WasteLogRepository implements WasteLogRepositoryInterface
     {
         try {
             $data = new $this->modelName;
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->Quantity = $request->Quantity;
             $data->name_company = $request->name_company;
             $data->product_id = $request->product_id;
@@ -88,7 +88,7 @@ class WasteLogRepository implements WasteLogRepositoryInterface
 
         try {
             $data = $this->modelName::findorfail($request->id);
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->Quantity = $request->Quantity;
             $data->name_company = $request->name_company;
             $data->product_id = $request->product_id;
@@ -113,7 +113,7 @@ class WasteLogRepository implements WasteLogRepositoryInterface
     {
         try {
             $this->modelName::destroy($request->id);
-            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
+            // unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
             session()->flash('danger', 'تم الحذف بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {

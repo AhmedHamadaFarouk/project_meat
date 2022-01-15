@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\WasteLogRequest;
 use App\Repository\Admin\WasteLogRepository;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class WasteLogController extends Controller
      */
     public function create()
     {
-         return $this->data->create();
+        return $this->data->create();
     }
 
     /**
@@ -43,9 +44,9 @@ class WasteLogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WasteLogRequest $request)
     {
-         return $this->data->store($request);
+        return $this->data->store($request);
     }
 
     /**
@@ -56,7 +57,7 @@ class WasteLogController extends Controller
      */
     public function show($id)
     {
-         return $this->data->show($id);
+        return $this->data->show($id);
     }
 
     /**
@@ -77,7 +78,7 @@ class WasteLogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(WasteLogRequest $request, $id)
     {
         return $this->data->update($request);
     }
@@ -90,6 +91,6 @@ class WasteLogController extends Controller
      */
     public function destroy(Request $request)
     {
-       return $this->data->destroy($request);
+        return $this->data->destroy($request);
     }
 }

@@ -49,8 +49,8 @@
                             <label for="inputName" class="control-label"> مطابق</label>
 
                             <select name="type" class="form-control">
-                                <option value="acceptable">مطابق</option>
-                                <option value="Unacceptable">غير مطابق</option>
+                                <option value="acceptable" {{$row->type == "acceptable" ?'selected':''}}>مطابق</option>
+                                <option value="Unacceptable" {{$row->type == "Unacceptable" ?'selected':''}}>غير مطابق</option>
                             </select>
                         </div>
                     </div>
@@ -63,9 +63,8 @@
 
                             <div class="form-group mb-2">
                                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم المنتج </label>
-                                <select name="product_id" id="product_id" class="form-control" required>
-                                    <option value="" selected disabled>
-                                        اسم المنتج </option>
+                                <select name="product_id" id="product_id" class="form-control">
+
                                     @foreach ($product as $data)
                                         <option value="{{ $data->id }}"
                                             {{ $data->id == $row->product_id ? 'selected' : '' }}>

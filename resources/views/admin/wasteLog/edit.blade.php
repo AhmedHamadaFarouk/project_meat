@@ -21,57 +21,52 @@
 
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label>التاريخ</label>
-                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror" value="{{$row->date}}">
+                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
+                                value="{{ $row->date }}">
                         </div>
-                    </div>
-
-
-                    <br>
-
-                    <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label>الكميه</label>
                             <input type="number" name="Quantity"
-                                class="form-control @error('Quantity') is-invliad @enderror" value="{{$row->Quantity}}">
+                                class="form-control @error('Quantity') is-invliad @enderror"
+                                value="{{ $row->Quantity }}">
                         </div>
                     </div>
 
                     <br>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
+                            <div class="form-group mb-2">
+                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم المنتج</label>
+                                <select name="product_id" id="product_id" class="form-control">
+                                    @foreach ($product as $data)
+                                        <option value="{{ $data->id }}"
+                                            {{ $data->id == $row->product_id ? 'selected' : '' }}>
+                                            {{ $data->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
                             <label> اسم الشركه</label>
                             <input type="text" name="name_company"
-                                class="form-control @error('name_company') is-invliad @enderror" value="{{$row->name_company}}">
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="form-group mb-2">
-                            <label class="my-1 mr-2"
-                                for="inlineFormCustomSelectPref">اسم المنتج
-                                </label>
-                            <select name="product_id" id="product_id"
-                                class="form-control" required>
-                                <option value="" selected disabled>
-                                    اسم المنتج </option>
-                                @foreach ($product as $data)
-                                    <option value="{{ $data->id }}">
-                                        {{ $data->name }}</option>
-                                @endforeach
-                            </select>
+                                class="form-control @error('name_company') is-invliad @enderror"
+                                value="{{ $row->name_company }}">
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label for="inputName" class="control-label"> مطابق</label>
 
                             <select name="type" class="form-control">
-                                <option value="organic">عضوى</option>
-                                <option value="non_organic">غير عضوى</option>
+                                <option value="organic" {{ $row->type == 'organic' ? 'selected' : '' }}>عضوى</option>
+                                <option value="non_organic" {{ $row->type == 'non_organic' ? 'selected' : '' }}>غير
+                                    عضوى
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -81,7 +76,8 @@
                     <div class="row">
                         <div class="col">
                             <label>ملاحظات</label>
-                            <textarea class="form-control softeditor" name="notes" rows="5">{{$row->notes}}</textarea>
+                            <textarea class="form-control softeditor" name="notes"
+                                rows="5">{{ $row->notes }}</textarea>
                         </div>
                     </div>
 

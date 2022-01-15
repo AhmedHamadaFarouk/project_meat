@@ -43,7 +43,7 @@
                                 </label>
                                 <select name="product_id" id="product_id" class="form-control">
                                     <option value="" selected disabled>
-                                        اسم المنتج </option>
+                                  
                                     @foreach ($product as $data)
                                         <option value="{{ $data->id }}"
                                             {{ $data->id == $row->product_id ? 'selected' : '' }}>
