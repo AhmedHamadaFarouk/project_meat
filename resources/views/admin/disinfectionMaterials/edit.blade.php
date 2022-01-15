@@ -25,24 +25,15 @@
 
                          <div class="col-md">
                             <div class="form-group mb-2">
-                                <label class="my-1 mr-2"
-                                    for="inlineFormCustomSelectPref">اسم الصنف
-                                    </label>
-                                <select name="product_id" id="product_id"
-                                    class="form-control" required>
-                                    <option value="" selected disabled>
-                                        اسم الصنف </option>
+                                <label>اسم الصنف</label>
+                                <select name="product_id" id="product_id" class="form-control" >
                                     @foreach ($product as $data)
-                                        <option value="{{ $data->id }}">
-                                            {{ $data->name }}</option>
+                                        <option value="{{ $data->id }}" {{$data->id == $row->product_id ? 'selected' : ''}}>{{ $data->name }}</option>
                                     @endforeach
-
-                                    {{$row->product}}
                                 </select>
                             </div>
                         </div>
                     </div>
-
 
                     <br>
 
@@ -77,11 +68,8 @@
                         <div class="col">
                             <label for="inputName" class="control-label">المطابقه </label>
                             <select name="type" class="form-control">
-                                <option readonly>اختار</option>
-                                <option value="acceptable">مطابق</option>
-                                <option value="unacceptable">غير مطابق</option>
-
-                                {{$row->type}}
+                                <option value="acceptable" {{$row->type == "acceptable" ? 'selected' : ''}}>مطابق</option>
+                                <option value="unacceptable" {{$row->type == "unacceptable" ? 'selected' : ''}}>غير مطابق</option>
                             </select>
                         </div>
                     </div>

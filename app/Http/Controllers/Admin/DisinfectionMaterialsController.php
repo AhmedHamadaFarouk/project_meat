@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\DisinfectionMaterialsRequest;
 use App\Repository\Admin\DisinfectionMaterialsRepository;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,7 @@ class DisinfectionMaterialsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DisinfectionMaterialsRequest $request)
     {
          return $this->data->store($request);
     }
@@ -77,7 +78,7 @@ class DisinfectionMaterialsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DisinfectionMaterialsRequest $request, $id)
     {
         return $this->data->update($request);
     }

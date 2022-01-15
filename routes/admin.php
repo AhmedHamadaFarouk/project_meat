@@ -90,7 +90,6 @@ Route::middleware(['auth:admin'])->group(function () {
 
     // محضر فحص الخامات
     Route::resource('materialInspection', MaterialInspectionController::class);
-    #######
     // محضر فحص مواد التنظيف و التطهير
     Route::resource('disinfectionMaterials', DisinfectionMaterialsController::class);
 

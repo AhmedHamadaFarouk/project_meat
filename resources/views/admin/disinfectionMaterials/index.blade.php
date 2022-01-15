@@ -11,7 +11,7 @@
 <div class="breadcrumb-header justify-content-between">
     <div class="my-auto">
         <div class="d-flex">
-            <h4 class="content-title mb-0 my-auto">الاعدادات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+            <h2 class="content-title mb-0 my-auto">الاعدادات</h2><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
                 اضافه محضر فحص مواد التنظيف و التطهير</span>
         </div>
     </div>
@@ -20,6 +20,7 @@
 @endsection
 
 @section('content')
+ @include('admin.disinfectionMaterials.notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -34,19 +35,20 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table text-md-nowrap" id="example1">
+                    <table  class="table table-bordered" data-page-length='50'
+                            style="text-align: center" id="example1">
                         <thead>
                             <tr>
-                                <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0"> التاريخ</th>
-                                <th class="wd-20p border-bottom-0">اسم الصنف </th>
-                                <th class="wd-15p border-bottom-0">الكمية </th>
+                                <th>#</th>
+                                <th class="wd-10p border-bottom-0"> التاريخ</th>
+                                <th class="wd-10p border-bottom-0">اسم الصنف </th>
+                                <th class="wd-10p border-bottom-0">الكمية </th>
                                 <th class="wd-10p border-bottom-0">كود الصنف</th>
                                 <th class="wd-10p border-bottom-0">رقم التشغيلة </th>
                                 <th class="wd-10p border-bottom-0">تاريخ الانتاج</th>
                                 <th class="wd-10p border-bottom-0">تاريخ الانتهاء</th>
                                 <th class="wd-10p border-bottom-0">المطابقة</th>
-                                <th class="wd-10p border-bottom-0">مرفقات</th>
+                                <th class="wd-15p border-bottom-0">مرفقات</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
@@ -55,19 +57,17 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->date}}</td>
-                                <td>{{$row->product_id}}</td>
+                                <td>{{$row->product->name}}</td>
                                 <td>{{$row->Quantity}}</td>
                                 <td>{{$row->codeProduct}}</td>
                                 <td>{{$row->batchNumber}}</td>
                                 <td>{{$row->dataProduction}}</td>
                                 <td>{{$row->dataFinished}}</td>
                                 <td>
-                                    @if ($row->type == 'acceptable')
-                                        <h5 class="text-success d-flex">
-                                            مطابق</h5>
+                                   @if ($row->type == 'acceptable')
+                                        <span class="text-success d-flex">مطابق</span>
                                     @else
-                                        <h5 class="text-danger d-flex">غير مطابق
-                                        </h5>
+                                        <span class="text-danger d-flex">غير مطابق</span>
                                     @endif
                                 </td>
 

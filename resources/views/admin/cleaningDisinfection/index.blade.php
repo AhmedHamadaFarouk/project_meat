@@ -20,6 +20,7 @@
 @endsection
 
 @section('content')
+ @include('admin.cleaningDisinfection.notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -28,26 +29,27 @@
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-success" data-toggle="modal" data-target="#create">اضافه اذن صرف مواد التنظيف و التطهير</button>
+
                     </div>
                     @include('admin.cleaningDisinfection.create')
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table text-md-nowrap" id="example1">
+                    <table  class="table text-md-nowrap table-bordered" data-page-length='50' id="example1">
                         <thead>
                             <tr>
-                                <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0"> التاريخ</th>
-                                <th class="wd-20p border-bottom-0">اسم الصنف</th>
-                                <th class="wd-15p border-bottom-0">الكمية </th>
+                                <th class="wd-10p border-bottom-0">#</th>
+                                <th class="wd-10p border-bottom-0"> التاريخ</th>
+                                <th class="wd-10p border-bottom-0">اسم الصنف</th>
+                                <th class="wd-10p border-bottom-0">الكمية </th>
                                 <th class="wd-10p border-bottom-0">كود الصنف</th>
                                 <th class="wd-10p border-bottom-0">رقم التشغيلة </th>
                                 <th class="wd-10p border-bottom-0">تاريخ الانتاج</th>
                                 <th class="wd-10p border-bottom-0">تاريخ الانتهاء</th>
                                 <th class="wd-10p border-bottom-0">PH</th>
-                                <th class="wd-10p border-bottom-0">ملاحظات</th>
-                                <th class="wd-25p border-bottom-0">العمليات</th>
+                                <th class="wd-15p border-bottom-0">ملاحظات</th>
+                                <th class="wd-15p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,7 +57,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->date}}</td>
-                                <td>{{$row->product_id}}</td>
+                                <td>{{$row->product->name}}</td>
                                 <td>{{$row->Quantity}}</td>
                                 <td>{{$row->codeProduct}}</td>
                                 <td>{{$row->batchNumber}}</td>

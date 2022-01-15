@@ -22,25 +22,18 @@
 
                         <div class="col-md">
                             <div class="form-group mb-2">
-                                <label class="my-1 mr-2"
-                                    for="inlineFormCustomSelectPref">اسم الصنف
-                                    </label>
-                                <select name="product_id" id="product_id"
-                                    class="form-control" required>
-                                    <option value="" selected disabled>
-                                        اسم الصنف </option>
+                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم الصنف
+                                </label>
+                                <select name="product_id" id="product_id" class="form-control" required>
+                                    <option value="" selected disabled>اسم الصنف</option>
                                     @foreach ($product as $data)
-                                        <option value="{{ $data->id }}">
-                                            {{ $data->name }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
-
-
                     <br>
-
                     <div class="row">
                         <div class="col-4">
                             <label>الكمية</label>
@@ -96,3 +89,6 @@
         </div>
     </div>
 </div>
+
+
+

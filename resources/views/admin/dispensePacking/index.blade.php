@@ -20,6 +20,7 @@
 @endsection
 
 @section('content')
+ @include('admin.dispensePacking.notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -29,26 +30,24 @@
                     <div class="col">
                         <button class="btn btn-success" data-toggle="modal" data-target="#create">  اضافه  اذن صرف مواد تعبئة و تغليف </button>
                     </div>
-
                     @include('admin.dispensePacking.create')
-
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table text-md-nowrap" id="example1">
+                    <table  class="table table-bordered" data-page-length='50' id="example1">
                         <thead>
                             <tr>
-                                <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0"> التاريخ</th>
-                                <th class="wd-20p border-bottom-0"> تاريخ التوريد</th>
-                                <th class="wd-15p border-bottom-0">رقم امر الشغل  </th>
-                                <th class="wd-10p border-bottom-0">المطابقة </th>
+                                <th>#</th>
+                                <th class="wd-10p border-bottom-0"> التاريخ</th>
+                                <th class="wd-10p border-bottom-0"> تاريخ التوريد</th>
+                                <th class="wd-10p border-bottom-0">رقم امر الشغل  </th>
                                 <th class="wd-10p border-bottom-0">اسم الصنف  </th>
                                 <th class="wd-10p border-bottom-0"> الكمية  </th>
                                 <th class="wd-10p border-bottom-0">كود الصنف </th>
                                 <th class="wd-10p border-bottom-0"> رقم التشغيلة</th>
-                                <th class="wd-10p border-bottom-0">ملاحظات</th>
+                                <th class="wd-10p border-bottom-0">المطابقة </th>
+                                <th class="wd-15p border-bottom-0">ملاحظات</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
@@ -59,19 +58,17 @@
                                 <td>{{$row->date}}</td>
                                 <td>{{$row->supplydate}}</td>
                                 <td>{{$row->workordernumber}}</td>
-                                <td>
-                                    @if ($row->type == 'acceptable')
-                                        <h5 class="text-success d-flex">
-                                            مطابق</h5>
-                                    @else
-                                        <h5 class="text-danger d-flex">غير مطابق
-                                        </h5>
-                                    @endif
-                                </td>
-                                <td>{{$row->product_id}}</td>
+                                <td>{{$row->product->name}}</td>
                                 <td>{{$row->Quantity}}</td>
                                 <td>{{$row->codeProduct}}</td>
                                 <td>{{$row->batchNumber}}</td>
+                                <td>
+                                    @if ($row->type == 'acceptable')
+                                        <span class="text-success d-flex">مطابق</span>
+                                    @else
+                                        <span class="text-danger d-flex">غير مطابق</span>
+                                    @endif
+                                </td>
                                 <td>{{$row->notes == true ? $row->notes : 'لا توجد ملاحظات'}}</td>
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
