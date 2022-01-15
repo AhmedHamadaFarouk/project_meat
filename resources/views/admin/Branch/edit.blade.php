@@ -32,12 +32,6 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col">
-                            <label>المستخدم</label>
-                              <input type="text" name="user_id" class="form-control @error('user_id') is-invliad @enderror" value="{{$row->user->name}}">
-                        </div>
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                         <button class="btn btn-primary">حفظ</button>

@@ -40,6 +40,7 @@
                                 <th class="wd-15p border-bottom-0">#</th>
                                 <th class="wd-15p border-bottom-0">اسم المورد</th>
                                 <th class="wd-20p border-bottom-0">الهاتف</th>
+                                <th class="wd-20p border-bottom-0">ملاحظات</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
@@ -49,7 +50,6 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->phone}}</td>
-                                <td>{{$row->suppliers}}</td>
                                 <td>{{$row->notes}}</td>
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
