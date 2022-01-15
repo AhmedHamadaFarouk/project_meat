@@ -23,7 +23,7 @@ class ClientRepository implements ClientRepositoryInterface
     public function index()
     {
         $data= $this->modelName::all();
-        
+
         return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
     }
 
@@ -40,7 +40,12 @@ class ClientRepository implements ClientRepositoryInterface
     public function store($request,  $fileName = null)
     {
         try {
-            $data = $this->modelName::create([$request->all()]);
+            $data = new $this->modelName;
+            $data->name = $request->name;
+            $data->phone = $request->phone;
+            $data->address = $request->address;
+            $data->max_price = $request->max_price;
+            $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
@@ -83,7 +88,10 @@ class ClientRepository implements ClientRepositoryInterface
 
         try {
             $data = $this->modelName::findorfail($request->id);
-            $data->title = $request->title;
+            $data->name = $request->name;
+            $data->phone = $request->phone;
+            $data->address = $request->address;
+            $data->max_price = $request->max_price;
             $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {
