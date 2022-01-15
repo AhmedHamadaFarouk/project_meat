@@ -19,6 +19,7 @@
 @endsection
 
 @section('content')
+@include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">
