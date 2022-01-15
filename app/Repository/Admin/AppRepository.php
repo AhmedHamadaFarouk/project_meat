@@ -41,4 +41,5 @@ class AppRepository  implements BranchRepositoryInterface
     {
         // TODO: Implement destroy() method.
     }
+
 }

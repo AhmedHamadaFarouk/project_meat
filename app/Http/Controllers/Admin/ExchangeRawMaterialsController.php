@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ExchangeRawRequest;
 use App\Repository\Admin\ExchangeRawMaterialsRepository;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,7 @@ class ExchangeRawMaterialsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExchangeRawRequest $request)
     {
          return $this->data->store($request);
     }
@@ -77,7 +78,7 @@ class ExchangeRawMaterialsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ExchangeRawRequest $request, $id)
     {
         return $this->data->update($request);
     }

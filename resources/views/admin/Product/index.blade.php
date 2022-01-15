@@ -21,7 +21,7 @@
 
 @section('content')
 
-@include('admin.Product.notify')
+    @include('admin.Product.notify')
 
     <!-- row -->
     <div class="row">
@@ -63,20 +63,12 @@
                                         <td>{{ $row->quantity }}</td>
                                         <td>{{ $row->order_number }}</td>
                                         <td>{{ $row->date_supply }}</td>
-                                        {{-- <td>{{ $row->type }}</td> --}}
                                         <td>
-                                            {!! ($row->type == 'identical') == true
-    ? '<h5 class="text-success d-flex">
-                                                مطابق</h5>'
-    : '<h5 class="text-danger d-flex">غير مطابق
-                                            </h5>' !!}
-                                            {{-- @if ($row->type == 'identical')
-                                                <h5 class="text-success d-flex">
-                                                    مطابق</h5>
+                                            @if ($row->type == 'identical')
+                                                <span class="text-success d-flex">مطابق</span>
                                             @else
-                                                <h5 class="text-danger d-flex">غير مطابق
-                                                </h5>
-                                            @endif --}}
+                                                <span class="text-danger d-flex">غير مطابق</span>
+                                            @endif
                                         </td>
                                         <td>{{ $row->code }}</td>
                                         <td>{{ $row->number_product }}</td>

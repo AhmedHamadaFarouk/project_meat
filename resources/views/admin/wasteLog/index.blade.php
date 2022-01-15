@@ -19,7 +19,7 @@
 @endsection
 
 @section('content')
-@include('admin.wasteLog.notify')
+    @include('admin.wasteLog.notify')
 
     <!-- row -->
     <div class="row">
@@ -43,7 +43,7 @@
                                     <th class="wd-25p border-bottom-0">التاريخ</th>
                                     <th class="wd-20p border-bottom-0">الكميه</th>
                                     <th class="wd-20p border-bottom-0">اسم الشركه</th>
-                                    {{-- <th class="wd-15p border-bottom-0"> اسم المنتج </th> --}}
+                                    <th class="wd-15p border-bottom-0"> اسم المنتج </th>
                                     <th class="wd-25p border-bottom-0">مطابق</th>
                                     <th class="wd-25p border-bottom-0">ملاحظات</th>
                                     <th class="wd-25p border-bottom-0">العمليات</th>
@@ -54,24 +54,18 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->date }}</td>
-
                                         <td>{{ $row->Quantity }}</td>
                                         <td>{{ $row->name_company }}</td>
-                                        {{-- <td>{{ $row->product->name }}</td> --}}
-
+                                        <td>{{ $row->product->name }}</td>
                                         <td>
-                                            {!! ($row->type == 'organic') == true
-    ? '<h5 class="text-success d-flex">
-                                                عضوى</h5>'
-    : '<h5 class="text-danger d-flex">غير عضوى
-                                            </h5>' !!}
-                                            {{-- @if ($row->type == 'organic')
-                                                <h5 class="text-success d-flex">
-                                                    عضوى</h5>
+
+                                             @if ($row->type == 'organic')
+                                                <span class="text-success d-flex">
+                                                    عضوى</span>
                                             @else
-                                                <h5 class="text-danger d-flex">غير عضوى
-                                                </h5>
-                                            @endif --}}
+                                                <span class="text-danger d-flex">غير عضوى
+                                                </span>
+                                            @endif
                                         </td>
 
                                         <td>{{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }}</td>

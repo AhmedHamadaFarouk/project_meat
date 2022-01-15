@@ -23,7 +23,7 @@
 
 @section('content')
 
-@include('admin.ExaminationReceipt.notify')
+    @include('admin.ExaminationReceipt.notify')
 
     <!-- row -->
     <div class="row">
@@ -34,15 +34,6 @@
                         <div class="col">
                             <button class="btn btn-success" data-toggle="modal" data-target="#create">محضر فحص واستلام لحوم
                             </button>
-
-                            <button class="btn btn-success" data-toggle="modal" data-target="#create"><i class="text-light fas fa-print"></i>&nbsp;&nbsp;طباعة
-المحضر                            </button>
-                                {{-- Print_ExaminationReceipt/{{ $invoice->id }} --}}
-                            {{-- <a class="dropdown-item"
-                            href="#">
-                            <i class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
-                            الفاتورة
-                        </a> --}}
 
                         </div>
                         @include('admin.ExaminationReceipt.create')
@@ -57,7 +48,7 @@
                                     <th class="wd-25p border-bottom-0">التاريخ</th>
                                     <th class="wd-25p border-bottom-0">تاريخ الذبح</th>
                                     <th class="wd-15p border-bottom-0">الفحص الظاهرى </th>
-                                    <th class="wd-25p border-bottom-0">مطابق</th>
+                                    <th class="wd-25p border-bottom-0">المطابقه</th>
                                     <th class="wd-15p border-bottom-0"> رقم اذن الذبح</th>
                                     <th class="wd-20p border-bottom-0">الكميه</th>
                                     <th class="wd-10p border-bottom-0">اسم المجزر </th>
@@ -74,27 +65,52 @@
                                         <td>{{ $row->slaughter_date }}</td>
                                         <td>{{ $row->Virtual_scan }}</td>
                                         <td>
-                                            {!! ($row->type == 'identical') == true
-    ? '<span> class="text-success d-flex">
-                                                مطابق</span>'
-    : '<span> class="text-danger d-flex">غير مطابق
-                                           </span>' !!}
+
+                                            @if ($row->type == 'acceptable')
+                                                <span class="text-success d-flex">مطابق</span>
+                                            @else
+                                                <span class="text-danger d-flex">غير مطابق</span>
+
+                                            @endif
 
                                         </td>
                                         <td>{{ $row->number_ear }}</td>
                                         <td>{{ $row->quantity }}</td>
                                         <td>{{ $row->slaughterhouse }}</td>
                                         <td>{{ $row->product->name }}</td>
-
-
-                                        <td>{{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }}</td>
+                                        <td>{!! $row->notes == true ? $row->notes : 'لا توجد ملاحظات' !!}</td>
                                         <td>
-                                            <button class="btn btn-info btn-sm" data-toggle="modal"
+                                            <div class="dropdown">
+                                                <button aria-expanded="false" aria-haspopup="true"
+                                                    class="btn ripple btn-primary btn-sm" data-toggle="dropdown"
+                                                    type="button">العمليات<i class="fas fa-caret-down ml-1"></i></button>
+                                                <div class="dropdown-menu tx-13">
+
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                        data-target="#edit{{ $row->id }}"><i
+                                                            class="text-danger fas fa-edit"></i>&nbsp;&nbsp;تعديل
+                                                    </a>
+
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                        data-target="#deleted{{ $row->id }}"><i
+                                                            class="text-danger fas fa-trash-alt"></i>&nbsp;&nbsp;حذف
+
+                                                    </a>
+
+                                                    <a class="dropdown-item"
+                                                        href="{{route('print', $row->id)}}"><i
+                                                            class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
+
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            {{-- <button class="btn btn-info btn-sm" data-toggle="modal"
                                                 data-target="#edit{{ $row->id }}"><i
-                                                    class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    class="fas fa-edit"></i></button> --}}
+                                            {{-- <button class="btn btn-danger btn-sm" data-toggle="modal"
                                                 data-target="#deleted{{ $row->id }}"><i
-                                                    class="fas fa-trash"></i></button>
+                                                    class="fas fa-trash"></i></button> --}}
                                         </td>
                                         @include('admin.ExaminationReceipt.edit')
                                         @include('admin.ExaminationReceipt.deleted')

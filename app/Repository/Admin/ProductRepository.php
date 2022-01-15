@@ -45,7 +45,7 @@ class ProductRepository implements \App\Interfaces\Admin\ProductRepositoryInterf
             $data->code = $request->code;
             $data->number_product = $request->number_product;
             $data->notes = $request->notes;
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
@@ -95,7 +95,7 @@ class ProductRepository implements \App\Interfaces\Admin\ProductRepositoryInterf
             $data->code = $request->code;
             $data->number_product = $request->number_product;
             $data->notes = $request->notes;
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $photo = request()->file('photo');
             if ($photo) {
                 unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));

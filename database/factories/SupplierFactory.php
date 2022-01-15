@@ -15,7 +15,7 @@ class SupplierFactory extends Factory
     {
         return [
             "name" => $this->faker->name,
-            "phone" => $this->faker->name,
+            "phone" => $this->faker->randomElement([01111, 01112, 01113, 01114, 01115]),
         ];
     }
 }

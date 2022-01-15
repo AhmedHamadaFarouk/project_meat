@@ -2,6 +2,7 @@
 
 namespace App\Repository\Admin;
 
+use App\Http\Controllers\Admin\ExaminationReceipt;
 use App\Interfaces\Admin\ExaminationReceiptRepositoryInterface;
 use App\Models\Product;
 
@@ -42,7 +43,7 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     {
         try {
             $data = new $this->modelName;
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->slaughter_date = $request->slaughter_date;
             $data->Virtual_scan = $request->Virtual_scan;
             $data->type = $request->type;
@@ -91,7 +92,7 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
 
         try {
             $data = $this->modelName::findorfail($request->id);
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->slaughter_date = $request->slaughter_date;
             $data->Virtual_scan = $request->Virtual_scan;
             $data->type = $request->type;
@@ -120,11 +121,22 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
         try {
 
             $this->modelName::destroy($request->id);
-            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
+            // unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
             session()->flash('danger', 'تم الحذف بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+
+    public function print($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_ExaminationReceipt', compact('row'));
+
+    }
+
+
+
 }

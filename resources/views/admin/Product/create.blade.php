@@ -59,6 +59,7 @@
                             <label for="inputName" class="control-label"> مطابق</label>
 
                             <select name="type" class="form-control">
+                                <option value="" selected disabled>اختار</option>
                                 <option value="identical">مطابق</option>
                                 <option value="Not_matching">غير مطابق</option>
                             </select>

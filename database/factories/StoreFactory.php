@@ -18,7 +18,6 @@ class StoreFactory extends Factory
         return [
            'name'=> $this->faker->name,
            'address'=> $this->faker->name,
-           'user_id'=> User::all()->random()->id,
            'branch_id'=> Branch::all()->random()->id,
         ];
     }

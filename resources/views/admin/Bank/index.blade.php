@@ -18,7 +18,10 @@
 
 @endsection
 
+
 @section('content')
+@include('admin.Bank.notify')
+
 <!-- row -->
 <div class="row">
     <div class="col">

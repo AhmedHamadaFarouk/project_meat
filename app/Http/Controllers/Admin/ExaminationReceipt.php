@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ExaminationRequest;
+use App\Models\ExaminationReceipt as ModelsExaminationReceipt;
 use App\Repository\Admin\ExaminationReceiptRepository;
 use Illuminate\Http\Request;
 
@@ -43,7 +45,7 @@ class ExaminationReceipt extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExaminationRequest $request)
     {
          return $this->data->store($request);
     }
@@ -77,7 +79,7 @@ class ExaminationReceipt extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ExaminationRequest $request, $id)
     {
         return $this->data->update($request);
     }
@@ -91,5 +93,11 @@ class ExaminationReceipt extends Controller
     public function destroy(Request $request)
     {
        return $this->data->destroy($request);
+    }
+
+    public function print_examination($id)
+    {
+         return $this->data->print($id);
+
     }
 }

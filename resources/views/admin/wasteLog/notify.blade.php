@@ -52,7 +52,7 @@
             window.onload = function() {
                 notif({
                     msg: "تم الحذف بنجاح",
-                    type: "success"
+                    type: "error"
                 })
             }
         </script>

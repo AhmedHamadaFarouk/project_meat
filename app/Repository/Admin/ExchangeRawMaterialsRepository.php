@@ -41,7 +41,7 @@ class ExchangeRawMaterialsRepository implements ExchangeRawMaterialsRepositoryIn
     {
         try {
             $data = new $this->modelName;
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->codeJop = $request->codeJop;
             $data->product_id = $request->product_id;
             $data->Quantity = $request->Quantity;
@@ -90,7 +90,7 @@ class ExchangeRawMaterialsRepository implements ExchangeRawMaterialsRepositoryIn
 
         try {
             $data = $this->modelName::findorfail($request->id);
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->codeJop = $request->codeJop;
             $data->product_id = $request->product_id;
             $data->Quantity = $request->Quantity;
@@ -118,7 +118,7 @@ class ExchangeRawMaterialsRepository implements ExchangeRawMaterialsRepositoryIn
     {
         try {
             $this->modelName::destroy($request->id);
-            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
+            // unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
             session()->flash('danger', 'تم الحذف بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {
