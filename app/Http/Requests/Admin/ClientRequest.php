@@ -33,7 +33,7 @@ class ClientRequest extends FormRequest
                     return [
                         'name' => 'required|min:2|max:255|string',
                         'address' => 'required|min:2|max:255|string',
-                        'phone' => 'required|numeric|min:11|max:11',
+                        'phone' => 'required|numeric',
                         'max_price' => 'required|numeric|min:2',
                         'notes' => 'nullable|min:2'
                     ];
@@ -43,7 +43,7 @@ class ClientRequest extends FormRequest
                     return [
                         'name' => 'nullable|min:2|max:255|string',
                         'address' => 'nullable|min:2|max:255|string',
-                        'phone' => 'nullable|numeric|min:11|max:11',
+                        'phone' => 'nullable|numeric',
                         'max_price' => 'nullable|numeric|min:2',
                         'notes' => 'nullable|min:2'
                     ];

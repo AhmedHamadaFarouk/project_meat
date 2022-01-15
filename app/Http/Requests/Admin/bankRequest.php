@@ -33,7 +33,7 @@ class bankRequest extends FormRequest
                     return [
                         'name' => 'required|string|min:2|max:255',
                         'price' => 'required|numeric|min:2',
-                        'number_bank' => 'required|numeric|min:2',
+                        'number_bank' => 'required|min:2',
                         'notes' => 'nullable|string|min:2',
                     ];
                 }
@@ -42,7 +42,7 @@ class bankRequest extends FormRequest
                     return [
                         'name' => 'nullable|string|min:2|max:255|unique:banks,name,',
                         'price' => 'nullable|numeric|min:2',
-                        'number_bank' => 'nullable|numeric|min:2',
+                        'number_bank' => 'nullable|min:2',
                         'notes' => 'nullable|string|min:2',
                     ];
                 }
