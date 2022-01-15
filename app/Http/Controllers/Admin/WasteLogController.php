@@ -93,4 +93,10 @@ class WasteLogController extends Controller
     {
         return $this->data->destroy($request);
     }
+
+    public function print_wasteLog($id)
+    {
+         return $this->data->waste($id);
+
+    }
 }

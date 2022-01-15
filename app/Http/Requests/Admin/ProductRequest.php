@@ -38,7 +38,6 @@ class ProductRequest extends FormRequest
                         'type' => 'required|in:identical,Not_matching',
                         'code' => 'required|string|min:2',
                         'notes' => 'nullable|string|min:2',
-                        // 'product_id' => 'required|exists:products,id',
                     ];
                 }
             case 'PATCH':

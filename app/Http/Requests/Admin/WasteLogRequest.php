@@ -41,11 +41,11 @@ class WasteLogRequest extends FormRequest
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'Quantity' => 'required|string|min:2',
-                        'name_company' => 'required|string|min:2|max:255',
+                        'Quantity' => 'nullable|string|min:2',
+                        'name_company' => 'nullable|string|min:2|max:255',
                         'notes' => 'nullable|string|min:2',
-                        'type' => 'required|in:organic,non_organic',
-                        'product_id' => 'required|exists:products,id',
+                        'type' => 'nullable|in:organic,non_organic',
+                        'product_id' => 'nullable|exists:products,id',
                     ];
                 }
             default:

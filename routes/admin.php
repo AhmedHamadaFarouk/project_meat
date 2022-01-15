@@ -66,6 +66,9 @@ Route::middleware(['auth:admin'])->group(function () {
     // اذن اضافه للمخزن
     Route::resource('products', ProductController::class);
 
+    //print
+    Route::get('print_product/{id}', [ProductController::class, 'Print_product'])->name('product');
+
     // محضر فحص و استلام  لحوم
     Route::resource('examination_receipt', ExaminationReceipt::class);
 
@@ -75,8 +78,14 @@ Route::middleware(['auth:admin'])->group(function () {
     // سجل رفع المخلفات
     Route::resource('wasteLog', WasteLogController::class);
 
+    //print
+    Route::get('print_wasteLog/{id}', [WasteLogController::class, 'print_wasteLog'])->name('waste');
+
     // اذن صرف الخامات
     Route::resource('exchangeRawMaterials', ExchangeRawMaterialsController::class);
+
+        //print
+        Route::get('print_exchange/{id}', [ExchangeRawMaterialsController::class, 'print_exchange'])->name('exchange');
     #############################################################
 
     // محضر فحص الخامات

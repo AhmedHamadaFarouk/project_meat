@@ -1,5 +1,14 @@
 {{-- error --}}
-@if ($errors->any())
+@if (session()->has('errors'))
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        <strong>{{ session()->get('errors') }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+@endif
+{{-- @if ($errors->any())
     <script>
         window.onload = function() {
             notif({
@@ -14,7 +23,7 @@
             })
         }
     </script>
-@endif
+@endif --}}
 
 {{-- Add --}}
 @if (session()->has('Add'))

@@ -44,17 +44,17 @@
                         <table class="table text-md-nowrap" id="example1">
                             <thead>
                                 <tr>
-                                    <th class="wd-15p border-bottom-0">#</th>
-                                    <th class="wd-25p border-bottom-0">التاريخ</th>
-                                    <th class="wd-25p border-bottom-0">تاريخ الذبح</th>
-                                    <th class="wd-15p border-bottom-0">الفحص الظاهرى </th>
-                                    <th class="wd-25p border-bottom-0">المطابقه</th>
-                                    <th class="wd-15p border-bottom-0"> رقم اذن الذبح</th>
-                                    <th class="wd-20p border-bottom-0">الكميه</th>
+                                    <th class="wd-5p border-bottom-0">#</th>
+                                    <th class="wd-10p border-bottom-0">التاريخ</th>
+                                    <th class="wd-10p border-bottom-0">تاريخ الذبح</th>
+                                    <th class="wd-10p border-bottom-0">الفحص الظاهرى </th>
+                                    <th class="wd-10p border-bottom-0">المطابقه</th>
+                                    <th class="wd-10p border-bottom-0"> رقم اذن الذبح</th>
+                                    <th class="wd-10p border-bottom-0">الكميه</th>
                                     <th class="wd-10p border-bottom-0">اسم المجزر </th>
                                     <th class="wd-10p border-bottom-0">اسم المنتج </th>
-                                    <th class="wd-25p border-bottom-0">ملاحظات</th>
-                                    <th class="wd-25p border-bottom-0">العمليات</th>
+                                    <th class="wd-10p border-bottom-0">ملاحظات</th>
+                                    <th class="wd-10p border-bottom-0">العمليات</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -97,8 +97,7 @@
 
                                                     </a>
 
-                                                    <a class="dropdown-item"
-                                                        href="{{route('print', $row->id)}}"><i
+                                                    <a class="dropdown-item" href="{{ route('print', $row->id) }}"><i
                                                             class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
 
                                                     </a>

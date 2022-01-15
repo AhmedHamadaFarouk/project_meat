@@ -11,7 +11,7 @@
     </style>
 @endsection
 @section('title')
-    الحلال توب فود - معاينه طباعة محضر فحص واستلام لحوم
+    الحلال توب فود - معاينه طباعة اذن اضافه /صرف منتج تام للمخزن
 @stop
 @section('page-header')
     <!-- breadcrumb -->
@@ -19,7 +19,7 @@
         <div class="my-auto">
             <div class="d-flex">
                 <h4 class="content-title mb-0 my-auto">الاذونات والمحاضر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    معاينة طباعة محضر فحص واستلام لحوم</span>
+                    معاينه طباعة اذن اضافه /صرف منتج تام للمخزن</span>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                             <div class="row">
 
                                 <div class="col-9">
-                                    <h2 class="invoice-title"> محضر فحص واستلام لحوم</h2>
+                                    <h2 class="invoice-title"> اذن اضافه /صرف منتج تام للمخزن</h2>
                                     <span class="invoice-title h4"> تاريخ اليوم : {{ date('Y-m-d') }}</span>
                                 </div>
 
@@ -62,13 +62,13 @@
                                     <tr>
                                         <th class="wd-5p">#</th>
                                         <th class="wd-10p">التاريخ</th>
-                                        <th class="wd-10p">تاريخ الذبح </th>
-                                        <th class="wd-15p">الفحص الظاهرى </th>
-                                        <th class="wd-10p">المطابقه</th>
-                                        <th class="wd-10p">رقم اذن الذبح</th>
-                                        <th class="wd-5p">الكميه </th>
-                                        <th class="wd-10p">اسم المجزر</th>
                                         <th class="wd-15p">اسم المنتج </th>
+                                        <th class="wd-5p">الكميه </th>
+                                        <th class="wd-10p">رقم امرالتشغيل  </th>
+                                        <th class="wd-10p">تاريخ التوريد </th>
+                                        <th class="wd-10p">المطابقه</th>
+                                        <th class="wd-15p">الكود  </th>
+                                        <th class="wd-10p">رقم المنتج</th>
                                         <th class="wd-20p"> ملاحظات</th>
                                     </tr>
                                 </thead>
@@ -76,24 +76,14 @@
                                     <tr>
                                         <td>1</td>
                                         <td>{{ $row->date }}</td>
-                                        <td>{{ $row->slaughter_date }}
-                                        </td>
-                                        <td>{{ $row->Virtual_scan }}
-                                        </td>
-                                        <td>{{ $row->type }}
-                                        </td>
-                                        <td>{{ $row->number_ear }}</td>
-                                        <td>{{ $row->quantity }}
-                                        </td>
-                                        <td>{{ $row->slaughterhouse }}
-                                        </td>
-                                        <td>{{ $row->product->name }}
-                                        </td>
-                                        <td>
-                                            {{-- {!!$row->notes !!} --}}
-                                            {!! $row->notes == true ? $row->notes : 'لا توجد ملاحظات' !!}
-                                        </td>
-
+                                        <td>{{ $row->name }}</td>
+                                        <td>{{ $row->quantity }}</td>
+                                        <td>{{ $row->order_number }}</td>
+                                        <td>{{ $row->date_supply }}</td>
+                                        <td>{{$row->type}}</td>
+                                        <td>{{ $row->code }}</td>
+                                        <td>{{ $row->number_product }}</td>
+                                        <td>{!! $row->notes == true ? $row->notes : 'لا توجد ملاحظات' !!}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -125,4 +125,11 @@ class ExchangeRawMaterialsRepository implements ExchangeRawMaterialsRepositoryIn
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+    public function exchange($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_exchange', compact('row'));
+
+    }
 }

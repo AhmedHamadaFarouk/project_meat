@@ -44,14 +44,14 @@ class ExchangeRawRequest extends FormRequest
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'codeJop' => 'required|string|min:2|max:255',
-                        'Quantity' => 'required|numeric|min:2',
-                        'codeProduct' => 'required|string|min:2',
-                        'batchNumber' => 'required|string|min:2',
-                        'dataProduction' => 'required|date',
-                        'dataFinished' => 'required|date',
+                        'codeJop' => 'nullable|string|min:2|max:255',
+                        'Quantity' => 'nullable|numeric|min:2',
+                        'codeProduct' => 'nullable|string|min:2',
+                        'batchNumber' => 'nullable|string|min:2',
+                        'dataProduction' => 'nullable|date',
+                        'dataFinished' => 'nullable|date',
                         'notes' => 'nullable|string|min:2',
-                        'product_id' => 'required|exists:products,id',
+                        'product_id' => 'nullable|exists:products,id',
                     ];
                 }
             default:
