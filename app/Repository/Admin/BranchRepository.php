@@ -38,7 +38,7 @@ class BranchRepository implements BranchRepositoryInterface
 
     public function store($request,  $fileName = null)
     {
-        // try {
+        try {
         $data = new $this->modelName;
         $data->name = $request->name;
         $data->address = $request->address;
@@ -52,9 +52,9 @@ class BranchRepository implements BranchRepositoryInterface
         $data->save();
         session()->flash('Add', 'تم الاضافه بنجاح');
         return redirect($this->routes);
-        // } catch (\Exception $e) {
-        //return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        //   }
+        } catch (\Exception $e) {
+        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+          }
     }
 
     public function show($id)

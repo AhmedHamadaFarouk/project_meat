@@ -1,25 +1,15 @@
-@extends('layouts.master')
-@section('title')
-الحلال توب فود - اضافه  فرع
-@endsection
-@section('css')
-@endsection
+@extends('layouts.master') @section('title') الحلال توب فود - اضافه فرع @endsection @section('css') @endsection
 @section('page-header')
 <!-- breadcrumb -->
 <div class="breadcrumb-header justify-content-between">
     <div class="my-auto">
         <div class="d-flex">
-            <h4 class="content-title mb-0 my-auto">الاعدادات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-    اضافه فرع</span>
+            <h4 class="content-title mb-0 my-auto">الاعدادات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ اضافه
+                فرع</span>
         </div>
     </div>
 </div>
-<!-- breadcrumb -->
-
-@endsection
-
-@section('content')
-@include('notify')
+<!-- breadcrumb --> @endsection @section('content') @include('admin.Branch.notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -28,8 +18,7 @@
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-success" data-toggle="modal" data-target="#create">اضافه فرع</button>
-                    </div>
-                    @include('admin.Branch.create')
+                    </div> @include('admin.Branch.create')
                 </div>
             </div>
             <div class="card-body">
@@ -44,23 +33,18 @@
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($data as $row )
-                            <tr>
+                        <tbody> @foreach ($data as $row ) <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->address}}</td>
                                 <td>{{$row->user->name}}</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>
-                                </td>
-                                @include('admin.Branch.edit')
-                               @include('admin.Branch.deleted')
-                            </tr>
-                            @endforeach
-
-                        </tbody>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal"
+                                        data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal"
+                                        data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>
+                                </td> @include('admin.Branch.edit') @include('admin.Branch.deleted')
+                            </tr> @endforeach </tbody>
                     </table>
                 </div>
             </div>
@@ -70,14 +54,11 @@
 </div>
 <!-- Container closed -->
 </div>
-<!-- main-content closed -->
-@endsection
-@section('js')
-    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-    <script>
-        CKEDITOR.editorConfig = function(config) {
+<!-- main-content closed --> @endsection @section('js') <script
+    src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.editorConfig = function(config) {
             config.extraPlugins = 'imageuploader';
         };
         CKEDITOR.replaceClass = 'softeditor';
-    </script>
-@endsection
+</script> @endsection

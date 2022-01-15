@@ -29,12 +29,6 @@
 
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col">
-                            <label>ملاحظات</label>
-                            <textarea class="form-control softeditor" name="notes" rows="5"></textarea>
-                        </div>
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                         <button class="btn btn-primary">حفظ</button>

@@ -3,13 +3,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">تعديل بنك</h5>
+                <h5 class="modal-title" id="exampleModalLabel">تعديل مخزن</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('bank.update','test')}}" method="POST" autocomplete="off">
+                <form action="{{route('store.update','test')}}" method="POST" autocomplete="off">
                     @method('PUT')
                     @csrf
 
@@ -20,36 +20,33 @@
 
                     <div class="row">
                         <div class="col">
-                            <label>اسم البنك</label>
+                            <label>اسم المخزن</label>
                             <input type="text" name="name" class="form-control @error('name') is-invliad @enderror" value="{{$row->name}}">
                         </div>
                     </div>
+
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label>السعر</label>
-                            <input type="number" name="price" class="form-control @error('price') is-invliad @enderror" value="{{$row->price}}">
+                            <label>العنوان</label>
+                            <input type="text" name="address" class="form-control @error('address') is-invliad @enderror" value="{{$row->address}}">
                         </div>
                     </div>
                     <br>
+
+
                     <div class="row">
                         <div class="col">
-                            <label>رقم الحساب</label>
-                            <input type="text" name="number_bank" class="form-control @error('number_bank') is-invliad @enderror" value="{{$row->number_bank}}">
+                            <label>الفرع</label>
+                            <select class="form-control" name="branch_id">
+                                 @foreach ($branches as $branche )
+                                 <option value="{{$branche->id}}" {{$branche->id == $row->branch_id ? 'selected' : ''}}>{{$branche->name}}</option> @endforeach
+                            </select>
                         </div>
                     </div>
+
                     <br>
-                    <div class="row">
-                        <div class="col">
-                            <label>ملاحظات</label>
-                            <textarea class="form-control softeditor" name="notes" rows="5">
 
-
-                               {{$row->notes}}
-
-                            </textarea>
-                        </div>
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
                         <button class="btn btn-primary">حفظ</button>

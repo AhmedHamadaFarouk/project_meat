@@ -3,20 +3,20 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">اضافه بنك</h5>
+                <h5 class="modal-title" id="exampleModalLabel">اضافه مخزن</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
 
-                <form action="{{route('bank.store')}}" method="POST" autocomplete="off">
+                <form action="{{route('store.store')}}" method="POST" autocomplete="off">
                     @csrf
                     {{-- page 419 --}}
 
                     <div class="row">
                         <div class="col">
-                            <label>اسم البنك</label>
+                            <label>اسم المخزن</label>
                             <input type="text" name="name" class="form-control @error('name') is-invliad @enderror" required>
                         </div>
                     </div>
@@ -25,8 +25,8 @@
 
                     <div class="row">
                         <div class="col">
-                            <label>السعر</label>
-                              <input type="number" name="price" class="form-control @error('price') is-invliad @enderror" required>
+                            <label>العنوان</label>
+                              <input type="text" name="address" class="form-control @error('address') is-invliad @enderror" required>
                         </div>
                     </div>
 
@@ -35,18 +35,16 @@
 
                     <div class="row">
                         <div class="col">
-                            <label>رقم الحساب</label>
-                             <input type="text" name="number_bank" class="form-control @error('number_bank') is-invliad @enderror" required>
+                            <label>الفرع</label>
+                            <select class="form-control" name="branch_id">
+                                <option value="" disabled selected>اختر من القائمه</option>
+                                    @foreach ($branches as $branche )
+                                    <option value="{{$branche->id}}">{{$branche->name}}</option>
+                                    @endforeach
+                            </select>
                         </div>
                     </div>
-
                     <br>
-                    <div class="row">
-                        <div class="col">
-                            <label>ملاحظات</label>
-                            <textarea class="form-control softeditor" name="notes" rows="5"></textarea>
-                        </div>
-                    </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>

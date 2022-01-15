@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-الحلال توب فود - اضافه بنك
+الحلال توب فود - اضافه مخزن
 @endsection
 @section('css')
 @endsection
@@ -10,7 +10,7 @@
     <div class="my-auto">
         <div class="d-flex">
             <h4 class="content-title mb-0 my-auto">الاعدادات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                اضافه بنك</span>
+                اضافه مخزن</span>
         </div>
     </div>
 </div>
@@ -26,9 +26,9 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-success" data-toggle="modal" data-target="#create">اضافه بنك</button>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#create">اضافه مخزن</button>
                     </div>
-                    @include('admin.Bank.create')
+                    @include('admin.Store.create')
                 </div>
             </div>
             <div class="card-body">
@@ -37,10 +37,10 @@
                         <thead>
                             <tr>
                                 <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0">اسم البنك</th>
-                                <th class="wd-20p border-bottom-0">السعر</th>
-                                <th class="wd-15p border-bottom-0">رقم الحساب</th>
-                                <th class="wd-10p border-bottom-0">ملاحظات</th>
+                                <th class="wd-15p border-bottom-0">اسم المخزن</th>
+                                <th class="wd-20p border-bottom-0">العنوان</th>
+                                <th class="wd-15p border-bottom-0">المستخدم</th>
+                                <th class="wd-10p border-bottom-0">الفرع</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>
                         </thead>
@@ -49,15 +49,16 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->name}}</td>
-                                <td>{{$row->price}}</td>
-                                <td>{{$row->number_bank}}</td>
-                                <td>{{$row->notes == true ? $row->notes : 'لا توجد ملاحظات'}}</td>
+                                <td>{{$row->address}}</td>
+                                <td>{{$row->user->name}}</td>
+                                <td>{{$row->branch->name}}</td>
+
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>
                                 </td>
-                                @include('admin.Bank.edit')
-                               @include('admin.Bank.deleted')
+                                @include('admin.Store.edit')
+                               @include('admin.Store.deleted')
                             </tr>
                             @endforeach
 
