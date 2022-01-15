@@ -34,7 +34,13 @@
                 <div class="card card-invoice">
                     <div class="card-body">
                         <div class="invoice-header">
-                            <h1 class="invoice-title"> محضر فحص واستلام لحوم</h1>
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="invoice-title"> محضر فحص واستلام لحوم</h1>
+                                   <span class="invoice-title h2"> {{date('Y-m-d')}}</span>
+                                </div>
+                            </div>
+
 
                         </div><!-- invoice-header -->
 
