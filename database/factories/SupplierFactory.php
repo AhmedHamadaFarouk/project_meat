@@ -16,7 +16,6 @@ class SupplierFactory extends Factory
         return [
             "name" => $this->faker->name,
             "phone" => $this->faker->name,
-            "suppliers" => $this->faker->name,
         ];
     }
 }

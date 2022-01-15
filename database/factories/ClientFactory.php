@@ -15,10 +15,10 @@ class ClientFactory extends Factory
     {
         return [
             "name" => $this->faker->name,
-            "phone" => $this->faker->name,
+            "phone" => $this->faker->randomElement([100, 200, 300, 400, 500, 600, 700, 800]),
             "address" => $this->faker->name,
             "max_price" => $this->faker->randomElement([100,200,300,400,500,600,700,800]),
-            "notes" => $this->faker->phoneNumber,
+            "notes" => $this->faker->name,
         ];
     }
 }

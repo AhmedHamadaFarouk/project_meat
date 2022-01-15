@@ -17,8 +17,12 @@ class CreateBranchesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
+<<<<<<< HEAD
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->softDeletes();
+=======
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+>>>>>>> 7febc5a16e74b811b8c88fd4dbf177d9d263c5ab
             $table->timestamps();
         });
     }

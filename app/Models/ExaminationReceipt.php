@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ExaminationReceipt extends Model
 {
     use HasFactory;
-    use softDeletes;
+
 
     protected $fillable = [
         "date",

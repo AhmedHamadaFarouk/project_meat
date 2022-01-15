@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -68,6 +69,9 @@ Route::middleware(['auth:admin'])->group(function () {
     // محضر فحص و استلام  لحوم
     Route::resource('examination_receipt', ExaminationReceipt::class);
 
+    //print
+    Route::get('print_examination/{id}', [ExaminationReceipt::class, 'print_examination'])->name('print');
+
     // سجل رفع المخلفات
     Route::resource('wasteLog', WasteLogController::class);
 
@@ -77,7 +81,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
     // محضر فحص الخامات
     Route::resource('materialInspection', MaterialInspectionController::class);
-
+    #######
     // محضر فحص مواد التنظيف و التطهير
     Route::resource('disinfectionMaterials', DisinfectionMaterialsController::class);
 
@@ -93,4 +97,4 @@ Route::middleware(['auth:admin'])->group(function () {
 
 
 
-Route::get('/{page}', [AdminController::class,'index']);
+Route::get('/{page}', [AdminController::class, 'index']);

@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class WasteLog extends Model
 {
     use HasFactory;
-    use softDeletes;
 
     protected $fillable = [
        "date",

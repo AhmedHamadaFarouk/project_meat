@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class DispensePacking extends Model
 {
     use HasFactory;
-    use softDeletes;
+
 
     protected $fillable = [
         'date',
