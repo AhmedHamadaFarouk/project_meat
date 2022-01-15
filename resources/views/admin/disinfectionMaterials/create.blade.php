@@ -20,18 +20,14 @@
                             <input type="date" name="date" class="form-control @error('date') is-invliad @enderror" required>
                         </div>
 
-                         <div class="col-md">
+                        <div class="col-md">
                             <div class="form-group mb-2">
-                                <label class="my-1 mr-2"
-                                    for="inlineFormCustomSelectPref">اسم الصنف
-                                    </label>
-                                <select name="product_id" id="product_id"
-                                    class="form-control" required>
-                                    <option value="" selected disabled>
-                                        اسم الصنف </option>
+                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم الصنف
+                                </label>
+                                <select name="product_id" id="product_id" class="form-control" required>
+                                    <option value="" selected disabled>اسم الصنف</option>
                                     @foreach ($product as $data)
-                                        <option value="{{ $data->id }}">
-                                            {{ $data->name }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -72,7 +68,7 @@
                         <div class="col">
                             <label for="inputName" class="control-label">المطابقه </label>
                             <select name="type" class="form-control">
-                                <option readonly>اختار</option>
+                                <option disabled selected>اختار</option>
                                 <option value="acceptable">مطابق</option>
                                 <option value="unacceptable">غير مطابق</option>
                             </select>

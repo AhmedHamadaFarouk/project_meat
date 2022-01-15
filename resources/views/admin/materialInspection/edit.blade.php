@@ -90,7 +90,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <label>الصور</label>
+                            <label>المرفقات</label>
                             <textarea class="form-control softeditor" name="photo" rows="5">
 
                                 {{$row->photo}}

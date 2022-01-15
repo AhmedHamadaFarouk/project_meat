@@ -23,6 +23,5 @@ class AdminSeeder extends Seeder
         $admins->phone = "01111289180";
         $admins->password = \Hash::make(123456789);
         $admins->save();
-
     }
 }

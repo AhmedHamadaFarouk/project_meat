@@ -23,30 +23,19 @@
                             <input type="date" name="date" class="form-control @error('date') is-invliad @enderror" value="{{$row->date}}">
                         </div>
 
-                        <div class="col-md">
+                       <div class="col-md">
                             <div class="form-group mb-2">
-                                <label class="my-1 mr-2"
-                                    for="inlineFormCustomSelectPref">اسم الصنف
-                                    </label>
-                                <select name="product_id" id="product_id"
-                                    class="form-control" required>
-                                    <option value="" selected disabled>
-                                        اسم الصنف </option>
+                                <label>اسم الصنف</label>
+                                <select name="product_id" id="product_id" class="form-control" >
                                     @foreach ($product as $data)
-                                        <option value="{{ $data->id }}">
-                                            {{ $data->name }}</option>
+                                        <option value="{{ $data->id }}" {{$data->id == $row->product_id ? 'selected' : ''}}>{{ $data->name }}</option>
                                     @endforeach
-
-                                    {{$row->product}}
-
                                 </select>
                             </div>
                         </div>
                     </div>
 
-
                     <br>
-
 
                     <div class="row">
                         <div class="col-4">

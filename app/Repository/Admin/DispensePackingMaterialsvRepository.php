@@ -40,9 +40,9 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
 
     public function store($request,  $fileName = null)
     {
-      //  try {
+        try {
             $data = new $this->modelName;
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->supplydate = $request->supplydate;
             $data->workordernumber = $request->workordernumber;
             $data->type = $request->type;
@@ -60,9 +60,9 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
             $data->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
             return redirect($this->routes);
-        //} catch (\Exception $e) {
-           // return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        //}
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     public function show($id)
@@ -91,9 +91,9 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
     public function update($request, $fileName = null)
     {
 
-     //try {
+    try {
             $data = $this->modelName::findorfail($request->id);
-            $data->date = $request->date;
+            $data->date = date('Y-m-d');
             $data->supplydate = $request->supplydate;
             $data->workordernumber = $request->workordernumber;
             $data->type = $request->type;
@@ -114,16 +114,16 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
 
 
             return redirect($this->routes);
-        //} catch (\Exception $e) {
-         //  return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-       // }
+       } catch (\Exception $e) {
+          return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+       }
     }
 
     public function destroy($request)
     {
         try {
             $this->modelName::destroy($request->id);
-            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
+           // unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
             session()->flash('danger', 'تم الحذف بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {

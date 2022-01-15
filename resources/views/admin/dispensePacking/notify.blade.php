@@ -1,4 +1,4 @@
-{{-- error --}} 
+{{-- error --}}
 @if ($errors->any())
     <script>
         window.onload = function() {

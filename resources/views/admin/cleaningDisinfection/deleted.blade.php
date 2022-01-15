@@ -19,10 +19,9 @@
 
                     <div class="row">
                         <div class="col-4">
-                            <label>كود الصنف</label>
-                             <input type="text" name="codeProduct" class="form-control @error('codeProduct') is-invliad @enderror"  value="{{$row->codeProduct}}" readonly>
+                            <label>اسم الصنف</label>
+                             <input type="text" name="product_id" id="product_id" class="form-control @error('product_id') is-invliad @enderror" value="{{$row->product->name }}" readonly>
                         </div>
-
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
