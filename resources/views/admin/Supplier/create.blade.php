@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="{{route('client.store')}}" method="POST" autocomplete="off">
+                <form action="{{route('supplier.store')}}" method="POST" autocomplete="off">
                     @csrf
                     {{-- page 419 --}}
 
