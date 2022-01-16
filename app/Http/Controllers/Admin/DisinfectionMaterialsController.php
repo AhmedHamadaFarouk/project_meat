@@ -93,4 +93,10 @@ class DisinfectionMaterialsController extends Controller
     {
        return $this->data->destroy($request);
     }
+
+    public function print_disinfection($id)
+    {
+         return $this->data->disinfection($id);
+
+    }
 }

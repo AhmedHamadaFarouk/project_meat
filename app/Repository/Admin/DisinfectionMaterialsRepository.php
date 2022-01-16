@@ -128,4 +128,11 @@ class DisinfectionMaterialsRepository implements DisinfectionMaterialsRepository
         }
 
     }
+
+    public function disinfection($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_disinfection', compact('row'));
+
+    }
 }

@@ -93,4 +93,10 @@ class DispensePackingMaterialsvController extends Controller
     {
        return $this->data->destroy($request);
     }
+
+    public function print_dispense($id)
+    {
+         return $this->data->dispense($id);
+
+    }
 }

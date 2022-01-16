@@ -130,4 +130,11 @@ class MaterialInspectionRepository implements MaterialInspectionRepositoryInterf
         }
 
     }
+
+    public function material($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_material', compact('row'));
+
+    }
 }

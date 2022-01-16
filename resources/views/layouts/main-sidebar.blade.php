@@ -57,7 +57,7 @@
                     <li><a class="slide-item" href="{{ route('wasteLog.index')}}">سجل رفع المخلفات</a></li>
                     <li><a class="slide-item" href="{{ route('exchangeRawMaterials.index')}}">اذن صرف الخامات</a></li>
                     <li><a class="slide-item" href="{{ route('materialInspection.index')}}">محضر فحص الخامات</a></li>
-                    <li><a class="slide-item" href="{{ route('disinfectionMaterials.index')}}">امحضر فحص مواد التنظيف و التطهير</a></li>
+                    <li><a class="slide-item" href="{{ route('disinfectionMaterials.index')}}">محضر فحص مواد التنظيف و التطهير</a></li>
                     <li><a class="slide-item" href="{{ route('cleaningDisinfection.index') }}">اذن صرف مواد التنظيف و التطهير</a></li>
                     <li><a class="slide-item" href="{{ route('dispensePacking.index') }}">اذن صرف مواد تعبئة و تغليف</a></li>
                     </li>

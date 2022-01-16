@@ -131,4 +131,10 @@ class DispensePackingMaterialsvRepository implements DispensePackingMaterialsvRe
         }
 
     }
+    public function dispense($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_dispense', compact('row'));
+
+    }
 }

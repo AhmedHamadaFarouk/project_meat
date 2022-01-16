@@ -128,4 +128,11 @@ class CleaningDisinfectionRepository implements CleaningDisinfectionRepositoryIn
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+    public function clean($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_cleaning', compact('row'));
+
+    }
 }

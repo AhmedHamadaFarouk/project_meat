@@ -93,4 +93,10 @@ class MaterialInspectionController extends Controller
     {
        return $this->data->destroy($request);
     }
+
+    public function print_material($id)
+    {
+         return $this->data->material($id);
+
+    }
 }

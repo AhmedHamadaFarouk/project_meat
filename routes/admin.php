@@ -84,20 +84,33 @@ Route::middleware(['auth:admin'])->group(function () {
     // اذن صرف الخامات
     Route::resource('exchangeRawMaterials', ExchangeRawMaterialsController::class);
 
-        //print
-        Route::get('print_exchange/{id}', [ExchangeRawMaterialsController::class, 'print_exchange'])->name('exchange');
+    //print
+    Route::get('print_exchange/{id}', [ExchangeRawMaterialsController::class, 'print_exchange'])->name('exchange');
     #############################################################
 
     // محضر فحص الخامات
     Route::resource('materialInspection', MaterialInspectionController::class);
+
+        //print
+        Route::get('print_material/{id}', [MaterialInspectionController::class, 'print_material'])->name('material');
+
     // محضر فحص مواد التنظيف و التطهير
     Route::resource('disinfectionMaterials', DisinfectionMaterialsController::class);
+
+    //print
+    Route::get('print_disinfection/{id}', [DisinfectionMaterialsController::class, 'print_disinfection'])->name('disinfection');
 
     // اذن صرف مواد التنظيف و التطهير
     Route::resource('cleaningDisinfection', CleaningDisinfectionController::class);
 
+    //print
+    Route::get('print_cleaning/{id}', [CleaningDisinfectionController::class, 'print_cleaning'])->name('clean');
+
     // اذن صرف مواد تعبئة و تغليف
     Route::resource('dispensePacking', DispensePackingMaterialsvController::class);
+
+        //print
+        Route::get('print_dispense/{id}', [DispensePackingMaterialsvController::class, 'print_dispense'])->name('dispense');
     #############################################################
 
 });

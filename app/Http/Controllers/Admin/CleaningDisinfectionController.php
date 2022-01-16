@@ -93,4 +93,10 @@ class CleaningDisinfectionController extends Controller
     {
        return $this->data->destroy($request);
     }
+
+    public function print_cleaning($id)
+    {
+         return $this->data->clean($id);
+
+    }
 }
