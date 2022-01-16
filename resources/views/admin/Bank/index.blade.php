@@ -20,7 +20,7 @@
 
 
 @section('content')
-@include('admin.Bank.notify')
+    @include('notify')
 
 <!-- row -->
 <div class="row">
@@ -54,7 +54,12 @@
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->price}}</td>
                                 <td>{{$row->number_bank}}</td>
-                                <td>{{$row->notes == true ? $row->notes : 'لا توجد ملاحظات'}}</td>
+                                <td>
+
+                                   @if($row->notes == true) {!!$row->notes!!} @else <p class="text-danger">لا توجد ملاحظات</p> @endif
+
+
+                                </td>
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>

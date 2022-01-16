@@ -12,7 +12,7 @@
 <!-- breadcrumb -->
  @endsection
   @section('content')
-   @include('admin.Branch.notify')
+      @include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">

@@ -42,9 +42,7 @@
                                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم المنتج</label>
                                 <select name="product_id" id="product_id" class="form-control">
                                     @foreach ($product as $data)
-                                        <option value="{{ $data->id }}"
-                                            {{ $data->id == $row->product_id ? 'selected' : '' }}>
-                                            {{ $data->name }}</option>
+                                        <option value="{{ $data->id }}" {{ $data->id == $row->product_id ? 'selected' : '' }}> {{ $data->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -59,7 +57,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col">
                             <label for="inputName" class="control-label"> مطابق</label>
 
                             <select name="type" class="form-control">

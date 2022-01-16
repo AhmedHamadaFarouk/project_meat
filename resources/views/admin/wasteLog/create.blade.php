@@ -57,10 +57,9 @@
 
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col">
                             <label for="inputName" class="control-label"> مطابق</label>
-
-                            <select name="type" class="form-control">
+                            <select name="type" class="form-control" required>
                                 <option value="" selected disabled>اختار</option>
                                 <option value="organic">عضوى</option>
                                 <option value="non_organic">غير عضوى</option>

@@ -20,7 +20,7 @@
 @endsection
 
 @section('content')
- @include('admin.materialInspection.notify')
+    @include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -35,20 +35,20 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                     <table  class="table table-bordered" data-page-length='50'id="example1">
+                     <table  class="table text-md-nowrap" id="example1">
                         <thead>
                             <tr>
                                 <th >#</th>
-                                <th class="wd-10p border-bottom-0"> التاريخ</th>
-                                <th class="wd-10p border-bottom-0">اسم الصنف</th>
-                                <th class="wd-15p border-bottom-0">الكمية </th>
-                                <th class="wd-10p border-bottom-0">كود الصنف</th>
-                                <th class="wd-10p border-bottom-0">رقم التشغيلة </th>
-                                <th class="wd-10p border-bottom-0">تاريخ الانتاج</th>
-                                <th class="wd-10p border-bottom-0">تاريخ الانتهاء</th>
-                                <th class="wd-10p border-bottom-0">المطابقة</th>
-                                <th class="wd-15p border-bottom-0">مرفقات</th>
-                                <th class="wd-20p border-bottom-0">العمليات</th>
+                                <th> التاريخ</th>
+                                <th>اسم الصنف</th>
+                                <th>الكمية </th>
+                                <th>كود الصنف</th>
+                                <th>رقم التشغيلة </th>
+                                <th>تاريخ الانتاج</th>
+                                <th>تاريخ الانتهاء</th>
+                                <th>المطابقة</th>
+                       
+                                <th>العمليات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,7 +70,7 @@
                                     @endif
                                 </td>
 
-                                <td>{{$row->photo}}</td>
+                                {{-- <td>{{$row->photo}}</td> --}}
                                 <td>
                                     <div class="dropdown">
                                         <button aria-expanded="false" aria-haspopup="true"

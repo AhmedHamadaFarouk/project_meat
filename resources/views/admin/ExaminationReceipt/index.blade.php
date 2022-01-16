@@ -23,7 +23,7 @@
 
 @section('content')
 
-    @include('admin.ExaminationReceipt.notify')
+    @include('notify')
 
     <!-- row -->
     <div class="row">

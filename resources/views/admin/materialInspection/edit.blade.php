@@ -87,7 +87,7 @@
                     </div>
 
                     <br>
-
+{{-- 
                     <div class="row">
                         <div class="col">
                             <label>المرفقات</label>
@@ -96,7 +96,7 @@
                                 {{$row->photo}}
                             </textarea>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
