@@ -15,16 +15,10 @@
                     {{-- page 419 --}}
 
                     <div class="row">
-                        <div class="col-6">
-                            <label> التاريخ</label>
-                            <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
-                                required>
-                        </div>
-
-                        <div class="col-6">
+                        <div class="col">
                             <label>اسم المنتج</label>
                             <input type="text" name="name" class="form-control @error('name') is-invliad @enderror"
-                                required>
+                                required value="{{old('name')}}">
                         </div>
 
                     </div>
@@ -35,13 +29,13 @@
                         <div class="col-6">
                             <label>الكميه</label>
                             <input type="number" name="quantity"
-                                class="form-control @error('quantity') is-invliad @enderror" required>
+                                class="form-control @error('quantity') is-invliad @enderror" required value="{{old('quantity')}}">
                         </div>
 
                         <div class="col-6">
                             <label>رقم امر التشغيل</label>
                             <input type="text" name="order_number"
-                                class="form-control @error('order_number') is-invliad @enderror" required>
+                                class="form-control @error('order_number') is-invliad @enderror" required value="{{old('order_number')}}">
                         </div>
 
 
@@ -52,7 +46,7 @@
                         <div class="col-6">
                             <label>تاريخ التوريد</label>
                             <input type="date" name="date_supply"
-                                class="form-control @error('date_supply') is-invliad @enderror" required>
+                                class="form-control @error('date_supply') is-invliad @enderror" required value="{{old('date_supply')}}">
                         </div>
 
                         <div class="col-6">
@@ -72,13 +66,13 @@
                         <div class="col">
                             <label> الكود</label>
                             <input type="text" name="code" class="form-control @error('code') is-invliad @enderror"
-                                required>
+                                required value="{{old('code')}}">
                         </div>
 
                         <div class="col">
                             <label>رقم المنتج</label>
                             <input type="text" name="number_product"
-                                class="form-control @error('number_product') is-invliad @enderror" required>
+                                class="form-control @error('number_product') is-invliad @enderror" required value="{{old('number_product')}}">
                         </div>
                     </div>
 

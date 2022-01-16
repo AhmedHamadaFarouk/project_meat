@@ -20,7 +20,7 @@
 @endsection
 
 @section('content')
- @include('admin.cleaningDisinfection.notify')
+    @include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -36,20 +36,20 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table  class="table text-md-nowrap table-bordered" data-page-length='50' id="example1">
+                    <table  class="table text-md-nowrap"  id="example1">
                         <thead>
                             <tr>
-                                <th class="wd-10p border-bottom-0">#</th>
-                                <th class="wd-10p border-bottom-0"> التاريخ</th>
-                                <th class="wd-10p border-bottom-0">اسم الصنف</th>
-                                <th class="wd-10p border-bottom-0">الكمية </th>
-                                <th class="wd-10p border-bottom-0">كود الصنف</th>
-                                <th class="wd-10p border-bottom-0">رقم التشغيلة </th>
-                                <th class="wd-10p border-bottom-0">تاريخ الانتاج</th>
-                                <th class="wd-10p border-bottom-0">تاريخ الانتهاء</th>
-                                <th class="wd-10p border-bottom-0">PH</th>
-                                <th class="wd-15p border-bottom-0">ملاحظات</th>
-                                <th class="wd-15p border-bottom-0">العمليات</th>
+                                <th>#</th>
+                                <th> التاريخ</th>
+                                <th>اسم الصنف</th>
+                                <th>الكمية </th>
+                                <th>كود الصنف</th>
+                                <th>رقم التشغيلة </th>
+                                <th>تاريخ الانتاج</th>
+                                <th>تاريخ الانتهاء</th>
+                                <th>PH</th>
+                                <th>ملاحظات</th>
+                                <th>العمليات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,7 +64,7 @@
                                 <td>{{$row->dataProduction}}</td>
                                 <td>{{$row->dataFinished}}</td>
                                 <td>{{$row->PH}}</td>
-                                <td>{{$row->notes == true ? $row->notes : 'لا توجد ملاحظات'}}</td>
+                                <td>@if($row->notes == true) {!!$row->notes!!} @else <p class="text-danger">لا توجد ملاحظات</p> @endif</td>
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>

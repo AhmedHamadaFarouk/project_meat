@@ -21,7 +21,7 @@
 
 @section('content')
 
-    @include('admin.exchangeRawMaterials.notify')
+    @include('notify')
 
     <!-- row -->
     <div class="row">
@@ -42,17 +42,17 @@
                         <table class="table text-md-nowrap" id="example1">
                             <thead>
                                 <tr>
-                                    <th class="wd-15p border-bottom-0">#</th>
-                                    <th class="wd-25p border-bottom-0">التاريخ</th>
-                                    <th class="wd-25p border-bottom-0">رقم امر الشغل </th>
-                                    <th class="wd-15p border-bottom-0"> اسم المنتج</th>
-                                    <th class="wd-25p border-bottom-0">الكميه</th>
-                                    <th class="wd-15p border-bottom-0">كود المنتج</th>
-                                    <th class="wd-20p border-bottom-0">رقم الباتش</th>
-                                    <th class="wd-10p border-bottom-0">تاريخ الانتاج  </th>
-                                    <th class="wd-10p border-bottom-0">تاريخ الانتهاء  </th>
-                                    <th class="wd-25p border-bottom-0">ملاحظات</th>
-                                    <th class="wd-25p border-bottom-0">العمليات</th>
+                                    <th>#</th>
+                                    <th>التاريخ</th>
+                                    <th>رقم امر الشغل </th>
+                                    <th> اسم المنتج</th>
+                                    <th>الكميه</th>
+                                    <th>كود المنتج</th>
+                                    <th>رقم الباتش</th>
+                                    <th>تاريخ الانتاج  </th>
+                                    <th>تاريخ الانتهاء  </th>
+                                    <th>ملاحظات</th>
+                                    <th>العمليات</th>
                                 </tr>
                             </thead>
                             <tbody>

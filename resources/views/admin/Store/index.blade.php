@@ -19,6 +19,7 @@
 @endsection
 
 @section('content')
+@include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -39,7 +40,7 @@
                                 <th class="wd-15p border-bottom-0">#</th>
                                 <th class="wd-15p border-bottom-0">اسم المخزن</th>
                                 <th class="wd-20p border-bottom-0">العنوان</th>
-                              
+
                                 <th class="wd-10p border-bottom-0">الفرع</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
                             </tr>

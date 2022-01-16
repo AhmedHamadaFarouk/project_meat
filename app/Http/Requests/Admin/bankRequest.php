@@ -40,7 +40,7 @@ class bankRequest extends FormRequest
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'name' => 'nullable|string|min:2|max:255|unique:banks,name,',
+                        'name' => 'nullable|string|min:2|max:255',
                         'price' => 'nullable|numeric|min:2',
                         'number_bank' => 'nullable|min:2',
                         'notes' => 'nullable|string|min:2',

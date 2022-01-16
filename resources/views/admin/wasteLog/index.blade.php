@@ -19,7 +19,7 @@
 @endsection
 
 @section('content')
-    @include('admin.wasteLog.notify')
+    @include('notify')
 
     <!-- row -->
     <div class="row">
@@ -68,7 +68,13 @@
                                             @endif
                                         </td>
 
-                                        <td>{{ $row->notes == true ? $row->notes : 'لا توجد ملاحظات' }}</td>
+                                        <td>
+
+
+                                          @if($row->notes == true) {!!$row->notes!!} @else <p class="text-danger">لا توجد ملاحظات</p> @endif
+
+
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button aria-expanded="false" aria-haspopup="true"
