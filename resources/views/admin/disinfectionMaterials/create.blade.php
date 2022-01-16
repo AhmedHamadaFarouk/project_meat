@@ -76,13 +76,13 @@
                     </div>
 
                     <br>
-
+{{-- 
                     <div class="row">
                         <div class="col">
                             <label>الصور</label>
                             <textarea class="form-control softeditor" name="photo" rows="5"></textarea>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>

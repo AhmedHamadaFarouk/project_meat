@@ -120,4 +120,11 @@ class WasteLogRepository implements WasteLogRepositoryInterface
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+    public function waste($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_waste', compact('row'));
+
+    }
 }

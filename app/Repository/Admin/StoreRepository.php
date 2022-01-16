@@ -89,7 +89,7 @@ class StoreRepository implements StoreRepositoryInterface
             $data = $this->modelName::findorfail($request->id);
             $data->name = $request->name;
             $data->address = $request->address;
-          
+
             $data->branch_id = $request->branch_id;
             $photo = request()->file('photo');
             if ($photo) {
@@ -112,7 +112,7 @@ class StoreRepository implements StoreRepositoryInterface
     {
         try {
             $this->modelName::destroy($request->id);
-            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
+            // unlink(base_path('public/storage/' . $this->folderImageName . '/' . $request->photo));
             session()->flash('danger', 'تم الحذف بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {

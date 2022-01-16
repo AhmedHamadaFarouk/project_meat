@@ -77,7 +77,8 @@ class ProductRepository implements \App\Interfaces\Admin\ProductRepositoryInterf
             $data = $this->modelName::findorfail($id);
             return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('data'));
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage(),
+        ]);
         }
     }
 
@@ -123,5 +124,12 @@ class ProductRepository implements \App\Interfaces\Admin\ProductRepositoryInterf
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function product($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_product', compact('row'));
+
     }
 }

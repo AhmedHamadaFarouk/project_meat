@@ -53,18 +53,13 @@
                 <ul class="slide-menu">
                     <li><a class="slide-item" href="{{ route('products.index') }}">اذن إضافة / صرف منتج تام للمخزن</a> </li>
                     <li><a class="slide-item" href="{{ route('examination_receipt.index') }}">محضر فحص و استلام لحوم</a> </li>
-                    <li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">امر شغل</a></li>
+                    {{-- <li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">امر شغل</a></li> --}}
                     <li><a class="slide-item" href="{{ route('wasteLog.index')}}">سجل رفع المخلفات</a></li>
                     <li><a class="slide-item" href="{{ route('exchangeRawMaterials.index')}}">اذن صرف الخامات</a></li>
                     <li><a class="slide-item" href="{{ route('materialInspection.index')}}">محضر فحص الخامات</a></li>
                     <li><a class="slide-item" href="{{ route('disinfectionMaterials.index')}}">امحضر فحص مواد التنظيف و التطهير</a></li>
                     <li><a class="slide-item" href="{{ route('cleaningDisinfection.index') }}">اذن صرف مواد التنظيف و التطهير</a></li>
                     <li><a class="slide-item" href="{{ route('dispensePacking.index') }}">اذن صرف مواد تعبئة و تغليف</a></li>
-                    <li><a class="slide-item" href="{{ route('exchangeRawMaterials.index') }}">اذن صرف الخامات</a></li>
-                    <li><a class="slide-item" href="{{ route('materialInspection.index') }}">محضر فحص الخامات</a></li>
-                    <li><a class="slide-item" href="{{ route('disinfectionMaterials.index') }}">امحضر فحص مواد التنظيف و التطهير</a></li>
-                    <li><a class="slide-item" href="{{ route('cleaningDisinfection.index') }}">اذن صرف مواد التنظيف و التطهير</a></li>
-                    <li><a class="slide-item" href="{{ route('dispensePacking.index') }}">اذن صرف مواد تعبئة و تغليف</a>
                     </li>
                 </ul>
             </li>
@@ -124,7 +119,9 @@
                 <li><a class="slide-item" href="{{ url('/' . $page='mail') }}">اضافه مرتبات</a></li>
                 <li><a class="slide-item" href="{{ url('/' . $page='mail-compose') }}">صلاحيات الموظفين</a></li>
             </ul>
-        </li> {{-- <li class="slide">--}} {{-- <a class="side-menu__item" data-toggle="slide"
+        </li>
+
+        {{-- <li class="slide">--}} {{-- <a class="side-menu__item" data-toggle="slide"
                     href="{{ url('/' . $page='#') }}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M13 4H6v16h12V9h-5V4zm3 14H8v-2h8v2zm0-6v2H8v-2h8z" opacity=".3" />

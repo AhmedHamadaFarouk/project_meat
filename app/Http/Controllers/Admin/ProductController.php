@@ -86,4 +86,11 @@ class ProductController extends Controller
     {
         return $this->data->destroy($request);
     }
+
+
+    public function Print_product($id)
+    {
+         return $this->data->product($id);
+
+    }
 }

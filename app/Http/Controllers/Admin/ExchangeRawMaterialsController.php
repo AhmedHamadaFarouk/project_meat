@@ -93,4 +93,10 @@ class ExchangeRawMaterialsController extends Controller
     {
        return $this->data->destroy($request);
     }
+
+    public function print_exchange($id)
+    {
+         return $this->data->exchange($id);
+
+    }
 }

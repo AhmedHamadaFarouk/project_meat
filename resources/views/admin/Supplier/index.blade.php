@@ -19,7 +19,7 @@
 @endsection
 
 @section('content')
-@include('admin.Supplier.notify')
+    @include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">

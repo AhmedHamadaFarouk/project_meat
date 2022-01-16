@@ -9,7 +9,7 @@
         </div>
     </div>
 </div>
-<!-- breadcrumb --> @endsection @section('content') @include('admin.Client.notify')
+<!-- breadcrumb --> @endsection @section('content') @include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -23,7 +23,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table text-md-nowrap" id="example1">
+                    <table class="table text-md-nowrap text-center" id="example1">
                         <thead>
                             <tr>
                                 <th class="wd-15p border-bottom-0">#</th>
@@ -41,7 +41,14 @@
                                 <td>{{$row->address}}</td>
                                 <td>{{$row->max_price}}</td>
                                 <td>{{$row->phone}}</td>
-                                <td>{{$row->notes}}</td>
+                                <td>
+                                @if($row->notes == true)
+                                    {!!$row->notes!!}
+                                    @else
+                                    <p class="text-danger">لا توجد ملاحظات</p>
+                                @endif
+                                    {{-- {{$row->notes == true ? $row->notes : 'لا توجد ملاحظات'}} --}}
+                                </td>
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>

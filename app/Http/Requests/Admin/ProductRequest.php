@@ -21,6 +21,9 @@ class ProductRequest extends FormRequest
      *
      * @return array
      */
+
+
+
     public function rules()
     {
 
@@ -33,12 +36,11 @@ class ProductRequest extends FormRequest
                     return [
                         'name' => 'required|string|min:2|max:255',
                         'quantity' => 'required|numeric|min:2',
-                        'order_number' => 'required|numeric|min:2',
+                        'order_number' => 'required|string|min:2',
                         'date_supply' => 'required|date',
                         'type' => 'required|in:identical,Not_matching',
                         'code' => 'required|string|min:2',
                         'notes' => 'nullable|string|min:2',
-                        // 'product_id' => 'required|exists:products,id',
                     ];
                 }
             case 'PATCH':
@@ -46,7 +48,7 @@ class ProductRequest extends FormRequest
                     return [
                         'name' => 'nullable|string|min:2|max:255',
                         'quantity' => 'nullable|numeric|min:2',
-                        'order_number' => 'nullable|numeric|min:2',
+                        'order_number' => 'nullable|string|min:2',
                         'date_supply' => 'nullable|date',
                         'type' => 'nullable|in:identical,Not_matching',
                         'code' => 'nullable|string|min:2',
