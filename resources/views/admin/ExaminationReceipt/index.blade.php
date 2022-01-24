@@ -32,15 +32,9 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            {{-- <button class="btn btn-success" data-toggle="modal" data-target="#create">محضر فحص واستلام لحوم
-                            </button> --}}
 
                             <a href="{{ route('examination_receipt.create') }}" class=" btn btn-success"> محضر فحص واستلام لحوم</a>
-
-                            {{-- <a href="examination_receipt.create" class=" btn btn-success"> محضر فحص واستلام لحوم</a> --}}
-
                         </div>
-                        @include('admin.ExaminationReceipt.create')
                     </div>
                 </div>
                 <div class="card-body">
