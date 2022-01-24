@@ -33,7 +33,9 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     public function create()
     {
         try {
-            return view('Admin/' . $this->FolderBlade . '/' . 'create');
+            $data = $this->modelName::all();
+            $product = Product::all();
+            return view('Admin/' . $this->FolderBlade . '/' . 'create',compact('data','product') );
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }

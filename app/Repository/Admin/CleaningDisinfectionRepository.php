@@ -42,6 +42,7 @@ class CleaningDisinfectionRepository implements CleaningDisinfectionRepositoryIn
         try {
             $data = new $this->modelName;
             $data->date = date('Y-m-d');
+           // $data->date = explode(','$request->sdsad);
             $data->product_id = $request->product_id;
             $data->Quantity = $request->Quantity;
             $data->codeProduct = $request->codeProduct;

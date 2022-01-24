@@ -32,8 +32,12 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#create">محضر فحص واستلام لحوم
-                            </button>
+                            {{-- <button class="btn btn-success" data-toggle="modal" data-target="#create">محضر فحص واستلام لحوم
+                            </button> --}}
+
+                            <a href="{{ route('examination_receipt.create') }}" class=" btn btn-success"> محضر فحص واستلام لحوم</a>
+
+                            {{-- <a href="examination_receipt.create" class=" btn btn-success"> محضر فحص واستلام لحوم</a> --}}
 
                         </div>
                         @include('admin.ExaminationReceipt.create')
@@ -101,15 +105,13 @@
                                                             class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
 
                                                     </a>
+
+                                                    <a class="dropdown-item" href="#"><i
+                                                        class="text-success fas fa-print"></i>&nbsp;&nbsp;التفاصيل
+
+                                                </a>
                                                 </div>
                                             </div>
-
-                                            {{-- <button class="btn btn-info btn-sm" data-toggle="modal"
-                                                data-target="#edit{{ $row->id }}"><i
-                                                    class="fas fa-edit"></i></button> --}}
-                                            {{-- <button class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#deleted{{ $row->id }}"><i
-                                                    class="fas fa-trash"></i></button> --}}
                                         </td>
                                         @include('admin.ExaminationReceipt.edit')
                                         @include('admin.ExaminationReceipt.deleted')

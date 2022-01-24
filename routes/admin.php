@@ -55,7 +55,7 @@ Route::middleware(['auth:admin'])->group(function () {
     // اضافه فرع
     Route::resource('branch', BranchController::class);
 
-    // اضافه مخزن
+    // اضافه مخزنphp artisan co:ca
     Route::resource('store', StoreController::class);
 
     // اضافه مورد
@@ -91,8 +91,8 @@ Route::middleware(['auth:admin'])->group(function () {
     // محضر فحص الخامات
     Route::resource('materialInspection', MaterialInspectionController::class);
 
-        //print
-        Route::get('print_material/{id}', [MaterialInspectionController::class, 'print_material'])->name('material');
+    //print
+    Route::get('print_material/{id}', [MaterialInspectionController::class, 'print_material'])->name('material');
 
     // محضر فحص مواد التنظيف و التطهير
     Route::resource('disinfectionMaterials', DisinfectionMaterialsController::class);
@@ -109,8 +109,8 @@ Route::middleware(['auth:admin'])->group(function () {
     // اذن صرف مواد تعبئة و تغليف
     Route::resource('dispensePacking', DispensePackingMaterialsvController::class);
 
-        //print
-        Route::get('print_dispense/{id}', [DispensePackingMaterialsvController::class, 'print_dispense'])->name('dispense');
+    //print
+    Route::get('print_dispense/{id}', [DispensePackingMaterialsvController::class, 'print_dispense'])->name('dispense');
     #############################################################
 
 });

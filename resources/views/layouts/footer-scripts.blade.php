@@ -50,9 +50,18 @@
 <script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
 <!--Internal  Datatable js -->
 <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
+<!--Internal Fileuploads js-->
+<script src="{{ URL::asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+<!--Internal Fancy uploader js-->
+<script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+<script src="{{ URL::asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
 <!--Internal  Notify js -->
 <script src="{{ URL::asset('assets/plugins/notify/js/notifIt.js') }}"></script>
 <script src="{{ URL::asset('assets/plugins/notify/js/notifit-custom.js') }}"></script>
-  
+
 <!--vv-->
 <script type="text/javascript" src="js/main.js"></script>
