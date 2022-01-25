@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Product;
+use App\Models\Store;
+use App\Models\Supplier;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ExaminationReceiptFactory extends Factory
@@ -17,13 +19,17 @@ class ExaminationReceiptFactory extends Factory
         return [
             "date" => $this->faker->date,
             "slaughter_date" => $this->faker->date,
-            "Virtual_scan" => $this->faker->name,
-            "type" => $this->faker->randomElement(['acceptable','Unacceptable']),
             "number_ear" => $this->faker->randomElement([1,2,3,4,5,6,7,8,9]),
-            "notes" => $this->faker->name,
-            "slaughterhouse" => $this->faker->name,
+            "meat_temp" => $this->faker->name,
+            "meat_color" => $this->faker->randomElement(['acceptable','Unacceptable']),
+            "meat_smell" => $this->faker->randomElement(['acceptable','Unacceptable']),
+            "meat_texture" => $this->faker->randomElement(['acceptable','Unacceptable']),
+            "store_id" => Store::all()->random()->id,
+            "supplier_id" =>Supplier::all()->random()->id,
             "product_id" => Product::all()->random()->id,
             "quantity" => $this->faker->randomElement([1,2,3,4,5,6,7,8,9]),
+            "notes" => $this->faker->name,
+
         ];
     }
 }

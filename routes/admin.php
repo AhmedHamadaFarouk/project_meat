@@ -1,7 +1,7 @@
 
 <?php
 
-
+use App\Http\Controllers\Admin\AttachmentController;
 use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\CleaningDisinfectionController;
@@ -61,6 +61,10 @@ Route::middleware(['auth:admin'])->group(function () {
     // اضافه مورد
     Route::resource('supplier', SupplierController::class);
 
+    //اضافه مرفق
+    Route::resource('attachment', AttachmentController::class);
+
+
     #############################################################
 
     // اذن اضافه للمخزن
@@ -74,6 +78,10 @@ Route::middleware(['auth:admin'])->group(function () {
 
     //print
     Route::get('print_examination/{id}', [ExaminationReceipt::class, 'print_examination'])->name('print');
+
+
+        //details
+        Route::get('details/{id}', [ExaminationReceipt::class, 'details'])->name('details');
 
     // سجل رفع المخلفات
     Route::resource('wasteLog', WasteLogController::class);

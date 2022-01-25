@@ -4,17 +4,15 @@ namespace App\Repository\Admin;
 
 use App\Http\Controllers\Admin\ExaminationReceipt;
 use App\Interfaces\Admin\ExaminationReceiptRepositoryInterface;
+use App\Models\Attachment;
+use App\Models\ExaminationReceipt as ModelsExaminationReceipt;
 use App\Models\Product;
+use App\Models\Store;
+use App\Models\Supplier;
+use Illuminate\Support\Facades\Auth;
 
 class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterface
 {
-
-    //    protected $test = [
-    //        'modelName' => '\App\Models\Branch',
-    //        'folderImageName' => 'Branch',
-    //        'routes' => 'Branch',
-    //        'FolderBlade' => 'Branch',
-    //    ];
 
     protected $modelName = '\App\Models\ExaminationReceipt';
     protected $folderImageName = 'ExaminationReceipt';
@@ -26,8 +24,10 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     {
         $data = $this->modelName::all();
         $product = Product::all();
+        $store = Store::all();
+        $supplier=Supplier::all();
 
-        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'product'));
+        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'product','store','supplier'));
     }
 
     public function create()
@@ -35,7 +35,9 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
         try {
             $data = $this->modelName::all();
             $product = Product::all();
-            return view('Admin/' . $this->FolderBlade . '/' . 'create',compact('data','product') );
+            $store = Store::all();
+        $supplier=Supplier::all();
+            return view('Admin/' . $this->FolderBlade . '/' . 'create',compact('data','product','store','supplier') );
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -47,19 +49,43 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
             $data = new $this->modelName;
             $data->date = date('Y-m-d');
             $data->slaughter_date = $request->slaughter_date;
-            $data->Virtual_scan = $request->Virtual_scan;
-            $data->type = $request->type;
             $data->number_ear = $request->number_ear;
-            $data->notes = $request->notes;
+            $data->meat_temp = $request->meat_temp;
+            $data->meat_color = $request->meat_color;
+            $data->meat_smell = $request->meat_color;
+            $data->meat_texture = $request->meat_color;
             $data->quantity = $request->quantity;
-            $data->slaughterhouse = $request->slaughterhouse;
+            $data->store_id = $request->store_id;
+            $data->supplier_id = $request->supplier_id;
             $data->product_id = $request->product_id;
+            $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
                     $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs('public/' . $this->folderImageName, $fileName);;
             }
+
+             // store in attachment table
+
+        if ($request->hasFile('pic')) {
+
+            $examination_id = modelsExaminationReceipt::latest()->first()->id;
+            $image = $request->file('pic');
+            $file_name = $image->getClientOriginalName();
+            $id = $request->id;
+
+            $attachment = new Attachment();
+            $attachment->file_name = $file_name;
+            $attachment->id = $id;
+            $attachment->Created_by = Auth::user()->name;
+            $attachment->save();
+
+            // move pic
+            $imageName = $request->pic->getClientOriginalName();
+            $request->pic->move(public_path('Attachment/' . $id), $imageName);
+
+        }
             $data->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
             return redirect($this->routes);
@@ -82,8 +108,11 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     public function edit($id)
     {
         try {
-            $data = $this->modelName::findorfail($id);
-            return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('data'));
+            $row = $this->modelName::findorfail($id);
+            $product = Product::all();
+            $store = Store::all();
+        $supplier=Supplier::all();
+            return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('row','product','store','supplier'));
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -96,13 +125,16 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
             $data = $this->modelName::findorfail($request->id);
             $data->date = date('Y-m-d');
             $data->slaughter_date = $request->slaughter_date;
-            $data->Virtual_scan = $request->Virtual_scan;
-            $data->type = $request->type;
             $data->number_ear = $request->number_ear;
-            $data->notes = $request->notes;
+            $data->meat_temp = $request->meat_temp;
+            $data->meat_color = $request->meat_color;
+            $data->meat_smell = $request->meat_color;
+            $data->meat_texture = $request->meat_color;
             $data->quantity = $request->quantity;
-            $data->slaughterhouse = $request->slaughterhouse;
+            $data->store_id = $request->store_id;
+            $data->supplier_id = $request->supplier_id;
             $data->product_id = $request->product_id;
+            $data->notes = $request->notes;
             $photo = request()->file('photo');
             if ($photo) {
                 unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
@@ -139,6 +171,10 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
 
     }
 
-
+    public function details($id)
+    {
+        $row = $this->modelName::findorfail($id);
+        return view('Admin/' . $this->FolderBlade . '/' . 'details', compact('row'));
+    }
 
 }

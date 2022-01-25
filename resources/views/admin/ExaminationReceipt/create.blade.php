@@ -1,5 +1,9 @@
-@extends('layouts.master') @section('title') الحلال توب فود - محضر فحص واستلام لحوم @endsection @section('css')
-@endsection @section('page-header')
+@extends('layouts.master')
+ @section('title') الحلال توب فود - محضر فحص واستلام لحوم
+ @endsection
+ @section('css')
+@endsection
+@section('page-header')
 <!-- breadcrumb -->
 <div class="breadcrumb-header justify-content-between">
     <div class="my-auto">
@@ -39,25 +43,25 @@
                             <label>الفحص الظاهرى</label>
                             <div class="row">
                                 <div class="col-3">
-                                    <input type="text" name="Virtual_scan" placeholder="درجه الحراره"
-                                        class="form-control @error('Virtual_scan') is-invliad @enderror" required>
+                                    <input type="text" name="meat_temp" placeholder="درجه الحراره"
+                                        class="form-control @error('meat_temp') is-invliad @enderror" required>
                                 </div>
                                 <div class="col-3">
-                                    <select name="type" class="form-control">
+                                    <select name="meat_color" class="form-control">
                                         <option value="" selected disabled>اللون</option>
                                         <option value="acceptable">مطابق</option>
                                         <option value="Unacceptable">غير مطابق</option>
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <select name="type" class="form-control">
+                                    <select name="meat_smell" class="form-control">
                                         <option value="" selected disabled>الرائحه</option>
                                         <option value="acceptable">مطابق</option>
                                         <option value="Unacceptable">غير مطابق</option>
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <select name="type" class="form-control">
+                                    <select name="meat_texture" class="form-control">
                                         <option value="" selected disabled>الملمس</option>
                                         <option value="acceptable">مطابق</option>
                                         <option value="Unacceptable">غير مطابق</option>
@@ -69,14 +73,28 @@
                     <br>
                     <div class="row">
                         <div class="col-6">
-                            <label> اسم المخزن</label>
-                            <input type="text" name="slaughterhouse"
-                                class="form-control @error('slaughterhouse') is-invliad @enderror" required>
+                            <div class="form-group mb-2">
+
+                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref"> اسم المخزن</label>
+
+                                <select name="store_id" id="store_id" class="form-control" required>
+                                    <option selected disabled> اسم المخزن </option>
+                                    @foreach ($store as $data)
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="col-6">
-                            <label> اسم المورد</label>
-                            <input type="text" name="slaughterhouse"
-                                class="form-control @error('slaughterhouse') is-invliad @enderror" required>
+                            <div class="form-group mb-2">
+                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref"> اسم المورد</label>
+                                <select name="supplier_id" id="supplier_id" class="form-control" required>
+                                    <option selected disabled> اسم المورد </option>
+                                    @foreach ($supplier as $data)
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -85,8 +103,10 @@
                             <div class="form-group mb-2">
                                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">اسم المنتج </label>
                                 <select name="product_id" id="product_id" class="form-control" required>
-                                    <option selected disabled> اسم المنتج </option> @foreach ($product as $data) <option
-                                        value="{{ $data->id }}">{{ $data->name }}</option> @endforeach
+                                    <option selected disabled> اسم المنتج </option>
+                                    @foreach ($product as $data)
+                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -123,11 +143,13 @@
 </div>
 <!-- Container closed -->
 </div>
-<!-- main-content closed --> @endsection @section('js') <script
-    src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<!-- main-content closed -->
+ @endsection
+ @section('js')
+  <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.editorConfig = function(config) {
-            config.extraPlugins = 'imageuploader';
-        };
-        CKEDITOR.replaceClass = 'softeditor';
+        config.extraPlugins = 'imageuploader';
+    };
+    CKEDITOR.replaceClass = 'softeditor';
 </script> @endsection

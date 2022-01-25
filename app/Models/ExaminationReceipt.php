@@ -14,17 +14,31 @@ class ExaminationReceipt extends Model
     protected $fillable = [
         "date",
         "slaughter_date",
-        "Virtual_scan",
-        "type",
         "number_ear",
-        "notes",
-        "quantity",
-        "slaughterhouse",
+        "meat_temp",
+        "meat_color",
+        "meat_smell",
+        "meat_texture",
+        "store_id",
+        "supplier_id",
         "product_id",
+        "quantity",
+        "notes",
+
     ];
 
     public function product()
     {
-        return $this->belongsTo(Product::class,'product_id');
+        return $this->belongsTo(Product::class, 'product_id');
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class, 'store_id');
+    }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class, 'supplier_id');
     }
 }

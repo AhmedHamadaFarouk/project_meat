@@ -63,12 +63,15 @@
                                         <th class="wd-5p">#</th>
                                         <th class="wd-10p">التاريخ</th>
                                         <th class="wd-10p">تاريخ الذبح </th>
-                                        <th class="wd-15p">الفحص الظاهرى </th>
-                                        <th class="wd-10p">المطابقه</th>
                                         <th class="wd-10p">رقم اذن الذبح</th>
-                                        <th class="wd-5p">الكميه </th>
-                                        <th class="wd-10p">اسم المجزر</th>
                                         <th class="wd-15p">اسم المنتج </th>
+                                        <th class="wd-5p">الكميه </th>
+                                        <th class="wd-10p">درجه الحراره</th>
+                                        <th class="wd-10p">اللون</th>
+                                        <th class="wd-10p">الرائحه</th>
+                                        <th class="wd-10p">الملمس</th>
+                                        <th class="wd-10p">اسم المخزن</th>
+                                        <th class="wd-15p">اسم المورد </th>
                                         <th class="wd-20p"> ملاحظات</th>
                                     </tr>
                                 </thead>
@@ -78,19 +81,18 @@
                                         <td>{{ $row->date }}</td>
                                         <td>{{ $row->slaughter_date }}
                                         </td>
-                                        <td>{{ $row->Virtual_scan }}
-                                        </td>
-                                        <td>{{ $row->type }}
-                                        </td>
                                         <td>{{ $row->number_ear }}</td>
-                                        <td>{{ $row->quantity }}
-                                        </td>
-                                        <td>{{ $row->slaughterhouse }}
-                                        </td>
                                         <td>{{ $row->product->name }}
                                         </td>
+                                        <td>{{ $row->quantity }}
+                                        </td>
+                                        <td>{{ $row->meat_temp }}</td>
+                                        <td>{{ $row->meat_color }}</td>
+                                        <td>{{ $row->meat_smell }}</td>
+                                        <td>{{ $row->meat_texture }}</td>
+                                        <td>{{ $row->store->name }}</td>
+                                        <td>{{ $row->supplier->name }}</td>
                                         <td>
-                                            {{-- {!!$row->notes !!} --}}
                                             {!! $row->notes == true ? $row->notes : 'لا توجد ملاحظات' !!}
                                         </td>
 
