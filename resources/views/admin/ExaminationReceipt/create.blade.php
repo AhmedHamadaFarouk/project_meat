@@ -19,8 +19,7 @@
     <div class="col-lg-12 col-md-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('examination_receipt.store') }}" method="POST" enctype="multipart/form-data"
-                    autocomplete="off"> @csrf <div class="row">
+                <form action="{{ route('examination_receipt.store') }}" method="POST" enctype="multipart/form-data"autocomplete="off"> @csrf <div class="row">
                         <div class="col-6">
                             <label>تاريخ اليوم</label>
                             <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
@@ -128,7 +127,7 @@
                     <p class="text-danger">* صيغة المرفق .pdf, .jpeg , .jpg , .png , .xlsx, .doc </p>
                     <h5 class="card-title">المرفقات</h5>
                     <div class="col-sm-12 col-md-12">
-                        <input type="file" name="pic" class="dropify"
+                        <input type="file" name="photo" class="dropify"
                             accept=".pdf,.jpg, .png, image/jpeg,image/png, .xls,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                             data-height="70" />
                     </div><br>

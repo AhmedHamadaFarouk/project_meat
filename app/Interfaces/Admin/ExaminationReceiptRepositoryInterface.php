@@ -9,4 +9,7 @@ interface ExaminationReceiptRepositoryInterface extends  AppRepositoryInterface
 
     public function details($id);
 
+
+
+  
 }

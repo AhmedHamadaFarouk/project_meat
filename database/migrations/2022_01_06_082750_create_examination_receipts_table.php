@@ -27,6 +27,7 @@ class CreateExaminationReceiptsTable extends Migration
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('quantity')->comment('الكمية المستلمه من اذن الذبح');
             $table->text('notes')->nullable();
+            $table->text('photo')->nullable();
             // $table->foreignId('product_id')->constrained('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });

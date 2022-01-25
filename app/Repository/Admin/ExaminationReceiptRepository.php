@@ -20,14 +20,23 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     protected $FolderBlade = 'ExaminationReceipt';
 
 
+    public function storeFile($image, $destination_path)
+    {
+        $fileName = time() . rand(0, 999999999) . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/' . $destination_path, $fileName);
+        return $fileName;
+    }
+
+
+
     public function index()
     {
         $data = $this->modelName::all();
         $product = Product::all();
         $store = Store::all();
-        $supplier=Supplier::all();
+        $supplier = Supplier::all();
 
-        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'product','store','supplier'));
+        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'product', 'store', 'supplier'));
     }
 
     public function create()
@@ -36,8 +45,8 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
             $data = $this->modelName::all();
             $product = Product::all();
             $store = Store::all();
-        $supplier=Supplier::all();
-            return view('Admin/' . $this->FolderBlade . '/' . 'create',compact('data','product','store','supplier') );
+            $supplier = Supplier::all();
+            return view('Admin/' . $this->FolderBlade . '/' . 'create', compact('data', 'product', 'store', 'supplier'));
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -45,53 +54,30 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
 
     public function store($request,  $fileName = null)
     {
-        try {
-            $data = new $this->modelName;
-            $data->date = date('Y-m-d');
-            $data->slaughter_date = $request->slaughter_date;
-            $data->number_ear = $request->number_ear;
-            $data->meat_temp = $request->meat_temp;
-            $data->meat_color = $request->meat_color;
-            $data->meat_smell = $request->meat_color;
-            $data->meat_texture = $request->meat_color;
-            $data->quantity = $request->quantity;
-            $data->store_id = $request->store_id;
-            $data->supplier_id = $request->supplier_id;
-            $data->product_id = $request->product_id;
-            $data->notes = $request->notes;
-            $photo = request()->file('photo');
-            if ($photo) {
-                $data['photo'] =
-                    $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
-                $photo->storeAs('public/' . $this->folderImageName, $fileName);;
-            }
-
-             // store in attachment table
-
-        if ($request->hasFile('pic')) {
-
-            $examination_id = modelsExaminationReceipt::latest()->first()->id;
-            $image = $request->file('pic');
-            $file_name = $image->getClientOriginalName();
-            $id = $request->id;
-
-            $attachment = new Attachment();
-            $attachment->file_name = $file_name;
-            $attachment->id = $id;
-            $attachment->Created_by = Auth::user()->name;
-            $attachment->save();
-
-            // move pic
-            $imageName = $request->pic->getClientOriginalName();
-            $request->pic->move(public_path('Attachment/' . $id), $imageName);
-
+        // try {
+        $data = new $this->modelName;
+        $data->date = date('Y-m-d');
+        $data->slaughter_date = $request->slaughter_date;
+        $data->number_ear = $request->number_ear;
+        $data->meat_temp = $request->meat_temp;
+        $data->meat_color = $request->meat_color;
+        $data->meat_smell = $request->meat_color;
+        $data->meat_texture = $request->meat_color;
+        $data->quantity = $request->quantity;
+        $data->store_id = $request->store_id;
+        $data->supplier_id = $request->supplier_id;
+        $data->product_id = $request->product_id;
+        $data->notes = $request->notes;
+        $file = request()->file('photo');
+        if ($file) {
+            $data['photo'] = $this->storeFile($file, $this->folderImageName);
         }
-            $data->save();
-            session()->flash('Add', 'تم الاضافه بنجاح');
-            return redirect($this->routes);
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        $data->save();
+        session()->flash('Add', 'تم الاضافه بنجاح');
+        return redirect($this->routes);
+        // } catch (\Exception $e) {
+        //     return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        // }
     }
 
     public function show($id)
@@ -111,8 +97,8 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
             $row = $this->modelName::findorfail($id);
             $product = Product::all();
             $store = Store::all();
-        $supplier=Supplier::all();
-            return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('row','product','store','supplier'));
+            $supplier = Supplier::all();
+            return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('row', 'product', 'store', 'supplier'));
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -121,33 +107,33 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     public function update($request, $fileName = null)
     {
 
-        try {
-            $data = $this->modelName::findorfail($request->id);
-            $data->date = date('Y-m-d');
-            $data->slaughter_date = $request->slaughter_date;
-            $data->number_ear = $request->number_ear;
-            $data->meat_temp = $request->meat_temp;
-            $data->meat_color = $request->meat_color;
-            $data->meat_smell = $request->meat_color;
-            $data->meat_texture = $request->meat_color;
-            $data->quantity = $request->quantity;
-            $data->store_id = $request->store_id;
-            $data->supplier_id = $request->supplier_id;
-            $data->product_id = $request->product_id;
-            $data->notes = $request->notes;
-            $photo = request()->file('photo');
-            if ($photo) {
-                unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
-                $data['photo'] =
-                    $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
-                $photo->storeAs('public/' .  $this->folderImageName, $fileName);
-            }
-            $data->save();
-            session()->flash('Edit', 'تم التعديل بنجاح');
-            return redirect($this->routes);
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        // try {
+        $data = $this->modelName::findorfail($request->id);
+        $data->date = date('Y-m-d');
+        $data->slaughter_date = $request->slaughter_date;
+        $data->number_ear = $request->number_ear;
+        $data->meat_temp = $request->meat_temp;
+        $data->meat_color = $request->meat_color;
+        $data->meat_smell = $request->meat_color;
+        $data->meat_texture = $request->meat_color;
+        $data->quantity = $request->quantity;
+        $data->store_id = $request->store_id;
+        $data->supplier_id = $request->supplier_id;
+        $data->product_id = $request->product_id;
+        $data->notes = $request->notes;
+        $photo = request()->file('photo');
+        if ($photo) {
+            unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
+            $data['photo'] =
+                $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
+            $photo->storeAs('public/' .  $this->folderImageName, $fileName);
         }
+        $data->save();
+        session()->flash('Edit', 'تم التعديل بنجاح');
+        return redirect($this->routes);
+        // } catch (\Exception $e) {
+        //     return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        // }
     }
 
     public function destroy($request)
@@ -168,7 +154,6 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     {
         $row = $this->modelName::findorfail($id);
         return view('admin/' . $this->FolderBlade . '/' . 'Print_ExaminationReceipt', compact('row'));
-
     }
 
     public function details($id)
@@ -176,5 +161,4 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
         $row = $this->modelName::findorfail($id);
         return view('Admin/' . $this->FolderBlade . '/' . 'details', compact('row'));
     }
-
 }

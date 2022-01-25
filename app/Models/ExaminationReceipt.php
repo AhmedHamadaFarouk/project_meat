@@ -24,8 +24,18 @@ class ExaminationReceipt extends Model
         "product_id",
         "quantity",
         "notes",
+        "photo",
 
     ];
+
+    protected $appends = ['image'];
+
+    public function getImageAttribute()
+    {
+        return $this->attributes['photo'] != null ? asset('storage/ExaminationReceipt/' . $this->attributes['photo']) : null;
+    }
+
+
 
     public function product()
     {
