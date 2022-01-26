@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use App\Models\Attachment as ModelsAttachment;
-use App\Repository\Admin\AttachmentRepository;
+use App\Repository\Admin\SectionRepository;
 use Illuminate\Http\Request;
 
-class AttachmentController extends Controller
+class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class AttachmentController extends Controller
 
     private $data;
 
-    public function __construct(AttachmentRepository $data)
+    public function __construct(SectionRepository $data)
     {
         $this->data = $data;
     }

@@ -4,7 +4,6 @@ namespace App\Repository\Admin;
 
 use App\Http\Controllers\Admin\ExaminationReceipt;
 use App\Interfaces\Admin\ExaminationReceiptRepositoryInterface;
-use App\Models\Attachment;
 use App\Models\ExaminationReceipt as ModelsExaminationReceipt;
 use App\Models\Product;
 use App\Models\Store;

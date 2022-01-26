@@ -19,7 +19,9 @@
     <div class="col-lg-12 col-md-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('examination_receipt.store') }}" method="POST" enctype="multipart/form-data"autocomplete="off"> @csrf <div class="row">
+                <form action="{{ route('examination_receipt.store') }}" method="POST" enctype="multipart/form-data"autocomplete="off">
+                    @csrf
+                     <div class="row">
                         <div class="col-6">
                             <label>تاريخ اليوم</label>
                             <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"
@@ -73,9 +75,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group mb-2">
-
                                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref"> اسم المخزن</label>
-
                                 <select name="store_id" id="store_id" class="form-control" required>
                                     <option selected disabled> اسم المخزن </option>
                                     @foreach ($store as $data)

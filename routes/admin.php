@@ -1,17 +1,19 @@
 
 <?php
 
-use App\Http\Controllers\Admin\AttachmentController;
 use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CleaningDisinfectionController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DisinfectionMaterialsController;
 use App\Http\Controllers\Admin\DispensePackingMaterialsvController;
 use App\Http\Controllers\Admin\ExaminationReceipt;
+use App\Http\Controllers\Admin\ExaminSectionController;
 use App\Http\Controllers\Admin\ExchangeRawMaterialsController;
 use App\Http\Controllers\Admin\MaterialInspectionController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\WasteLogController;
@@ -61,8 +63,14 @@ Route::middleware(['auth:admin'])->group(function () {
     // اضافه مورد
     Route::resource('supplier', SupplierController::class);
 
-    //اضافه مرفق
-    Route::resource('attachment', AttachmentController::class);
+    //واستلام امين المخزن
+    Route::resource('examin_section', ExaminSectionController::class);
+
+    //قسم
+    Route::resource('section', SectionController::class);
+
+    //صنف
+    Route::resource('category', CategoryController::class);
 
 
     #############################################################

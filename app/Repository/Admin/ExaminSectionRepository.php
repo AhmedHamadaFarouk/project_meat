@@ -2,49 +2,53 @@
 
 namespace App\Repository\Admin;
 
-use App\Interfaces\Admin\AttachmentRepositoryInterface;
+use App\Interfaces\Admin\ExaminSectionRepositoryInterface;
+use App\Models\ExaminationReceipt;
+use App\Models\Section;
 
-class AttachmentRepository implements AttachmentRepositoryInterface
+class ExaminSectionRepository implements ExaminSectionRepositoryInterface
 {
 
-    //    protected $test = [
-    //        'modelName' => '\App\Models\Branch',
-    //        'folderImageName' => 'Branch',
-    //        'routes' => 'Branch',
-    //        'FolderBlade' => 'Branch',
-    //    ];
-
-    protected $modelName = '\App\Models\Attachment';
-    protected $folderImageName = 'Attachment';
-    protected $routes = 'attachment';
-    protected $FolderBlade = 'Attachment';
+    protected $modelName = '\App\Models\ExaminSection';
+    protected $folderImageName = 'ExaminSection';
+    protected $routes = 'examin_section';
+    protected $FolderBlade = 'ExaminSection';
 
 
     public function index()
     {
-        $data = $this->modelName::all();
-        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
+        $data= $this->modelName::all();
+$examin_recipt = ExaminationReceipt::all();
+$section = Section::all();
+
+        return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data', 'examin_recipt','section'));
     }
 
     public function create()
     {
         try {
             return view('Admin/' . $this->FolderBlade . '/' . 'create');
-        } catch (\Exception $e) {
+        }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
     }
 
     public function store($request,  $fileName = null)
     {
         try {
             $data = new $this->modelName;
+            $data->date = date('Y-m-d');
+            $data->examin_id = $request->examin_id;
+            $data->section_id = $request->section_id;
+            $data->recipt_code = $request->recipt_code;
+            $data->notes = $request->notes;
 
             $photo = request()->file('photo');
             if ($photo) {
                 $data['photo'] =
-                    $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
-                $photo->storeAs('public/' . $this->folderImageName, $fileName);
+                $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
+                $photo->storeAs('public/' . $this->folderImageName, $fileName);;
             }
             $data->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
@@ -60,9 +64,10 @@ class AttachmentRepository implements AttachmentRepositoryInterface
         try {
             $date = $this->modelName::findorfail($id);
             return view('Admin/' . $this->FolderBlade . '/' . 'show', compact('date'));
-        } catch (\Exception $e) {
+        }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
     }
 
     public function edit($id)
@@ -70,9 +75,10 @@ class AttachmentRepository implements AttachmentRepositoryInterface
         try {
             $data = $this->modelName::findorfail($id);
             return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('data'));
-        } catch (\Exception $e) {
+        }catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
     }
 
     public function update($request, $fileName = null)
@@ -85,7 +91,7 @@ class AttachmentRepository implements AttachmentRepositoryInterface
             if ($photo) {
                 unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
                 $data['photo'] =
-                    $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
+                $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs('public/' .  $this->folderImageName, $fileName);
             }
             $data->save();
@@ -106,5 +112,6 @@ class AttachmentRepository implements AttachmentRepositoryInterface
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
     }
 }
