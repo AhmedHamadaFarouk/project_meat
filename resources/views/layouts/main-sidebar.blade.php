@@ -72,8 +72,8 @@
                             للمخزن</a> </li>
                     <li><a class="slide-item" href="{{ route('examination_receipt.index') }}">محضر فحص و استلام
                             لحوم</a> </li>
-                    <li><a class="slide-item" href="{{ route('examin_section.index') }}">استلام امين المخزن</a>
-                    </li>
+                    {{-- <li><a class="slide-item" href="{{ route('examin_section.index') }}">استلام امين المخزن</a>
+                    </li> --}}
                     {{-- <li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">امر شغل</a></li> --}}
                     <li><a class="slide-item" href="{{ route('wasteLog.index') }}">سجل رفع المخلفات</a></li>
                     <li><a class="slide-item" href="{{ route('exchangeRawMaterials.index') }}">اذن صرف الخامات</a>
@@ -101,6 +101,10 @@
                 </svg><span class="side-menu__label">المخازن</span><i class="angle fe fe-chevron-down"></i></a>
             <ul class="slide-menu">
                 <li><a class="slide-item" href="{{ url('/' . ($page = 'products')) }}">اضافه انواع اللحوم</a></li>
+                <li><a class="slide-item" href="{{ route('examination_meat.index') }}"> فحص
+                    لحوم</a> </li>
+                    <li><a class="slide-item" href="{{ route('examin_section.index') }}"> استلام
+                        لحوم</a> </li>
                 {{-- <li><a class="slide-item" href="{{ url('/' . $page='product-details') }}">Product-Details</a>
             </li> --}} {{-- <li><a class="slide-item" href="{{ url('/' . $page='product-cart') }}">Cart</a></li> --}}
             </ul>

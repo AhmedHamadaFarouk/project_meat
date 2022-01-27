@@ -2,20 +2,20 @@
 
 namespace App\Repository\Admin;
 
-use App\Interfaces\Admin\ExaminationReceiptRepositoryInterface;
-use App\Models\ExaminationReceipt as ModelsExaminationReceipt;
+use App\Interfaces\Admin\ExaminationMeatRepositoryInterface;
+use App\Models\ExaminationMeat;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\Supplier;
 use Illuminate\Support\Facades\Auth;
 
-class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterface
+class ExaminationMeatRepository implements ExaminationMeatRepositoryInterface
 {
 
-    protected $modelName = '\App\Models\ExaminationReceipt';
-    protected $folderImageName = 'ExaminationReceipt';
-    protected $routes = 'examination_receipt';
-    protected $FolderBlade = 'ExaminationReceipt';
+    protected $modelName = '\App\Models\ExaminationMeat';
+    protected $folderImageName = 'ExaminationMeat';
+    protected $routes = 'examination_meat';
+    protected $FolderBlade = 'ExaminationMeat';
 
 
     public function storeFile($image, $destination_path)
@@ -151,7 +151,7 @@ class ExaminationReceiptRepository implements ExaminationReceiptRepositoryInterf
     public function print($id)
     {
         $row = $this->modelName::findorfail($id);
-        return view('admin/' . $this->FolderBlade . '/' . 'Print_ExaminationReceipt', compact('row'));
+        return view('admin/' . $this->FolderBlade . '/' . 'Print_ExaminationMeat', compact('row'));
     }
 
     public function details($id)

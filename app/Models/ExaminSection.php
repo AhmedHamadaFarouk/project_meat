@@ -13,15 +13,16 @@ class ExaminSection extends Model
         "date",
         "examin_id",
         "section_id",
+        "categories",
         "recipt_code",
         "notes",
 
     ];
 
 
-    public function examination_receipts()
+    public function examination_meats()
     {
-        return $this->belongsTo(ExaminationReceipt::class, 'examin_id');
+        return $this->belongsTo(ExaminationMeat::class, 'examin_id');
     }
 
     public function section()

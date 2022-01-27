@@ -16,8 +16,9 @@ class CreateExaminSectionTable extends Migration
         Schema::create('examin_sections', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->foreignId('examin_id')->nullable()->references('id')->on('examination_receipts')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('examin_id')->nullable()->references('id')->on('examination_meats')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('section_id')->references('id')->on('sections')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('categories');
             $table->string('recipt_code');
             $table->text('notes')->nullable();
             $table->timestamps();

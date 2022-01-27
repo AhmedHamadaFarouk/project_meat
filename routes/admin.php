@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CleaningDisinfectionController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\DisinfectionMaterialsController;
 use App\Http\Controllers\Admin\DispensePackingMaterialsvController;
+use App\Http\Controllers\Admin\ExaminationMeatController;
 use App\Http\Controllers\Admin\ExaminationReceipt;
 use App\Http\Controllers\Admin\ExaminSectionController;
 use App\Http\Controllers\Admin\ExchangeRawMaterialsController;
@@ -63,8 +64,6 @@ Route::middleware(['auth:admin'])->group(function () {
     // اضافه مورد
     Route::resource('supplier', SupplierController::class);
 
-    //واستلام امين المخزن
-    Route::resource('examin_section', ExaminSectionController::class);
 
     //قسم
     Route::resource('section', SectionController::class);
@@ -88,9 +87,26 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('print_examination/{id}', [ExaminationReceipt::class, 'print_examination'])->name('print');
 
 
-        //details
-        Route::get('details/{id}', [ExaminationReceipt::class, 'details'])->name('details');
+    //details
+    Route::get('details/{id}', [ExaminationReceipt::class, 'details'])->name('details');
 
+######################################################################################################
+    //  فحص  لحوم
+    Route::resource('examination_meat', ExaminationMeatController::class);
+
+    //print
+    Route::get('print_examinmeat/{id}', [ExaminationMeatController::class, 'print_examinmeat'])->name('print');
+
+
+    //details
+    Route::get('details/{id}', [ExaminationMeatController::class, 'details'])->name('details');
+
+
+    //واستلام امين المخزن
+    Route::resource('examin_section', ExaminSectionController::class);
+
+    Route::get('section/{id}', [ExaminSectionController::class, 'getcategories']);
+######################################################################################################
     // سجل رفع المخلفات
     Route::resource('wasteLog', WasteLogController::class);
 
