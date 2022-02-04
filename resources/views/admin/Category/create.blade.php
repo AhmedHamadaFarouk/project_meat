@@ -38,10 +38,10 @@
 
                     <br>
 
-                    <div class="row">
-                        <div class="col-6">
+                     <div class="row">
+                        <div class="col">
                             <label>الوصف</label>
-                              <input type="text" name="description" class="form-control @error('description') is-invliad @enderror" required>
+                            <textarea name="description" class="form-control softeditor" rows="5" required></textarea>
                         </div>
                     </div>
 

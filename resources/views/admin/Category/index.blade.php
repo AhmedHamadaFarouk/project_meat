@@ -52,7 +52,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$row->category_name}}</td>
                                 <td>{{$row->section->section_name}}</td>
-                                <td>{{$row->description}}</td>
+                                <td>{!!$row->description == true ? $row->description : 'لا توجد ملاحظات'!!}</td>
 
                                 <td>
                                     <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>

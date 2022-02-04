@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\ExaminationReceipt;
 use App\Http\Controllers\Admin\ExaminSectionController;
 use App\Http\Controllers\Admin\ExchangeRawMaterialsController;
 use App\Http\Controllers\Admin\MaterialInspectionController;
+use App\Http\Controllers\Admin\MeatReceiptControler;
+use App\Http\Controllers\Admin\MeatToxinController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\StoreController;
@@ -45,6 +47,17 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/', function () {
         return view('index');
     })->name('adminDashboard');
+
+
+
+    // اسنلام اللحوم
+    Route::resource('meatReceipt',MeatReceiptControler::class);
+
+    // تسكين اللحوم
+    Route::resource('meatToxin',MeatToxinController::class);
+    Route::get('meatToxinDeletelies/{id}',[MeatToxinController::class,'meatToxinDeletelies'])->name('meatToxinDeletelies');
+    Route::post('packagesprice', [MeatToxinController::class, 'storepackagesprice'])->name('packagesprice.store');
+
 
 
     // اضافه بنك

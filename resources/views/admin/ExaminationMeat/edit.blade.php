@@ -127,9 +127,16 @@
                     <br>
                     <br>
                     <div class="row">
-                        <div class="col"> @if($row->image) <a href="{{ $row->image }}">
+                        <div class="col">
+
+                            @if($row->image) <a href="{{ $row->image }}">
                                 <img src="{{ $row->image }}" width="100" height="100" alt="{{ $row->title }}">
-                            </a> @endif </div>
+
+
+
+                            @endif
+
+                        </div>
                     </div>
                     <p class="text-danger">* صيغة المرفق .pdf, .jpeg , .jpg , .png , .xlsx, .doc </p>
                     <h5 class="card-title">المرفقات</h5>

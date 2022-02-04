@@ -9,7 +9,12 @@
         </div>
     </div>
 </div>
-<!-- breadcrumb --> @endsection @section('content') @include('notify')
+<!-- breadcrumb --> @endsection
+
+@section('content')
+
+
+    @include('notify')
 <!-- row -->
 <div class="row">
     <div class="col">
@@ -65,11 +70,21 @@
 </div>
 <!-- Container closed -->
 </div>
-<!-- main-content closed --> @endsection @section('js') <script
+<!-- main-content closed -->
+
+
+
+@endsection
+
+
+@section('js') <script
     src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.editorConfig = function(config) {
             config.extraPlugins = 'imageuploader';
         };
         CKEDITOR.replaceClass = 'softeditor';
-</script> @endsection
+</script>
+
+
+@endsection

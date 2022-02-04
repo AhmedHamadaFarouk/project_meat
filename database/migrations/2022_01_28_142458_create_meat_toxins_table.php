@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryTable extends Migration
+class CreateMeatToxinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('meat_toxins', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name');
-            $table->foreignId('section_id')->references('id')->on('sections')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->text('description')->nullable();
+            $table->string('type_meat');
+            $table->string('receipt_code');
+            $table->text('photo');
+            $table->foreignId('meat_receipt_id')->references('id')->on('meat_receipts')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('meat_toxins');
     }
 }
