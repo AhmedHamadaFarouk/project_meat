@@ -48,10 +48,10 @@
                                     <td>{{$row->receipt_code}}</td>
                                     <td>{{$row->meatReceipt->start_date_slaughter}}</td>
                                     <td>
-{{--                                        @if(App\Models\DeletliesMeat::where('meat_toxin_id',$row->id)->first())--}}
+                                        @if(App\Models\DeletliesMeat::where('meat_toxin_id','!=',$row->id)->first())
                                             <a href="{{route('meatToxin.show',$row->id)}}"
                                                class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
-{{--                                        @endif--}}
+                                        @endif
 
 {{--                                        @if(App\Models\DeletliesMeat::count() > 1)--}}
                                             <a href="{{route('meatToxinDeletelies',$row->id)}}"

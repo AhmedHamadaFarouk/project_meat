@@ -3,6 +3,7 @@
 namespace App\Repository\Admin;
 
 use App\Interfaces\Admin\meatReceiptRepositoryInterface;
+use App\Models\Report;
 
 class meatReceiptRepository implements meatReceiptRepositoryInterface
 {
@@ -61,6 +62,13 @@ class meatReceiptRepository implements meatReceiptRepositoryInterface
                 $data['photo'] = $this->storeFile($file, $this->folderImageName);
             }
             $data->save();
+
+
+            $report = new Report();
+            $report->date = date('y-m-d');
+            $report->reportable_type = $this->modelName;
+            $report->reportable_id = $data->id;
+            $report->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {
@@ -117,6 +125,11 @@ class meatReceiptRepository implements meatReceiptRepositoryInterface
                 $photo->storeAs('public/' . $this->folderImageName, $fileName);
             }
             $data->save();
+            $report = new Report();
+            $report->date = date('y-m-d');
+            $report->reportable_type = $this->modelName;
+            $report->reportable_id = $data->id;
+            $report->save();
             session()->flash('Edit', 'تم التعديل بنجاح');
             return redirect($this->routes);
         } catch (\Exception $e) {
