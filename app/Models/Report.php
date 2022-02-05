@@ -14,8 +14,14 @@ class Report extends Model
         "date",
         "reportable_type",
         "reportable_id",
+        "user_id",
+        "type",
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 
     public function reportable()
     {

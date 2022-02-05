@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\DeletliesMeat;
 use App\Models\MeatToxin;
+use App\Models\Report;
 use App\Repository\Admin\MeatToxinRepository;
 use Illuminate\Http\Request;
 
@@ -103,6 +104,15 @@ class MeatToxinController extends Controller
                 $input=['meat_toxin_id'=>$request->meat_toxin_id,'weight'=>$request->weight[$i],'type'=>$request->type[$i] , 'amount'=>$request->amount[$i],'testicle'=>$request->testicle[$i],'price'=>$request->price[$i]];
                 $data = DeletliesMeat::create($input);
             }
+
+            $report = new Report();
+            $report->date = date('y-m-d');
+            $report->reportable_type = "App\Models\DeletliesMeat";
+            $report->reportable_id = $data->id;
+            $report->type ="اضافه اسعار اللحوم";
+            $report->user_id = \Auth::user()->id;
+            $report->save();
+
             if ($data) {
                 session()->flash('Add', 'تم الاضافه بنجاح');
                 return redirect('meatToxin');
@@ -115,8 +125,11 @@ class MeatToxinController extends Controller
 
     public function meatToxinDeletelies($id)
     {
+        $deletelies = DeletliesMeat::where('meat_toxin_id',$id)->latest('id')->first();
         $data = MeatToxin::findorfail($id);
+        $report = Report::where('reportable_type','\App\Models\MeatToxin')->where('reportable_id',$id)->get();
+        $reportTwo = Report::where('reportable_type','App\Models\DeletliesMeat')->where('reportable_id',$deletelies->id)->get();
         $categorys = Category::all();
-        return view('admin.meatToxin.detlies',compact('data','categorys'));
+        return view('admin.meatToxin.detlies',compact('data','categorys','report','reportTwo'));
     }
 }

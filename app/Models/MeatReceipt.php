@@ -36,4 +36,10 @@ class MeatReceipt extends Model
     {
         return $this->attributes['photo'] != null ? asset('storage/MeatReceipt/' . $this->attributes['photo']) : null;
     }
+
+
+    public function Report()
+    {
+        return $this->morphMany('App\Models\Report', 'reportable');
+    }
 }

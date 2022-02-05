@@ -48,24 +48,19 @@
                                     <td>{{$row->receipt_code}}</td>
                                     <td>{{$row->meatReceipt->start_date_slaughter}}</td>
                                     <td>
-                                        @if(App\Models\DeletliesMeat::where('meat_toxin_id','!=',$row->id)->first())
-                                            <a href="{{route('meatToxin.show',$row->id)}}"
-                                               class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
-                                        @endif
 
-{{--                                        @if(App\Models\DeletliesMeat::count() > 1)--}}
-                                            <a href="{{route('meatToxinDeletelies',$row->id)}}"
-                                               class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
-{{--                                        @endif--}}
+                                        <div class="dropdown">
+                                            <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                               العمليات
+                                            </a>
 
-{{--                                        @if(App\Models\DeletliesMeat::count() < 1)--}}
-
-                                            <a href="{{route('meatToxin.edit',$row->id)}}"
-                                               class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
-{{--                                        @endif--}}
-
-                                        <button class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item text-success" href="{{route('meatToxin.show',$row->id)}}">اضافه اسعار اللحوم</a>
+                                                <a class="dropdown-item text-info" href="{{route('meatToxinDeletelies',$row->id)}}"> عرض تفاصيل و التقرير</a>
+                                                <a class="dropdown-item text-primary" href="{{route('meatToxin.edit',$row->id)}}">تعديل البيانات</a>
+                                                <a class="dropdown-item text-danger" data-toggle="modal" data-target="#deleted{{$row->id}}" >حذف</a>
+                                            </div>
+                                        </div>
                                     </td>
 
                                     @include('admin.meatToxin.deleted')

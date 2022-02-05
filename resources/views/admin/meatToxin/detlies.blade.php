@@ -40,6 +40,51 @@
             </div>
 
             <br>
+            <p class="text-center h5">تقرير استلام اللحوم</p>
+            @foreach($reportTwo as $reportsss)
+                <div class="row">
+
+                    <div class="col">
+                        <label>تاريخ</label>
+                        <input type="text" readonly value="{{$reportsss->date}}" class="form-control">
+                    </div>
+
+                    <div class="col">
+                        <label>الاسم المستخدم</label>
+                        <input type="text" readonly value="{{$reportsss->user->name}}" class="form-control">
+                    </div>
+
+                    <div class="col">
+                        <label>العمليه التي تمت</label>
+                        <input type="text" readonly value="{{$reportsss->type}}" class="form-control">
+                    </div>
+                </div>
+            @endforeach
+
+
+            <br>
+            <p class="text-center h5">تقرير العمليات</p>
+            @foreach($report as $reports)
+                <div class="row">
+
+                    <div class="col">
+                        <label>تاريخ</label>
+                        <input type="text" readonly value="{{$reports->date}}" class="form-control">
+                    </div>
+
+                    <div class="col">
+                        <label>الاسم المستخدم</label>
+                        <input type="text" readonly value="{{$reports->user->name}}" class="form-control">
+                    </div>
+
+                    <div class="col">
+                        <label>العمليه التي تمت</label>
+                        <input type="text" readonly value="{{$reports->type}}" class="form-control">
+                    </div>
+                </div>
+            @endforeach
+
+            <br>
 {{--            <div class="row">--}}
                 @foreach($data->Deletlies as $row)
                     <div class="row">
@@ -69,6 +114,8 @@
                         </div>
                     </div>
                 @endforeach
+
+
 {{--            </div>--}}
         </div>
     </div>

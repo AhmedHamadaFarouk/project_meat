@@ -52,9 +52,21 @@
                                     <td>{{$row->operative_number}}</td>
                                     <td>{{$row->type == "identical" ? 'مطابق' : 'غير مطابق'}}</td>
                                     <td>
-                                        <a href="{{route('meatReceipt.edit',$row->id)}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
-                                        <button class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>
+
+
+                                        <div class="dropdown">
+                                            <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                                               العمليات
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item " href="{{route('meatReceipt.edit',$row->id)}}"><i class="fas fa-edit text-success"></i> تعديل</a>
+                                                <a class="dropdown-item" href="#" data-toggle="modal"  data-target="#deleted{{$row->id}}"><i class="fas fa-trash text-danger"></i> حذف </a>
+                                                <a class="dropdown-item" href="{{route('meatReceipt.show',$row->id)}}"> <i class="fas fa-reply text-info"></i>  تقرير</a>
+                                            </div>
+                                        </div>
+{{--                                        <a href="{{route('meatReceipt.edit',$row->id)}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>--}}
+{{--                                        <button class="btn btn-danger btn-sm" data-toggle="modal"--}}
+{{--                                                data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>--}}
                                     </td>
 
                                     @include('admin.meatReceipt.deleted')

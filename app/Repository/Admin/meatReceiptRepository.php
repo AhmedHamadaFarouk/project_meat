@@ -68,6 +68,8 @@ class meatReceiptRepository implements meatReceiptRepositoryInterface
             $report->date = date('y-m-d');
             $report->reportable_type = $this->modelName;
             $report->reportable_id = $data->id;
+            $report->type ="اضافه استلام اللحوم جديد";
+            $report->user_id = \Auth::user()->id;
             $report->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
             return redirect($this->routes);
@@ -80,8 +82,9 @@ class meatReceiptRepository implements meatReceiptRepositoryInterface
     {
 
         try {
-            $date = $this->modelName::findorfail($id);
-            return view('Admin/' . $this->FolderBlade . '/' . 'show', compact('date'));
+            $date['date'] = $this->modelName::findorfail($id);
+            $date['report'] = Report::where('reportable_type',$this->modelName)->where('reportable_id',$id)->get();
+            return view('Admin/' . $this->FolderBlade . '/' . 'show', $date);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -119,7 +122,7 @@ class meatReceiptRepository implements meatReceiptRepositoryInterface
             $data->jolly = $request->jolly ?? $data->jolly;
             $photo = request()->file('photo');
             if ($photo) {
-                unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
+               // unlink(base_path('public/storage/' . $this->folderImageName . '/' . $data->photo));
                 $data['photo'] =
                 $fileName = time() . rand(0, 999999999) . '.' . $photo->getClientOriginalExtension();
                 $photo->storeAs('public/' . $this->folderImageName, $fileName);
@@ -129,6 +132,8 @@ class meatReceiptRepository implements meatReceiptRepositoryInterface
             $report->date = date('y-m-d');
             $report->reportable_type = $this->modelName;
             $report->reportable_id = $data->id;
+            $report->type ="تعديل استلام اللحوم";
+            $report->user_id = \Auth::user()->id;
             $report->save();
             session()->flash('Edit', 'تم التعديل بنجاح');
             return redirect($this->routes);

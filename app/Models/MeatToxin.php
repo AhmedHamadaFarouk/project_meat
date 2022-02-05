@@ -30,6 +30,12 @@ class MeatToxin extends Model
         return $this->hasMany(DeletliesMeat::class);
     }
 
+
+    public function Report()
+    {
+        return $this->morphMany('App\Models\Report', 'reportable');
+    }
+
     public function meatReceipt()
     {
         return $this->belongsTo(MeatReceipt::class,'meat_receipt_id');
