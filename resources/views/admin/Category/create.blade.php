@@ -27,7 +27,7 @@
                                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref"> اسم القسم</label>
 
                                 <select name="section_id" id="section_id" class="form-control" required>
-                                    <option selected disabled> اسم القسم </option>
+                                    <option value="" selected disabled> اسم القسم </option>
                                     @foreach ($section as $data)
                                         <option value="{{ $data->id }}">{{ $data->section_name }}</option>
                                     @endforeach

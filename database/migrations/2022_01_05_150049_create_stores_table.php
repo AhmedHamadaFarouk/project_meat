@@ -17,7 +17,7 @@ class CreateStoresTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->foreignId('branch_id')->constrained('branches')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('branch_id')->references('id')->on('branches')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

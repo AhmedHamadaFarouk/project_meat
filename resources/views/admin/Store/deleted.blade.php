@@ -13,7 +13,7 @@
                     @csrf {{-- page 419 --}} <input type="hidden" name="id" value="{{$row->id}}">
                     <div class="row">
                         <div class="col">
-                            <label>اسم البنك</label>
+                            <label>اسم المخزن</label>
                             <input type="text" name="name" class="form-control @error('name') is-invliad @enderror"
                                 value="{{$row->name}}" readonly>
                         </div>

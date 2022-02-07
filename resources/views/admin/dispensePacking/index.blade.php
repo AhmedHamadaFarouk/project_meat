@@ -96,10 +96,12 @@
                                     </div>
                                     {{-- <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button> --}}
-                                <td>@if($row->notes == true) {!!$row->notes!!} @else <p class="text-danger">لا توجد ملاحظات</p> @endif</td>                                <td>
-                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>
-                                </td>
+
+
+{{--                                <td>--}}
+{{--                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit{{$row->id}}"><i class="fas fa-edit"></i></button>--}}
+{{--                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleted{{$row->id}}"><i class="fas fa-trash"></i></button>--}}
+{{--                                </td>--}}
                                 @include('admin.dispensePacking.edit')
                                @include('admin.dispensePacking.deleted')
                             </tr>

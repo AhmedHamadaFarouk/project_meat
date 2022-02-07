@@ -18,11 +18,11 @@
                     <input type="hidden" name="id" value="{{$row->id}}">
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col">
                             <label>التاريخ </label>
                             <input type="date" name="date" class="form-control @error('date') is-invliad @enderror"value="{{$row->date}}">
                         </div>
-                        <div class="col-4">
+                        <div class="col">
                             <label>تاريخ التوريد</label>
                              <input type="date" name="supplydate" class="form-control @error('supplydate') is-invliad @enderror"value="{{$row->supplydate}}">
                         </div>
@@ -31,7 +31,7 @@
                     <br>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col">
                             <label>رقم امر الشغل</label>
                              <input type="text" name="workordernumber" class="form-control @error('workordernumber') is-invliad @enderror" value="{{$row->workordernumber}}">
                         </div>
@@ -44,10 +44,10 @@
                             </select>
                         </div>
 
-                       <div class="col-md">
+                       <div class="col">
                             <div class="form-group mb-2">
                                 <label>اسم الصنف</label>
-                                <select name="product_id" id="product_id" class="form-control" >
+                                <select name="product_id" id="product_id" class="form-control"  >
                                     @foreach ($product as $data)
                                         <option value="{{ $data->id }}" {{$data->id == $row->product_id ? 'selected' : ''}}>{{ $data->name }}</option>
                                     @endforeach
@@ -56,20 +56,19 @@
                         </div>
                     </div>
 
-                    </div>
 
                     <br>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col">
                                 <label>الكمية </label>
                                  <input type="number" name="Quantity" class="form-control @error('Quantity') is-invliad @enderror" value="{{$row->Quantity}}">
                             </div>
-                            <div class="col-4">
+                            <div class="col">
                                 <label> كود الصنف</label>
                                  <input type="text" name="codeProduct" class="form-control @error('codeProduct') is-invliad @enderror"value="{{$row->codeProduct}}">
                             </div>
 
-                        <div class="col-4">
+                        <div class="col">
                             <label>رقم التشغيلة</label>
                              <input type="text" name="batchNumber" class="form-control @error('batchNumber') is-invliad @enderror" value="{{$row->batchNumber}}">
                         </div>

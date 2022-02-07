@@ -18,11 +18,13 @@
                     <input type="hidden" name="id" value="{{$row->id}}">
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col">
                             <label>اسم الصنف</label>
                              <input type="text" name="product_id" id="product_id" class="form-control @error('product_id') is-invliad @enderror" value="{{$row->product->name }}" readonly>
                         </div>
+                    </div>
 
+                    <br>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>

@@ -132,4 +132,12 @@ class MeatToxinController extends Controller
         $categorys = Category::all();
         return view('admin.meatToxin.detlies',compact('data','categorys','report','reportTwo'));
     }
+
+
+    public function cashingsmeatToxin($id)
+    {
+       $data['data'] = MeatToxin::findorfail($id);
+       return view('admin.Cashing.create',$data);
+
+    }
 }

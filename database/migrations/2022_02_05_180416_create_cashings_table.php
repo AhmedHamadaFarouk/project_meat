@@ -20,7 +20,7 @@ class CreateCashingsTable extends Migration
             $table->date('end_date_slaughter');
             $table->string('name_slaughterhouse');
             $table->string('permit_number');
-            $table->foreignId('meat_toxin_id')->references('id')->on('meat_toxins')->cascadeOnUpdate()->cascadeOnDelete();
+//            $table->foreignId('meat_toxin_id')->references('id')->on('meat_toxins')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('operative_number'); // رقم التشغليه
             $table->enum('type', array('identical', 'Not_matching'))->comment('مطايق');
             $table->string('meat_temp')->comment('درجه الحراره');
@@ -29,11 +29,6 @@ class CreateCashingsTable extends Migration
             $table->enum('meat_texture', array('acceptable', 'Unacceptable'));
             $table->text('notes')->nullable();
             $table->text('photo')->nullable();
-            $table->string('type_test');
-            $table->string('amount');
-            $table->string('weight');
-            $table->string('testicle');
-            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

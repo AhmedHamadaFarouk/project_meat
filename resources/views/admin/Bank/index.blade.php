@@ -41,7 +41,7 @@
                             <tr>
                                 <th class="wd-15p border-bottom-0">#</th>
                                 <th class="wd-15p border-bottom-0">اسم البنك</th>
-                                <th class="wd-20p border-bottom-0">السعر</th>
+                                <th class="wd-20p border-bottom-0">المبلغ</th>
                                 <th class="wd-15p border-bottom-0">رقم الحساب</th>
                                 <th class="wd-10p border-bottom-0">ملاحظات</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>

@@ -22,8 +22,8 @@ class CreateExaminationReceiptsTable extends Migration
             $table->enum('meat_color',array('acceptable','Unacceptable'));
             $table->enum('meat_smell',array('acceptable','Unacceptable'));
             $table->enum('meat_texture',array('acceptable','Unacceptable'));
-            $table->string('store_id')->references('id')->on('stores')->cascadeOnDelete()->cascadeOnUpdate()->comment('اسم المخزن');
-            $table->string('supplier_id')->references('id')->on('suppliers')->cascadeOnDelete()->cascadeOnUpdate()->comment('اسم المورد');
+            $table->foreignId('store_id')->references('id')->on('stores')->cascadeOnDelete()->cascadeOnUpdate()->comment('اسم المخزن');
+            $table->foreignId('supplier_id')->references('id')->on('suppliers')->cascadeOnDelete()->cascadeOnUpdate()->comment('اسم المورد');
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('quantity')->comment('الكمية المستلمه من اذن الذبح');
             $table->text('notes')->nullable();

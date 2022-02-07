@@ -55,6 +55,7 @@
                                             </a>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item text-warning" href="{{route('cashingsmeatToxin',$row->id)}}">اذن صرف</a>
                                                 <a class="dropdown-item text-success" href="{{route('meatToxin.show',$row->id)}}">اضافه اسعار اللحوم</a>
                                                 <a class="dropdown-item text-info" href="{{route('meatToxinDeletelies',$row->id)}}"> عرض تفاصيل و التقرير</a>
                                                 <a class="dropdown-item text-primary" href="{{route('meatToxin.edit',$row->id)}}">تعديل البيانات</a>

@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\Admin\CashingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CleaningDisinfectionController;
 use App\Http\Controllers\Admin\ClientController;
@@ -50,114 +51,44 @@ Route::middleware(['auth:admin'])->group(function () {
 
 
 
-    // اسنلام اللحوم
-    Route::resource('meatReceipt',MeatReceiptControler::class);
+    Route::resource('cashings',CashingController::class);
+    Route::resource('meatToxin',MeatToxinController::class);
+    Route::get('cashingsmeatToxin/{id}',[MeatToxinController::class,'cashingsmeatToxin'])->name('cashingsmeatToxin');
 
-    // تسكين اللحوم
+
+    Route::resource('meatReceipt',MeatReceiptControler::class);
     Route::resource('meatToxin',MeatToxinController::class);
     Route::get('meatToxinDeletelies/{id}',[MeatToxinController::class,'meatToxinDeletelies'])->name('meatToxinDeletelies');
     Route::post('packagesprice', [MeatToxinController::class, 'storepackagesprice'])->name('packagesprice.store');
-
-
-
-    // اضافه بنك
     Route::resource('bank', BankController::class);
-
-    ###############################################################
-
-    // اضافه عميل
     Route::resource('client', ClientController::class);
-
-    // اضافه فرع
     Route::resource('branch', BranchController::class);
-
-    // اضافه مخزنphp artisan co:ca
     Route::resource('store', StoreController::class);
-
-    // اضافه مورد
     Route::resource('supplier', SupplierController::class);
-
-
-    //قسم
     Route::resource('section', SectionController::class);
-
-    //صنف
     Route::resource('category', CategoryController::class);
-
-
-    #############################################################
-
-    // اذن اضافه للمخزن
     Route::resource('products', ProductController::class);
-
-    //print
     Route::get('print_product/{id}', [ProductController::class, 'Print_product'])->name('product');
-
-    // محضر فحص و استلام  لحوم
     Route::resource('examination_receipt', ExaminationReceipt::class);
-
-    //print
     Route::get('print_examination/{id}', [ExaminationReceipt::class, 'print_examination'])->name('print');
-
-
-    //details
     Route::get('details/{id}', [ExaminationReceipt::class, 'details'])->name('details');
-
-######################################################################################################
-    //  فحص  لحوم
     Route::resource('examination_meat', ExaminationMeatController::class);
-
-    //print
-    Route::get('print_examinmeat/{id}', [ExaminationMeatController::class, 'print_examinmeat'])->name('print');
-
-
-    //details
+    Route::get('print_examinmeat/{id}', [ExaminationMeatController::class, 'print_examinmeat'])->name('print_examinmeat');
     Route::get('details/{id}', [ExaminationMeatController::class, 'details'])->name('details');
-
-
-    //واستلام امين المخزن
     Route::resource('examin_section', ExaminSectionController::class);
-
     Route::get('section/{id}', [ExaminSectionController::class, 'getcategories']);
-######################################################################################################
-    // سجل رفع المخلفات
     Route::resource('wasteLog', WasteLogController::class);
-
-    //print
     Route::get('print_wasteLog/{id}', [WasteLogController::class, 'print_wasteLog'])->name('waste');
-
-    // اذن صرف الخامات
     Route::resource('exchangeRawMaterials', ExchangeRawMaterialsController::class);
-
-    //print
     Route::get('print_exchange/{id}', [ExchangeRawMaterialsController::class, 'print_exchange'])->name('exchange');
-    #############################################################
-
-    // محضر فحص الخامات
     Route::resource('materialInspection', MaterialInspectionController::class);
-
-    //print
     Route::get('print_material/{id}', [MaterialInspectionController::class, 'print_material'])->name('material');
-
-    // محضر فحص مواد التنظيف و التطهير
     Route::resource('disinfectionMaterials', DisinfectionMaterialsController::class);
-
-    //print
     Route::get('print_disinfection/{id}', [DisinfectionMaterialsController::class, 'print_disinfection'])->name('disinfection');
-
-    // اذن صرف مواد التنظيف و التطهير
     Route::resource('cleaningDisinfection', CleaningDisinfectionController::class);
-
-    //print
     Route::get('print_cleaning/{id}', [CleaningDisinfectionController::class, 'print_cleaning'])->name('clean');
-
-    // اذن صرف مواد تعبئة و تغليف
     Route::resource('dispensePacking', DispensePackingMaterialsvController::class);
-
-    //print
     Route::get('print_dispense/{id}', [DispensePackingMaterialsvController::class, 'print_dispense'])->name('dispense');
-    #############################################################
-
 });
 
 

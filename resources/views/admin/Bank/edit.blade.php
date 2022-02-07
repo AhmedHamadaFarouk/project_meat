@@ -27,7 +27,7 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label>السعر</label>
+                            <label>المبلغ</label>
                             <input type="number" name="price" class="form-control @error('price') is-invliad @enderror" value="{{$row->price}}">
                         </div>
                     </div>
