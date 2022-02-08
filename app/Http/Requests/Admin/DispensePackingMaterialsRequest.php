@@ -32,26 +32,26 @@ class DispensePackingMaterialsRequest extends FormRequest
             case 'POST': {
                     return [
                         'supplydate' => 'required|date',
-                        'workordernumber' => 'required|string|min:2',
+                        'workordernumber' => 'required|string',
                         'type' => 'required|in:acceptable,unacceptable',
                         'product_id' => 'required|exists:products,id',
-                        'Quantity' => 'required|numeric|min:2',
-                        'codeProduct' => 'required|string|min:2',
-                        'batchNumber' => 'required|string|min:2',
-                        'notes' => 'nullable|string|min:2',
+                        'Quantity' => 'required|numeric',
+                        'codeProduct' => 'required|string',
+                        'batchNumber' => 'required|string',
+                        'notes' => 'nullable|string',
                     ];
                 }
             case 'PATCH':
             case 'PUT': {
                     return [
                         'supplydate' => 'nullable|date',
-                        'workordernumber' => 'nullable|string|min:2',
+                        'workordernumber' => 'nullable|string',
                         'type' => 'nullable|in:acceptable,unacceptable',
                         'product_id' => 'nullable|exists:products,id',
-                        'Quantity' => 'nullable|numeric|min:2',
-                        'codeProduct' => 'nullable|string|min:2',
-                        'batchNumber' => 'nullable|string|min:2',
-                        'notes' => 'nullable|string|min:2',
+                        'Quantity' => 'nullable|numeric',
+                        'codeProduct' => 'nullable|string',
+                        'batchNumber' => 'nullable|string',
+                        'notes' => 'nullable|string',
                     ];
                 }
             default:

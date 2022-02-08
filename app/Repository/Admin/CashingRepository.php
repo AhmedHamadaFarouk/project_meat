@@ -6,7 +6,7 @@ use App\Interfaces\Admin\CashingRepositoryInterface;
 use App\Models\ChaingPrice;
 use Illuminate\Support\Facades\DB;
 
-class CashingRepository implements  CashingRepositoryInterface
+class CashingRepository implements CashingRepositoryInterface
 {
 
 
@@ -18,7 +18,7 @@ class CashingRepository implements  CashingRepositoryInterface
 
     public function index()
     {
-        $data= $this->modelName::all();
+        $data = $this->modelName::all();
         return view('Admin/' . $this->FolderBlade . '/' . 'index', compact('data'));
     }
 
@@ -27,13 +27,13 @@ class CashingRepository implements  CashingRepositoryInterface
 
         try {
             return view('Admin/' . $this->FolderBlade . '/' . 'create');
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
 
     }
 
-    public function store($request,  $fileName = null)
+    public function store($request, $fileName = null)
     {
 
 //        dd($request->all());
@@ -55,14 +55,9 @@ class CashingRepository implements  CashingRepositoryInterface
             $data->meat_smell = $request->meat_smell;
             $data->notes = $request->notes;
             $data->meat_texture = $request->meat_texture;
-            $data->save();
-
-            for($i=0;$i<count($request->test);$i++){
-                $input=['weight'=>$request->weight[$i],'type_test'=>$request->type_test[$i] , 'amount'=>$request->amount[$i],'testicle'=>$request->testicle[$i],'price'=>$request->price[$i]];
-                $data = ChaingPrice::create($input);
-            }
+         $data->save();
             session()->flash('Add', 'تم الاضافه بنجاح');
-            DB:: commit();
+            DB::commit();
             return redirect()->back();
         } catch (\Exception $e) {
             DB::rollback();
@@ -77,7 +72,7 @@ class CashingRepository implements  CashingRepositoryInterface
             $date['date'] = $this->modelName::findorfail($id);
 
             return view('Admin/' . $this->FolderBlade . '/' . 'create', $date);
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
 
@@ -88,7 +83,7 @@ class CashingRepository implements  CashingRepositoryInterface
         try {
             $data = $this->modelName::findorfail($id);
             return view('Admin/' . $this->FolderBlade . '/' . 'edit', compact('data'));
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
 
@@ -114,8 +109,8 @@ class CashingRepository implements  CashingRepositoryInterface
             $data->before_receiving = $request->before_receiving;
             $data->after_receiving = $request->after_receiving;
             $data->jolly = $request->jolly;
-            for($i=0;$i<count($request->test);$i++){
-                $data=['meat_toxin_id'=>$request->meat_toxin_id,'weight'=>$request->weight[$i],'type_test'=>$request->type_test[$i] , 'amount'=>$request->amount[$i],'testicle'=>$request->testicle[$i],'price'=>$request->price[$i]];
+            for ($i = 0; $i < count($request->test); $i++) {
+                $data = ['meat_toxin_id' => $request->meat_toxin_id, 'weight' => $request->weight[$i], 'type_test' => $request->type_test[$i], 'amount' => $request->amount[$i], 'testicle' => $request->testicle[$i], 'price' => $request->price[$i]];
             }
             $data->save();
             session()->flash('Edit', 'تم التعديل بنجاح');

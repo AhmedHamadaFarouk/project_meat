@@ -32,18 +32,18 @@ class bankRequest extends FormRequest
             case 'POST': {
                     return [
                         'name' => 'required|string|min:2|max:255',
-                        'price' => 'required|numeric|min:2',
-                        'number_bank' => 'required|min:2',
-                        'notes' => 'nullable|string|min:2',
+                        'price' => 'required|numeric',
+                        'number_bank' => 'required',
+                        'notes' => 'nullable|string',
                     ];
                 }
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'name' => 'nullable|string|min:2|max:255',
-                        'price' => 'nullable|numeric|min:2',
-                        'number_bank' => 'nullable|min:2',
-                        'notes' => 'nullable|string|min:2',
+                        'name' => 'nullable|string|max:255',
+                        'price' => 'nullable|numeric',
+                        'number_bank' => 'nullable',
+                        'notes' => 'nullable|string',
                     ];
                 }
             default:

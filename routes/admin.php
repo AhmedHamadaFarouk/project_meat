@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ExchangeRawMaterialsController;
 use App\Http\Controllers\Admin\MaterialInspectionController;
 use App\Http\Controllers\Admin\MeatReceiptControler;
 use App\Http\Controllers\Admin\MeatToxinController;
+use App\Http\Controllers\Admin\PackingMaterialsController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\StoreController;
@@ -52,6 +53,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
 
     Route::resource('cashings',CashingController::class);
+    Route::resource('PackingMaterials',PackingMaterialsController::class);
     Route::resource('meatToxin',MeatToxinController::class);
     Route::get('cashingsmeatToxin/{id}',[MeatToxinController::class,'cashingsmeatToxin'])->name('cashingsmeatToxin');
 

@@ -34,7 +34,7 @@ class ClientRequest extends FormRequest
                         'name' => 'required|min:2|max:255|string',
                         'address' => 'required|min:2|max:255|string',
                         'phone' => 'required|numeric',
-                        'max_price' => 'required|numeric|min:2',
+                        'max_price' => 'required|numeric',
                         'notes' => 'nullable|min:2'
                     ];
                 }
@@ -44,7 +44,7 @@ class ClientRequest extends FormRequest
                         'name' => 'nullable|min:2|max:255|string',
                         'address' => 'nullable|min:2|max:255|string',
                         'phone' => 'nullable|numeric',
-                        'max_price' => 'nullable|numeric|min:2',
+                        'max_price' => 'nullable|numeric',
                         'notes' => 'nullable|min:2'
                     ];
                 }

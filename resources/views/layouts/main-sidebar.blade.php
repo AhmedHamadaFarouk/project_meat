@@ -74,53 +74,18 @@
                     <span class="side-menu__label">الاذونات والمحاضر</span><i
                         class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ route('products.index') }}">اذن إضافة / صرف منتج تام
-                            للمخزن</a></li>
-                    <li><a class="slide-item" href="{{ route('examination_receipt.index') }}">محضر فحص و استلام
-                            لحوم</a></li>
-                    {{-- <li><a class="slide-item" href="{{ route('examin_section.index') }}">استلام امين المخزن</a>
-                    </li> --}}
-                    {{-- <li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">امر شغل</a></li> --}}
+                    <li><a class="slide-item" href="{{ route('products.index') }}">اذن إضافة / صرف منتج تام للمخزن</a></li>
+                    <li><a class="slide-item" href="{{ route('examination_receipt.index') }}">محضر فحص و استلام لحوم</a></li>
                     <li><a class="slide-item" href="{{ route('wasteLog.index') }}">سجل رفع المخلفات</a></li>
-                    <li><a class="slide-item" href="{{ route('exchangeRawMaterials.index') }}">اذن صرف الخامات</a>
-                    </li>
-                    <li><a class="slide-item" href="{{ route('materialInspection.index') }}">محضر فحص الخامات</a>
-                    </li>
-                    <li><a class="slide-item" href="{{ route('disinfectionMaterials.index') }}">محضر فحص مواد
-                            التنظيف و التطهير</a></li>
-                    <li><a class="slide-item" href="{{ route('cleaningDisinfection.index') }}">اذن صرف مواد
-                            التنظيف و التطهير</a></li>
-                    <li><a class="slide-item" href="{{ route('dispensePacking.index') }}">اذن صرف مواد تعبئة و
-                            تغليف</a></li>
+                    <li><a class="slide-item" href="{{ route('exchangeRawMaterials.index') }}">اذن صرف الخامات</a></li>
+                    <li><a class="slide-item" href="{{ route('materialInspection.index') }}">محضر فحص الخامات</a></li>
+                    <li><a class="slide-item" href="{{ route('disinfectionMaterials.index') }}">محضر فحص مواد التنظيف و التطهير</a></li>
+                    <li><a class="slide-item" href="{{ route('cleaningDisinfection.index') }}">اذن صرف مواد التنظيف و التطهير</a></li>
+                    <li><a class="slide-item" href="{{ route('PackingMaterials.index') }}"> فحص مواد التعبئة والتغليف </a></li>
+                    <li><a class="slide-item" href="{{ route('dispensePacking.index') }}">اذن صرف مواد تعبئة و تغليف</a></li>
                     </li>
                 </ul>
             </li>
-
-
-
-{{--            <li class="side-item side-item-category">الاذونات واموار التشغيل</li>--}}
-{{--            <li class="slide">--}}
-{{--                <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}">--}}
-{{--                    <svg--}}
-{{--                        xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">--}}
-{{--                        <path d="M0 0h24v24H0V0z" fill="none"/>--}}
-{{--                        <path--}}
-{{--                            d="M3.31 11l2.2 8.01L18.5 19l2.2-8H3.31zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"--}}
-{{--                            opacity=".3"/>--}}
-{{--                        <path--}}
-{{--                            d="M22 9h-4.79l-4.38-6.56c-.19-.28-.51-.42-.83-.42s-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1zM12 4.8L14.8 9H9.2L12 4.8zM18.5 19l-12.99.01L3.31 11H20.7l-2.2 8zM12 13c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>--}}
-{{--                    </svg>--}}
-{{--                    <span class="side-menu__label">الاذونات واموار التشغيل</span>--}}
-{{--                    <i class="angle fe fe-chevron-down"></i></a>--}}
-{{--                <ul class="slide-menu">--}}
-{{--                    <li><a class="slide-item" href=""> اذن صرف منتج تام للمخزن  </a>--}}
-{{--                    </li>--}}
-{{--                    <li><a class="slide-item" href="">امر تشغيل </a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-
-
-
 
             <li class="side-item side-item-category">المخازن</li>
             <li class="slide">

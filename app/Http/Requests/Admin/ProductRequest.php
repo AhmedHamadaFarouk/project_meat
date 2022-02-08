@@ -35,24 +35,24 @@ class ProductRequest extends FormRequest
             case 'POST': {
                     return [
                         'name' => 'required|string|min:2|max:255',
-                        'quantity' => 'required|numeric|min:2',
-                        'order_number' => 'required|string|min:2',
+                        'quantity' => 'required|numeric',
+                        'order_number' => 'required|string',
                         'date_supply' => 'required|date',
                         'type' => 'required|in:identical,Not_matching',
-                        'code' => 'required|string|min:2',
-                        'notes' => 'nullable|string|min:2',
+                        'code' => 'required|string',
+                        'notes' => 'nullable|string',
                     ];
                 }
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'name' => 'nullable|string|min:2|max:255',
-                        'quantity' => 'nullable|numeric|min:2',
-                        'order_number' => 'nullable|string|min:2',
+                        'name' => 'nullable|string|max:255',
+                        'quantity' => 'nullable|numeric',
+                        'order_number' => 'nullable|string',
                         'date_supply' => 'nullable|date',
                         'type' => 'nullable|in:identical,Not_matching',
-                        'code' => 'nullable|string|min:2',
-                        'notes' => 'nullable|string|min:2',
+                        'code' => 'nullable|string',
+                        'notes' => 'nullable|string',
                     ];
                 }
             default:

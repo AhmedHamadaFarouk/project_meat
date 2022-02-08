@@ -32,26 +32,26 @@ class CleaningDisinfectionRequest extends FormRequest
             case 'POST': {
                     return [
                         'product_id' => 'required|exists:products,id',
-                        'Quantity' => 'required|numeric|min:2',
-                        'codeProduct' => 'required|string|min:2',
-                        'batchNumber' => 'required|string|min:2',
+                        'Quantity' => 'required|numeric',
+                        'codeProduct' => 'required|string',
+                        'batchNumber' => 'required|string',
                         'dataProduction' => 'required|date',
                         'dataFinished' => 'required|date',
                         'PH' => 'required|numeric',
-                        'notes' => 'nullable|string|min:2',
+                        'notes' => 'nullable|string',
                     ];
                 }
             case 'PATCH':
             case 'PUT': {
                     return [
                         'product_id' => 'nullable|exists:products,id',
-                        'Quantity' => 'nullable|numeric|min:2',
-                        'codeProduct' => 'nullable|string|min:2',
-                        'batchNumber' => 'nullable|string|min:2',
+                        'Quantity' => 'nullable|numeric',
+                        'codeProduct' => 'nullable|string',
+                        'batchNumber' => 'nullable|string',
                         'dataProduction' => 'nullable|date',
                         'dataFinished' => 'nullable|date',
                         'PH' => 'nullable|numeric',
-                        'photo' => 'nullable|text|min:2',
+                        'photo' => 'nullable|text',
                     ];
                 }
             default:

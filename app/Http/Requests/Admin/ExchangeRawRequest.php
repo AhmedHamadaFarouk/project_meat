@@ -32,25 +32,25 @@ class ExchangeRawRequest extends FormRequest
             case 'POST': {
                     return [
                         'codeJop' => 'required|string|min:2|max:255',
-                        'Quantity' => 'required|numeric|min:2',
-                        'codeProduct' => 'required|string|min:2',
-                        'batchNumber' => 'required|string|min:2',
+                        'Quantity' => 'required|numeric',
+                        'codeProduct' => 'required|string',
+                        'batchNumber' => 'required|string',
                         'dataProduction' => 'required|date',
                         'dataFinished' => 'required|date',
-                        'notes' => 'nullable|string|min:2',
+                        'notes' => 'nullable|string',
                         'product_id' => 'required|exists:products,id',
                     ];
                 }
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'codeJop' => 'nullable|string|min:2|max:255',
-                        'Quantity' => 'nullable|numeric|min:2',
-                        'codeProduct' => 'nullable|string|min:2',
-                        'batchNumber' => 'nullable|string|min:2',
+                        'codeJop' => 'nullable|string|max:255',
+                        'Quantity' => 'nullable|numeric',
+                        'codeProduct' => 'nullable|string',
+                        'batchNumber' => 'nullable|string',
                         'dataProduction' => 'nullable|date',
                         'dataFinished' => 'nullable|date',
-                        'notes' => 'nullable|string|min:2',
+                        'notes' => 'nullable|string',
                         'product_id' => 'nullable|exists:products,id',
                     ];
                 }

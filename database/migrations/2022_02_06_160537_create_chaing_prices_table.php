@@ -16,6 +16,7 @@ class CreateChaingPricesTable extends Migration
         Schema::create('chaing_prices', function (Blueprint $table) {
             $table->id();
             $table->string('type_test');
+            $table->string('meat_toxin_id')->nullable();
             $table->string('amount');
             $table->string('weight');
             $table->string('testicle');

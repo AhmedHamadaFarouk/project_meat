@@ -31,7 +31,7 @@ class WasteLogRequest extends FormRequest
                 }
             case 'POST': {
                     return [
-                        'Quantity' => 'required|string|min:2',
+                        'Quantity' => 'required|string',
                         'name_company' => 'required|string|min:2|max:255',
                         'notes' => 'nullable|string|min:2',
                         'type' => 'required|in:organic,non_organic',
@@ -41,7 +41,7 @@ class WasteLogRequest extends FormRequest
             case 'PATCH':
             case 'PUT': {
                     return [
-                        'Quantity' => 'nullable|string|min:2',
+                        'Quantity' => 'nullable|string',
                         'name_company' => 'nullable|string|min:2|max:255',
                         'notes' => 'nullable|string|min:2',
                         'type' => 'nullable|in:organic,non_organic',
